@@ -1,0 +1,259 @@
+Treatment Guidelines
+PUBLIC (Nurse + Doctor + Admin)
+Emergency Care
+In Emergency Care, all patients must undergo systematic assessment including initial triage,
+stabilization, and continuous monitoring.
+Vital parameters such as temperature, pulse, blood pressure, respiratory rate, and oxygen
+saturation must be recorded and tracked over time.
+Nursing care must ensure medication adherence, hygiene, patient comfort, and accurate
+documentation.
+Early identification of deterioration including abnormal vitals, altered consciousness, or respiratory
+distress must trigger escalation.
+Supportive care includes hydration, nutrition, positioning, and symptomatic relief.
+All procedures must follow strict infection control and safety protocols.
+Communication between healthcare providers must be timely and accurate to ensure continuity of
+care.
+General Medicine
+In General Medicine, all patients must undergo systematic assessment including initial triage,
+stabilization, and continuous monitoring.
+Vital parameters such as temperature, pulse, blood pressure, respiratory rate, and oxygen
+saturation must be recorded and tracked over time.
+Nursing care must ensure medication adherence, hygiene, patient comfort, and accurate
+documentation.
+Early identification of deterioration including abnormal vitals, altered consciousness, or respiratory
+distress must trigger escalation.
+Supportive care includes hydration, nutrition, positioning, and symptomatic relief.
+All procedures must follow strict infection control and safety protocols.
+Communication between healthcare providers must be timely and accurate to ensure continuity of
+care.
+Respiratory Support
+In Respiratory Support, all patients must undergo systematic assessment including initial triage,
+stabilization, and continuous monitoring.
+Vital parameters such as temperature, pulse, blood pressure, respiratory rate, and oxygen
+saturation must be recorded and tracked over time.
+Nursing care must ensure medication adherence, hygiene, patient comfort, and accurate
+documentation.
+Early identification of deterioration including abnormal vitals, altered consciousness, or respiratory
+distress must trigger escalation.
+Supportive care includes hydration, nutrition, positioning, and symptomatic relief.
+All procedures must follow strict infection control and safety protocols.
+Communication between healthcare providers must be timely and accurate to ensure continuity of
+care.
+Cardiology Monitoring
+In Cardiology Monitoring, all patients must undergo systematic assessment including initial triage,
+stabilization, and continuous monitoring.
+Vital parameters such as temperature, pulse, blood pressure, respiratory rate, and oxygen
+saturation must be recorded and tracked over time.
+Nursing care must ensure medication adherence, hygiene, patient comfort, and accurate
+documentation.
+Early identification of deterioration including abnormal vitals, altered consciousness, or respiratory
+distress must trigger escalation.
+Supportive care includes hydration, nutrition, positioning, and symptomatic relief.
+All procedures must follow strict infection control and safety protocols.
+Communication between healthcare providers must be timely and accurate to ensure continuity of
+care.
+Infection Control
+In Infection Control, all patients must undergo systematic assessment including initial triage,
+stabilization, and continuous monitoring.
+Vital parameters such as temperature, pulse, blood pressure, respiratory rate, and oxygen
+saturation must be recorded and tracked over time.
+Nursing care must ensure medication adherence, hygiene, patient comfort, and accurate
+documentation.
+Early identification of deterioration including abnormal vitals, altered consciousness, or respiratory
+distress must trigger escalation.
+Supportive care includes hydration, nutrition, positioning, and symptomatic relief.
+All procedures must follow strict infection control and safety protocols.
+Communication between healthcare providers must be timely and accurate to ensure continuity of
+care.
+ICU Nursing
+In ICU Nursing, all patients must undergo systematic assessment including initial triage,
+stabilization, and continuous monitoring.
+Vital parameters such as temperature, pulse, blood pressure, respiratory rate, and oxygen
+saturation must be recorded and tracked over time.
+Nursing care must ensure medication adherence, hygiene, patient comfort, and accurate
+documentation.
+Early identification of deterioration including abnormal vitals, altered consciousness, or respiratory
+distress must trigger escalation.
+Supportive care includes hydration, nutrition, positioning, and symptomatic relief.
+All procedures must follow strict infection control and safety protocols.
+Communication between healthcare providers must be timely and accurate to ensure continuity of
+care.
+Pediatrics Care
+In Pediatrics Care, all patients must undergo systematic assessment including initial triage,
+stabilization, and continuous monitoring.
+Vital parameters such as temperature, pulse, blood pressure, respiratory rate, and oxygen
+saturation must be recorded and tracked over time.
+Nursing care must ensure medication adherence, hygiene, patient comfort, and accurate
+documentation.
+Early identification of deterioration including abnormal vitals, altered consciousness, or respiratory
+distress must trigger escalation.
+Supportive care includes hydration, nutrition, positioning, and symptomatic relief.
+All procedures must follow strict infection control and safety protocols.
+Communication between healthcare providers must be timely and accurate to ensure continuity of
+care.
+Post-Operative Care
+In Post-Operative Care, all patients must undergo systematic assessment including initial triage,
+stabilization, and continuous monitoring.
+Vital parameters such as temperature, pulse, blood pressure, respiratory rate, and oxygen
+saturation must be recorded and tracked over time.
+Nursing care must ensure medication adherence, hygiene, patient comfort, and accurate
+documentation.
+Early identification of deterioration including abnormal vitals, altered consciousness, or respiratory
+distress must trigger escalation.
+Supportive care includes hydration, nutrition, positioning, and symptomatic relief.
+All procedures must follow strict infection control and safety protocols.
+Communication between healthcare providers must be timely and accurate to ensure continuity of
+care.
+PRIVATE (Doctor + Admin)
+Emergency Advanced Management
+Emergency Advanced Management requires detailed clinical reasoning, evidence-based decision
+making, and individualized patient management.
+Comprehensive history taking and physical examination must guide diagnostic planning.
+Investigations including laboratory tests and imaging must be interpreted in clinical context.
+Treatment protocols must consider severity, comorbidities, and patient-specific risks.
+Drug therapy must include correct selection, dosing, monitoring for side effects, and adjustments.
+Escalation strategies must be clearly defined for deterioration including ICU transfer or advanced
+interventions.
+Continuous reassessment must be performed to evaluate response to treatment.
+Clinical documentation must include rationale for decisions and expected outcomes.
+Diagnostics and Evaluation
+Diagnostics and Evaluation requires detailed clinical reasoning, evidence-based decision making,
+and individualized patient management.
+Comprehensive history taking and physical examination must guide diagnostic planning.
+Investigations including laboratory tests and imaging must be interpreted in clinical context.
+Treatment protocols must consider severity, comorbidities, and patient-specific risks.
+Drug therapy must include correct selection, dosing, monitoring for side effects, and adjustments.
+Escalation strategies must be clearly defined for deterioration including ICU transfer or advanced
+interventions.
+Continuous reassessment must be performed to evaluate response to treatment.
+Clinical documentation must include rationale for decisions and expected outcomes.
+Respiratory Treatment
+Respiratory Treatment requires detailed clinical reasoning, evidence-based decision making, and
+individualized patient management.
+Comprehensive history taking and physical examination must guide diagnostic planning.
+Investigations including laboratory tests and imaging must be interpreted in clinical context.
+Treatment protocols must consider severity, comorbidities, and patient-specific risks.
+Drug therapy must include correct selection, dosing, monitoring for side effects, and adjustments.
+Escalation strategies must be clearly defined for deterioration including ICU transfer or advanced
+interventions.
+Continuous reassessment must be performed to evaluate response to treatment.
+Clinical documentation must include rationale for decisions and expected outcomes.
+Cardiology Decisions
+Cardiology Decisions requires detailed clinical reasoning, evidence-based decision making, and
+individualized patient management.
+Comprehensive history taking and physical examination must guide diagnostic planning.
+Investigations including laboratory tests and imaging must be interpreted in clinical context.
+Treatment protocols must consider severity, comorbidities, and patient-specific risks.
+Drug therapy must include correct selection, dosing, monitoring for side effects, and adjustments.
+Escalation strategies must be clearly defined for deterioration including ICU transfer or advanced
+interventions.
+Continuous reassessment must be performed to evaluate response to treatment.
+Clinical documentation must include rationale for decisions and expected outcomes.
+Critical Care Management
+Critical Care Management requires detailed clinical reasoning, evidence-based decision making,
+and individualized patient management.
+Comprehensive history taking and physical examination must guide diagnostic planning.
+Investigations including laboratory tests and imaging must be interpreted in clinical context.
+Treatment protocols must consider severity, comorbidities, and patient-specific risks.
+Drug therapy must include correct selection, dosing, monitoring for side effects, and adjustments.
+Escalation strategies must be clearly defined for deterioration including ICU transfer or advanced
+interventions.
+Continuous reassessment must be performed to evaluate response to treatment.
+Clinical documentation must include rationale for decisions and expected outcomes.
+Infectious Disease Control
+Infectious Disease Control requires detailed clinical reasoning, evidence-based decision making,
+and individualized patient management.
+Comprehensive history taking and physical examination must guide diagnostic planning.
+Investigations including laboratory tests and imaging must be interpreted in clinical context.
+Treatment protocols must consider severity, comorbidities, and patient-specific risks.
+Drug therapy must include correct selection, dosing, monitoring for side effects, and adjustments.
+Escalation strategies must be clearly defined for deterioration including ICU transfer or advanced
+interventions.
+Continuous reassessment must be performed to evaluate response to treatment.
+Clinical documentation must include rationale for decisions and expected outcomes.
+Pediatric Management
+Pediatric Management requires detailed clinical reasoning, evidence-based decision making, and
+individualized patient management.
+Comprehensive history taking and physical examination must guide diagnostic planning.
+Investigations including laboratory tests and imaging must be interpreted in clinical context.
+Treatment protocols must consider severity, comorbidities, and patient-specific risks.
+Drug therapy must include correct selection, dosing, monitoring for side effects, and adjustments.
+Escalation strategies must be clearly defined for deterioration including ICU transfer or advanced
+interventions.
+Continuous reassessment must be performed to evaluate response to treatment.
+Clinical documentation must include rationale for decisions and expected outcomes.
+Post-Operative Clinical Care
+Post-Operative Clinical Care requires detailed clinical reasoning, evidence-based decision making,
+and individualized patient management.
+Comprehensive history taking and physical examination must guide diagnostic planning.
+Investigations including laboratory tests and imaging must be interpreted in clinical context.
+Treatment protocols must consider severity, comorbidities, and patient-specific risks.
+Drug therapy must include correct selection, dosing, monitoring for side effects, and adjustments.
+Escalation strategies must be clearly defined for deterioration including ICU transfer or advanced
+interventions.
+Continuous reassessment must be performed to evaluate response to treatment.
+Clinical documentation must include rationale for decisions and expected outcomes.
+ADMIN ONLY
+Clinical Governance
+Clinical Governance ensures structured and efficient healthcare system functioning.
+Administrative oversight must enforce adherence to clinical protocols and standards.
+Access control must be role-based with strict data privacy measures.
+Regular audits must identify gaps and improve system performance.
+Performance indicators such as patient outcomes and infection rates must be tracked.
+Continuous training and development programs must be implemented.
+Reporting mechanisms must ensure transparency and accountability.
+System-level monitoring must detect inefficiencies and ensure optimization.
+Data Security
+Data Security ensures structured and efficient healthcare system functioning.
+Administrative oversight must enforce adherence to clinical protocols and standards.
+Access control must be role-based with strict data privacy measures.
+Regular audits must identify gaps and improve system performance.
+Performance indicators such as patient outcomes and infection rates must be tracked.
+Continuous training and development programs must be implemented.
+Reporting mechanisms must ensure transparency and accountability.
+System-level monitoring must detect inefficiencies and ensure optimization.
+User Access Management
+User Access Management ensures structured and efficient healthcare system functioning.
+Administrative oversight must enforce adherence to clinical protocols and standards.
+Access control must be role-based with strict data privacy measures.
+Regular audits must identify gaps and improve system performance.
+Performance indicators such as patient outcomes and infection rates must be tracked.
+Continuous training and development programs must be implemented.
+Reporting mechanisms must ensure transparency and accountability.
+System-level monitoring must detect inefficiencies and ensure optimization.
+Audit and Compliance
+Audit and Compliance ensures structured and efficient healthcare system functioning.
+Administrative oversight must enforce adherence to clinical protocols and standards.
+Access control must be role-based with strict data privacy measures.
+Regular audits must identify gaps and improve system performance.
+Performance indicators such as patient outcomes and infection rates must be tracked.
+Continuous training and development programs must be implemented.
+Reporting mechanisms must ensure transparency and accountability.
+System-level monitoring must detect inefficiencies and ensure optimization.
+Operational Monitoring
+Operational Monitoring ensures structured and efficient healthcare system functioning.
+Administrative oversight must enforce adherence to clinical protocols and standards.
+Access control must be role-based with strict data privacy measures.
+Regular audits must identify gaps and improve system performance.
+Performance indicators such as patient outcomes and infection rates must be tracked.
+Continuous training and development programs must be implemented.
+Reporting mechanisms must ensure transparency and accountability.
+System-level monitoring must detect inefficiencies and ensure optimization.
+Quality Improvement
+Quality Improvement ensures structured and efficient healthcare system functioning.
+Administrative oversight must enforce adherence to clinical protocols and standards.
+Access control must be role-based with strict data privacy measures.
+Regular audits must identify gaps and improve system performance.
+Performance indicators such as patient outcomes and infection rates must be tracked.
+Continuous training and development programs must be implemented.
+Reporting mechanisms must ensure transparency and accountability.
+System-level monitoring must detect inefficiencies and ensure optimization.
+Reporting Systems
+Reporting Systems ensures structured and efficient healthcare system functioning.
+Administrative oversight must enforce adherence to clinical protocols and standards.
+Access control must be role-based with strict data privacy measures.
+Regular audits must identify gaps and improve system performance.
+Performance indicators such as patient outcomes and infection rates must be tracked.
+Continuous training and development programs must be implemented.
+Reporting mechanisms must ensure transparency and accountability.
+System-level monitoring must detect inefficiencies and ensure optimization.
