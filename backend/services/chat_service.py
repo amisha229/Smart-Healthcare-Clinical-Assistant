@@ -1,4 +1,5 @@
 from models.message import Message
+from models.conversation import Conversation
 from sqlalchemy.orm import Session
 
 # Dummy AI function (replace later with RAG)
@@ -7,6 +8,16 @@ def generate_ai_response(user_message: str):
 
 
 def process_chat(db: Session, conversation_id: int, user_message: str):
+
+    # 0. Check if conversation exists, create if not
+    conversation = db.query(Conversation).filter(Conversation.conversation_id == conversation_id).first()
+    if not conversation:
+        conversation = Conversation(conversation_id=conversation_id, user_id=1) # Defaulting user_id to 1 for now
+        db.add(conversation)
+        try:
+            db.commit()
+        except:
+            db.rollback()
 
     # 1. Store user message
     user_msg = Message(
