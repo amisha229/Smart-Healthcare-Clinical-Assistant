@@ -1,0 +1,249 @@
+Clinical Protocols
+PUBLIC (Nurse + Doctor + Admin)
+Emergency Department – Initial Stabilization
+In Emergency Department – Initial Stabilization, all patients must undergo systematic assessment
+and continuous monitoring. Clinical staff must follow standardized protocols to ensure patient safety
+and early detection of deterioration.
+Vital signs including temperature, pulse, respiratory rate, blood pressure, and oxygen saturation
+must be recorded at defined intervals based on patient condition.
+Nursing staff must ensure proper documentation, timely medication administration, and adherence
+to hygiene protocols.
+Patient comfort, positioning, hydration, and nutrition must be maintained consistently.
+Early warning signs such as sudden drop in oxygen saturation, altered consciousness, or abnormal
+vitals must be escalated immediately to senior staff.
+All procedures must follow infection control protocols including hand hygiene, PPE usage, and
+sterile techniques where required.
+General Medicine – Ward Care
+In General Medicine – Ward Care, all patients must undergo systematic assessment and
+continuous monitoring. Clinical staff must follow standardized protocols to ensure patient safety and
+early detection of deterioration.
+Vital signs including temperature, pulse, respiratory rate, blood pressure, and oxygen saturation
+must be recorded at defined intervals based on patient condition.
+Nursing staff must ensure proper documentation, timely medication administration, and adherence
+to hygiene protocols.
+Patient comfort, positioning, hydration, and nutrition must be maintained consistently.
+Early warning signs such as sudden drop in oxygen saturation, altered consciousness, or abnormal
+vitals must be escalated immediately to senior staff.
+All procedures must follow infection control protocols including hand hygiene, PPE usage, and
+sterile techniques where required.
+Respiratory Care – Supportive Management
+In Respiratory Care – Supportive Management, all patients must undergo systematic assessment
+and continuous monitoring. Clinical staff must follow standardized protocols to ensure patient safety
+and early detection of deterioration.
+Vital signs including temperature, pulse, respiratory rate, blood pressure, and oxygen saturation
+must be recorded at defined intervals based on patient condition.
+Nursing staff must ensure proper documentation, timely medication administration, and adherence
+to hygiene protocols.
+Patient comfort, positioning, hydration, and nutrition must be maintained consistently.
+Early warning signs such as sudden drop in oxygen saturation, altered consciousness, or abnormal
+vitals must be escalated immediately to senior staff.
+All procedures must follow infection control protocols including hand hygiene, PPE usage, and
+sterile techniques where required.
+Cardiology – Monitoring
+In Cardiology – Monitoring, all patients must undergo systematic assessment and continuous
+monitoring. Clinical staff must follow standardized protocols to ensure patient safety and early
+detection of deterioration.
+Vital signs including temperature, pulse, respiratory rate, blood pressure, and oxygen saturation
+must be recorded at defined intervals based on patient condition.
+Nursing staff must ensure proper documentation, timely medication administration, and adherence
+to hygiene protocols.
+Patient comfort, positioning, hydration, and nutrition must be maintained consistently.
+Early warning signs such as sudden drop in oxygen saturation, altered consciousness, or abnormal
+vitals must be escalated immediately to senior staff.
+All procedures must follow infection control protocols including hand hygiene, PPE usage, and
+sterile techniques where required.
+ICU Nursing Care
+In ICU Nursing Care, all patients must undergo systematic assessment and continuous monitoring.
+Clinical staff must follow standardized protocols to ensure patient safety and early detection of
+deterioration.
+Vital signs including temperature, pulse, respiratory rate, blood pressure, and oxygen saturation
+must be recorded at defined intervals based on patient condition.
+Nursing staff must ensure proper documentation, timely medication administration, and adherence
+to hygiene protocols.
+Patient comfort, positioning, hydration, and nutrition must be maintained consistently.
+Early warning signs such as sudden drop in oxygen saturation, altered consciousness, or abnormal
+vitals must be escalated immediately to senior staff.
+All procedures must follow infection control protocols including hand hygiene, PPE usage, and
+sterile techniques where required.
+Pediatrics – Basic Care
+In Pediatrics – Basic Care, all patients must undergo systematic assessment and continuous
+monitoring. Clinical staff must follow standardized protocols to ensure patient safety and early
+detection of deterioration.
+Vital signs including temperature, pulse, respiratory rate, blood pressure, and oxygen saturation
+must be recorded at defined intervals based on patient condition.
+Nursing staff must ensure proper documentation, timely medication administration, and adherence
+to hygiene protocols.
+Patient comfort, positioning, hydration, and nutrition must be maintained consistently.
+Early warning signs such as sudden drop in oxygen saturation, altered consciousness, or abnormal
+vitals must be escalated immediately to senior staff.
+All procedures must follow infection control protocols including hand hygiene, PPE usage, and
+sterile techniques where required.
+Post-Operative Care
+In Post-Operative Care, all patients must undergo systematic assessment and continuous
+monitoring. Clinical staff must follow standardized protocols to ensure patient safety and early
+detection of deterioration.
+Vital signs including temperature, pulse, respiratory rate, blood pressure, and oxygen saturation
+must be recorded at defined intervals based on patient condition.
+Nursing staff must ensure proper documentation, timely medication administration, and adherence
+to hygiene protocols.
+Patient comfort, positioning, hydration, and nutrition must be maintained consistently.
+Early warning signs such as sudden drop in oxygen saturation, altered consciousness, or abnormal
+vitals must be escalated immediately to senior staff.
+All procedures must follow infection control protocols including hand hygiene, PPE usage, and
+sterile techniques where required.
+Infection Control Practices
+In Infection Control Practices, all patients must undergo systematic assessment and continuous
+monitoring. Clinical staff must follow standardized protocols to ensure patient safety and early
+detection of deterioration.
+Vital signs including temperature, pulse, respiratory rate, blood pressure, and oxygen saturation
+must be recorded at defined intervals based on patient condition.
+Nursing staff must ensure proper documentation, timely medication administration, and adherence
+to hygiene protocols.
+Patient comfort, positioning, hydration, and nutrition must be maintained consistently.
+Early warning signs such as sudden drop in oxygen saturation, altered consciousness, or abnormal
+vitals must be escalated immediately to senior staff.
+All procedures must follow infection control protocols including hand hygiene, PPE usage, and
+sterile techniques where required.
+PRIVATE (Doctor + Admin)
+Emergency Advanced Management
+Emergency Advanced Management involves comprehensive clinical evaluation, interpretation of
+investigations, and evidence-based decision making.
+Physicians must assess patient history, perform physical examination, and correlate findings with
+laboratory and imaging results.
+Treatment plans must be individualized considering patient comorbidities, severity of condition, and
+response to therapy.
+Escalation protocols must be followed in cases of deterioration, including ICU transfer or advanced
+interventions.
+Drug selection must consider contraindications, interactions, and patient-specific factors.
+Continuous reassessment is essential to modify treatment plans and improve patient outcomes.
+Clinical decisions must be documented clearly with rationale and expected outcomes.
+General Medicine Diagnostics
+General Medicine Diagnostics involves comprehensive clinical evaluation, interpretation of
+investigations, and evidence-based decision making.
+Physicians must assess patient history, perform physical examination, and correlate findings with
+laboratory and imaging results.
+Treatment plans must be individualized considering patient comorbidities, severity of condition, and
+response to therapy.
+Escalation protocols must be followed in cases of deterioration, including ICU transfer or advanced
+interventions.
+Drug selection must consider contraindications, interactions, and patient-specific factors.
+Continuous reassessment is essential to modify treatment plans and improve patient outcomes.
+Clinical decisions must be documented clearly with rationale and expected outcomes.
+Respiratory Medicine Treatment
+Respiratory Medicine Treatment involves comprehensive clinical evaluation, interpretation of
+investigations, and evidence-based decision making.
+Physicians must assess patient history, perform physical examination, and correlate findings with
+laboratory and imaging results.
+Treatment plans must be individualized considering patient comorbidities, severity of condition, and
+response to therapy.
+Escalation protocols must be followed in cases of deterioration, including ICU transfer or advanced
+interventions.
+Drug selection must consider contraindications, interactions, and patient-specific factors.
+Continuous reassessment is essential to modify treatment plans and improve patient outcomes.
+Clinical decisions must be documented clearly with rationale and expected outcomes.
+Cardiology Decision Making
+Cardiology Decision Making involves comprehensive clinical evaluation, interpretation of
+investigations, and evidence-based decision making.
+Physicians must assess patient history, perform physical examination, and correlate findings with
+laboratory and imaging results.
+Treatment plans must be individualized considering patient comorbidities, severity of condition, and
+response to therapy.
+Escalation protocols must be followed in cases of deterioration, including ICU transfer or advanced
+interventions.
+Drug selection must consider contraindications, interactions, and patient-specific factors.
+Continuous reassessment is essential to modify treatment plans and improve patient outcomes.
+Clinical decisions must be documented clearly with rationale and expected outcomes.
+ICU Critical Care
+ICU Critical Care involves comprehensive clinical evaluation, interpretation of investigations, and
+evidence-based decision making.
+Physicians must assess patient history, perform physical examination, and correlate findings with
+laboratory and imaging results.
+Treatment plans must be individualized considering patient comorbidities, severity of condition, and
+response to therapy.
+Escalation protocols must be followed in cases of deterioration, including ICU transfer or advanced
+interventions.
+Drug selection must consider contraindications, interactions, and patient-specific factors.
+Continuous reassessment is essential to modify treatment plans and improve patient outcomes.
+Clinical decisions must be documented clearly with rationale and expected outcomes.
+Infectious Disease Management
+Infectious Disease Management involves comprehensive clinical evaluation, interpretation of
+investigations, and evidence-based decision making.
+Physicians must assess patient history, perform physical examination, and correlate findings with
+laboratory and imaging results.
+Treatment plans must be individualized considering patient comorbidities, severity of condition, and
+response to therapy.
+Escalation protocols must be followed in cases of deterioration, including ICU transfer or advanced
+interventions.
+Drug selection must consider contraindications, interactions, and patient-specific factors.
+Continuous reassessment is essential to modify treatment plans and improve patient outcomes.
+Clinical decisions must be documented clearly with rationale and expected outcomes.
+Pediatric Clinical Management
+Pediatric Clinical Management involves comprehensive clinical evaluation, interpretation of
+investigations, and evidence-based decision making.
+Physicians must assess patient history, perform physical examination, and correlate findings with
+laboratory and imaging results.
+Treatment plans must be individualized considering patient comorbidities, severity of condition, and
+response to therapy.
+Escalation protocols must be followed in cases of deterioration, including ICU transfer or advanced
+interventions.
+Drug selection must consider contraindications, interactions, and patient-specific factors.
+Continuous reassessment is essential to modify treatment plans and improve patient outcomes.
+Clinical decisions must be documented clearly with rationale and expected outcomes.
+Post-Operative Clinical Management
+Post-Operative Clinical Management involves comprehensive clinical evaluation, interpretation of
+investigations, and evidence-based decision making.
+Physicians must assess patient history, perform physical examination, and correlate findings with
+laboratory and imaging results.
+Treatment plans must be individualized considering patient comorbidities, severity of condition, and
+response to therapy.
+Escalation protocols must be followed in cases of deterioration, including ICU transfer or advanced
+interventions.
+Drug selection must consider contraindications, interactions, and patient-specific factors.
+Continuous reassessment is essential to modify treatment plans and improve patient outcomes.
+Clinical decisions must be documented clearly with rationale and expected outcomes.
+ADMIN ONLY
+Clinical Governance
+Clinical Governance ensures effective hospital functioning and compliance with regulatory
+standards.
+Administrative staff must oversee implementation of protocols and ensure adherence across
+departments.
+Data privacy must be maintained through role-based access and secure storage systems.
+Regular audits must be conducted to identify gaps and improve quality of care.
+Performance metrics including patient outcomes and infection rates must be monitored.
+Continuous training programs must be conducted for staff development.
+Data Security and Compliance
+Data Security and Compliance ensures effective hospital functioning and compliance with
+regulatory standards.
+Administrative staff must oversee implementation of protocols and ensure adherence across
+departments.
+Data privacy must be maintained through role-based access and secure storage systems.
+Regular audits must be conducted to identify gaps and improve quality of care.
+Performance metrics including patient outcomes and infection rates must be monitored.
+Continuous training programs must be conducted for staff development.
+Operational Management
+Operational Management ensures effective hospital functioning and compliance with regulatory
+standards.
+Administrative staff must oversee implementation of protocols and ensure adherence across
+departments.
+Data privacy must be maintained through role-based access and secure storage systems.
+Regular audits must be conducted to identify gaps and improve quality of care.
+Performance metrics including patient outcomes and infection rates must be monitored.
+Continuous training programs must be conducted for staff development.
+Audit and Quality Control
+Audit and Quality Control ensures effective hospital functioning and compliance with regulatory
+standards.
+Administrative staff must oversee implementation of protocols and ensure adherence across
+departments.
+Data privacy must be maintained through role-based access and secure storage systems.
+Regular audits must be conducted to identify gaps and improve quality of care.
+Performance metrics including patient outcomes and infection rates must be monitored.
+Continuous training programs must be conducted for staff development.
+System Monitoring and Reporting
+System Monitoring and Reporting ensures effective hospital functioning and compliance with
+regulatory standards.
+Administrative staff must oversee implementation of protocols and ensure adherence across
+departments.
+Data privacy must be maintained through role-based access and secure storage systems.
+Regular audits must be conducted to identify gaps and improve quality of care.
+Performance metrics including patient outcomes and infection rates must be monitored.
+Continuous training programs must be conducted for staff development.
