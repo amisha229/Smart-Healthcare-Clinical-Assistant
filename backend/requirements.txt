@@ -2,3 +2,7 @@ fastapi
 uvicorn
 sqlalchemy
 psycopg2-binary
+langchain
+chromadb
+sentence-transformers
+pypdf
