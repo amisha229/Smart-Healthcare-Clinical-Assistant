@@ -20,20 +20,78 @@ def retrieve_clinical_context(query: str, user_role: str, top_k: int = 3) -> str
     # 1. Convert the user's text question into a vector
     query_vector = embeddings.embed_query(query)
     normalized_role = (user_role or "Doctor").strip().title()
+    query_lower = (query or "").lower()
+    admin_intent_keywords = {
+        "audit", "audit logs", "compliance", "governance", "data security",
+        "access control", "modification", "modifications", "record access", "policy"
+    }
     
     db: Session = SessionLocal()
     try:
-        # 2. Database Query: Filter by Role, then Sort by Vector Similarity (Cosine Distance)
-        results = db.query(DocumentChunk).filter(
-            DocumentChunk.allowed_roles.ilike(f"%{normalized_role}%")
-        ).order_by(
-            DocumentChunk.embedding.cosine_distance(query_vector)
-        ).limit(top_k).all()
-        
+        # 2. Pull unrestricted and role-filtered candidates with similarity scores.
+        unrestricted_candidates = (
+            db.query(
+                DocumentChunk,
+                DocumentChunk.embedding.cosine_distance(query_vector).label("distance")
+            )
+            .order_by(DocumentChunk.embedding.cosine_distance(query_vector))
+            .limit(max(top_k * 3, 8))
+            .all()
+        )
+
+        role_candidates = (
+            db.query(
+                DocumentChunk,
+                DocumentChunk.embedding.cosine_distance(query_vector).label("distance")
+            )
+            .filter(
+                DocumentChunk.allowed_roles.ilike(f"%{normalized_role}%")
+            )
+            .order_by(DocumentChunk.embedding.cosine_distance(query_vector))
+            .limit(max(top_k * 3, 8))
+            .all()
+        )
+
+        # 3. Restricted-access detection.
+        # If best overall match is strong but is outside current role, and role-visible matches are much weaker,
+        # treat this as access restricted (not "not found").
+        if unrestricted_candidates:
+            best_any_chunk, best_any_distance = unrestricted_candidates[0]
+            best_role_distance = role_candidates[0][1] if role_candidates else None
+            role_has_best = normalized_role.lower() in (best_any_chunk.allowed_roles or "").lower()
+
+            strong_overall_match = best_any_distance is not None and best_any_distance <= 0.50
+            role_is_much_weaker = (
+                best_role_distance is None or
+                (best_role_distance is not None and (best_role_distance - best_any_distance) >= 0.05)
+            )
+
+            admin_intent = any(keyword in query_lower for keyword in admin_intent_keywords)
+            best_any_is_admin_only = (best_any_chunk.allowed_roles or "").strip().lower() == "admin"
+
+            # Strongly bias to ACCESS_RESTRICTED for governance/admin intent asked by non-admin roles.
+            if admin_intent and normalized_role != "Admin" and best_any_is_admin_only:
+                return "ACCESS_RESTRICTED: Relevant content exists but is restricted by your role permissions."
+
+            if strong_overall_match and (not role_has_best) and role_is_much_weaker:
+                return "ACCESS_RESTRICTED: Relevant content exists but is restricted by your role permissions."
+
+        # 4. Build final role-filtered result set.
+        results = [row[0] for row in role_candidates[:top_k]]
+
         if not results:
-            return "No relevant medical protocols found for your query and access level."
-            
-        # 3. Format the retrieved chunks into a clean context block
+            # If there is no role-visible result at all, decide between restricted vs not found.
+            if unrestricted_candidates:
+                return "ACCESS_RESTRICTED: Relevant content exists but is restricted by your role permissions."
+
+            return "NO_RELEVANT_DATA: No relevant medical protocols found in the knowledge base."
+
+        # 5. Additional guard: if role results are all weak, classify as not found.
+        best_role_distance = role_candidates[0][1] if role_candidates else None
+        if best_role_distance is not None and best_role_distance > 0.42:
+            return "NO_RELEVANT_DATA: No relevant medical protocols found in the knowledge base."
+
+        # 6. Format role-filtered context blocks.
         context_blocks = []
         for res in results:
             header = f"[Source: {res.source_type} | Category: {res.document_category} | Section: {res.section} | Allowed: {res.allowed_roles}]"

@@ -10,6 +10,12 @@ class DocumentChunk(Base):
     chunk_index = Column(Integer)
     source_type = Column(String(50))
     reference_id = Column(Integer, nullable=True)
+    document_type = Column(String(50), nullable=True)       # guideline | protocol | patient_report
+    report_id = Column(String(50), nullable=True)
+    patient_name = Column(String(150), nullable=True)
+    hospital = Column(String(150), nullable=True)
+    attending_doctor = Column(String(150), nullable=True)
+    access_scope = Column(String(50), nullable=True)        # public | private | admin
     allowed_roles = Column(String(255), default="Admin")
     document_category = Column(String(100), nullable=True)  # e.g., Clinical Guidelines, Treatment Protocols
     section = Column(String(255), nullable=True)            # e.g., Initial Stabilization, Diagnostic Confirmation

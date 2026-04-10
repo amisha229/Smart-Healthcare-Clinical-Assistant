@@ -9,6 +9,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from services.retrieval_service import retrieve_clinical_context
+from services.summarization_service import summarize_patient_report
 from dotenv import load_dotenv
 
 from models.message import Message
@@ -59,8 +60,11 @@ def generate_ai_response(user_message: str, user_role: str = "Doctor"):
     # 1. Retrieve the exact database chunks (Our Retrieval Engine)
     context_chunks = retrieve_clinical_context(user_message, user_role)
     
-    if "No relevant medical protocols" in context_chunks:
-        return "I cannot find relevant medical protocols for your access level."
+    if context_chunks.startswith("ACCESS_RESTRICTED:"):
+        return "I cannot provide access to this information for your current role."
+
+    if context_chunks.startswith("NO_RELEVANT_DATA:"):
+        return "This question is outside the medical knowledge base available to this assistant. Please ask a medical guideline, treatment protocol, or patient-report question."
 
     print("Feeding chunks to Groq LLM for answer generation...")
     role_guidance = _get_role_guidance(user_role)
@@ -119,6 +123,8 @@ def process_chat(
     user_message: str,
     user_id: int = 1,
     user_role: str = "Doctor",
+    selected_tool: str = "retrieval",
+    patient_name: Optional[str] = None,
 ):
 
     if conversation_id is None:
@@ -148,8 +154,15 @@ def process_chat(
     db.add(user_msg)
     db.commit()
 
-    # 2. Generate AI response
-    ai_text = generate_ai_response(user_message, user_role=user_role)
+    # 2. Generate AI response based on selected tool
+    tool = (selected_tool or "retrieval").strip().lower()
+    if tool == "summarization":
+        if not patient_name:
+            ai_text = "Please provide patient_name when using summarization tool."
+        else:
+            ai_text = summarize_patient_report(db, patient_name=patient_name, user_role=user_role)
+    else:
+        ai_text = generate_ai_response(user_message, user_role=user_role)
 
     # 3. Store AI response
     ai_msg = Message(
