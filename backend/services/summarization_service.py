@@ -4,6 +4,7 @@ from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 from models.document_chunk import DocumentChunk
 import os
+import re
 
 load_dotenv()
 
@@ -18,6 +19,9 @@ llm = ChatOpenAI(
 
 def summarize_patient_report(db: Session, patient_name: str, user_role: str) -> str:
     normalized_role = (user_role or "Doctor").strip().title()
+
+    if normalized_role == "Admin":
+        return "Summarization tool is not available for Admin role."
 
     chunks = (
         db.query(DocumentChunk)
@@ -38,13 +42,21 @@ def summarize_patient_report(db: Session, patient_name: str, user_role: str) -> 
         ]
     )
 
+    # Age control: do not allow hallucinated age if age is not present in accessible context.
+    age_present = bool(
+        re.search(r"\b\d{1,3}\s*-?\s*year\s*-?\s*old\b", context, re.IGNORECASE)
+        or re.search(r"\bage\b\s*[:=]?\s*\d{1,3}\b", context, re.IGNORECASE)
+    )
+
     role_policy = {
         "Nurse": (
             "Summarize only public nursing-safe care information. "
-            "Do not include doctor-only diagnostics, advanced treatment rationale, or private clinical interpretations."
+            "Do not include doctor-only diagnostics, advanced treatment rationale, private clinical interpretations, or confidential notes. "
+            "Focus on bedside care actions: monitoring, escalation triggers, medication administration, and follow-up tasks."
         ),
         "Doctor": (
-            "Provide a clinically complete summary from accessible context, including diagnosis, investigations, treatment, and follow-up."
+            "Provide a clinically complete summary from accessible context, including diagnosis, investigations, treatment, and follow-up. "
+            "Include concise clinical reasoning where explicitly present in context."
         ),
         "Admin": (
             "Provide an administrative-level summary only from accessible content; avoid unnecessary bedside clinical detail."
@@ -58,12 +70,14 @@ def summarize_patient_report(db: Session, patient_name: str, user_role: str) -> 
                 "You are a healthcare summarization assistant.\n"
                 "Target role: {user_role}.\n"
                 "Role policy: {role_policy}\n"
+                "Age rule: {age_rule}\n"
                 "Use ONLY the report context below. If unavailable, say so clearly.\n\n"
                 "Output format:\n"
-                "1) Patient Summary\n"
-                "2) Key Clinical Points\n"
-                "3) Medications and Follow-up\n"
-                "4) Restrictions Note (if any)\n\n"
+                "1) Access Scope\n"
+                "2) Patient Summary\n"
+                "3) Key Clinical Points\n"
+                "4) Medications and Follow-up\n"
+                "5) Restrictions Note (if any)\n\n"
                 "===== REPORT CONTEXT =====\n"
                 "{context}\n"
                 "=========================="
@@ -77,6 +91,12 @@ def summarize_patient_report(db: Session, patient_name: str, user_role: str) -> 
         {
             "user_role": normalized_role,
             "role_policy": role_policy,
+            "age_rule": (
+                "If patient age is not explicitly stated in context, write: 'Age: Not available in accessible report.' "
+                "Never infer, estimate, or invent age."
+                if not age_present
+                else "If age exists in context, report it exactly as written; do not estimate."
+            ),
             "patient_name": patient_name,
             "context": context,
         }
@@ -87,6 +107,9 @@ def summarize_patient_report(db: Session, patient_name: str, user_role: str) -> 
 
 def list_accessible_patients(db: Session, user_role: str) -> list[str]:
     normalized_role = (user_role or "Doctor").strip().title()
+
+    if normalized_role == "Admin":
+        return []
 
     rows = (
         db.query(DocumentChunk.patient_name)

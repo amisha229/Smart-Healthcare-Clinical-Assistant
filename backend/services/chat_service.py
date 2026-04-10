@@ -157,7 +157,9 @@ def process_chat(
     # 2. Generate AI response based on selected tool
     tool = (selected_tool or "retrieval").strip().lower()
     if tool == "summarization":
-        if not patient_name:
+        if (user_role or "").strip().title() == "Admin":
+            ai_text = "Summarization tool is not available for Admin role."
+        elif not patient_name:
             ai_text = "Please provide patient_name when using summarization tool."
         else:
             ai_text = summarize_patient_report(db, patient_name=patient_name, user_role=user_role)
