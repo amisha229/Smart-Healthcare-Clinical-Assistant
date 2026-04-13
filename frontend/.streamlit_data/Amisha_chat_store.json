@@ -1,0 +1,392 @@
+{
+  "updated_at": "2026-04-10T10:49:58.969785",
+  "conversations": [
+    {
+      "conversation_id": 10526746,
+      "chat_history": [
+        {
+          "sender": "user",
+          "message": "How are audit logs maintained to track access and modifications to patient records?\u201d",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "I cannot provide access to this information for your current role.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "Hello",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "I cannot provide access to this information for your current role.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "What are ICU guidelines;?",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "I cannot provide access to this information for your current role.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "ICU",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "This question is outside the medical knowledge base available to this assistant. Please ask a medical guideline, treatment protocol, or patient-report question.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "what are the ICU nursing care?",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "This question is outside the medical knowledge base available to this assistant. Please ask a medical guideline, treatment protocol, or patient-report question.",
+          "tool": "retrieval"
+        }
+      ],
+      "updated_at": "2026-04-10T10:39:30.005175"
+    },
+    {
+      "conversation_id": 14242831,
+      "chat_history": [
+        {
+          "sender": "user",
+          "message": "Hello",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "This question is outside the medical knowledge base available to this assistant. Please ask a medical guideline, treatment protocol, or patient-report question.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "How are audit logs maintained to track access and modifications to patient records?\u201d",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "I cannot provide access to this information for your current role.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "Data Security",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "I cannot provide access to this information for your current role.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "ICU",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "I cannot provide access to this information for your current role.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "Protocols",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "**Access Scope:**  \nI can reference the Clinical Protocols (Public Section) that are authorized for Nurse use.\n\n**Answer:**  \n- Perform continuous monitoring of vital signs: temperature, pulse, respiratory rate, blood pressure, and oxygen saturation at intervals defined by the patient\u2019s condition.  \n- Escalate any abnormal vital sign readings immediately to senior staff.  \n- Document all vital sign measurements, medication administrations, and hygiene practices accurately and promptly.  \n- Adhere to infection control protocols: perform hand hygiene, use appropriate PPE, and employ sterile techniques when required.  \n- Conduct systematic assessment and continuous monitoring for all patients to ensure early detection of deterioration.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "Emergency department",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "**Access Scope:**  \nI can provide nursing\u2011safe instructions from the public emergency and ward care protocols.\n\n**Answer:**\n\n- Perform a systematic assessment of all patients upon arrival, including initial triage and stabilization.  \n- Record vital signs (temperature, pulse, respiratory rate, blood pressure, oxygen saturation) at defined intervals based on the patient\u2019s condition.  \n- Continuously monitor these vitals and track changes over time.  \n- Identify early signs of deterioration such as abnormal vitals, altered consciousness, or respiratory distress.  \n- Escalate any concerning findings immediately to senior staff.  \n- Follow infection control protocols: hand hygiene, appropriate PPE use, and sterile techniques when required.  \n- Ensure medication adherence, maintain patient hygiene, provide comfort measures, and document all care accurately.  \n\n**Restricted Note:**  \nNone.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "Respiratory care",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "**Access Scope:**  \nThis role can use public nursing\u2011safe instructions from the provided medical context.\n\n**Answer:**  \n- Conduct a systematic assessment of each patient\u2019s respiratory status, including initial triage, stabilization, and continuous monitoring.  \n- Provide supportive care that includes hydration, nutrition, appropriate positioning, and symptomatic relief.  \n- Vigilantly monitor for early warning signs such as a sudden drop in oxygen saturation, altered consciousness, or abnormal vital signs; immediately notify senior staff if any are detected.  \n- Adhere strictly to infection control protocols: perform hand hygiene, use appropriate PPE, and employ sterile techniques when required.  \n- Maintain timely and accurate communication among healthcare providers to ensure continuity of care.",
+          "tool": "retrieval"
+        }
+      ],
+      "updated_at": "2026-04-10T09:21:36.351428"
+    },
+    {
+      "conversation_id": 17352671,
+      "chat_history": [
+        {
+          "sender": "user",
+          "message": "Show summary for patient: Ananya Krishnan",
+          "tool": "summarization"
+        },
+        {
+          "sender": "ai",
+          "message": "**1) Access Scope**  \nNurse\n\n**2) Patient Summary**  \n- **Name:** Ananya\u202fKrishnan  \n- **Gender:** Female  \n- **Blood Group:** B+  \n- **Ward/Room:** Respiratory Ward, Room\u202f302  \n- **Admission Date:** 15\u202fApril\u202f2024  \n- **Discharge Date:** 19\u202fApril\u202f2024  \n- **Assigned Doctor:** Dr.\u202fPadma\u202fSubramaniam, MD (Pulmonology)  \n- **Allergies:** Dust mites (asthma trigger); aspirin\u2011exacerbated  \n- **Chronic Condition:** Severe persistent bronchial asthma (since age\u202f8)\n\n**3) Key Clinical Points**  \n- **Chief Complaint:** Acute severe asthma attack \u2013 worsening wheeze, breathlessness, inability to speak full sentences, accessory muscle use.  \n- **Initial Findings:** PEFR\u202f38\u202f% predicted; SpO\u2082\u202f91\u202f% on room air (improved to 95\u202f% with oxygen).  \n- **Monitoring Progress:**  \n  - Hour\u202f2: PEFR\u202f52\u202f%; SpO\u2082\u202f96\u202f%  \n  - Hour\u202f6: PEFR\u202f65\u202f%; wheeze improving  \n  - Day\u202f2: PEFR\u202f72\u202f%; nebulization stepped down to 4\u2011hourly  \n  - Day\u202f3: PEFR\u202f81\u202f%; oral prednisolone started  \n  - Day\u202f4: PEFR\u202f88\u202f%; discharge criteria met  \n- **Discharge Criteria Met:** PEFR\u202f>\u202f80\u202f% predicted, stable SpO\u2082, no accessory muscle use, improved speech.\n\n**4) Medications and Follow\u2011up**  \n- **Discharge Medications:**  \n  - Fluticasone/Salmeterol 500/50\u202f\u00b5g\u202fBD (twice daily)  \n  - Salbutamol 100\u202f\u00b5g\u202fPRN (as needed)  \n  - Montelukast 10\u202fmg\u202fOD (once daily)  \n  - Prednisolone 40\u202fmg\u202fOD (complete 5\u2011day course)  \n- **Follow\u2011up Plan:**  \n  - Respiratory OPD appointment in 1\u202fweek  \n  - Maintain PEFR diary  \n  - Review asthma action plan  \n  - Referral to allergy clinic  \n- **Red Flag Symptoms:** Return immediately if symptoms worsen acutely or new concerns arise.\n\n**5) Restrictions Note**  \nNone.",
+          "tool": "summarization"
+        },
+        {
+          "sender": "user",
+          "message": "who is the prime minister",
+          "tool": "medical_knowledge"
+        },
+        {
+          "sender": "ai",
+          "message": "I\u2019m not sure which country you\u2019re referring to. Could you let me know which country\u2019s prime minister you\u2019d like to know?",
+          "tool": "medical_knowledge"
+        },
+        {
+          "sender": "user",
+          "message": "indian",
+          "tool": "medical_knowledge"
+        },
+        {
+          "sender": "ai",
+          "message": "",
+          "tool": "medical_knowledge"
+        },
+        {
+          "sender": "user",
+          "message": "i am asking about india ",
+          "tool": "medical_knowledge"
+        },
+        {
+          "sender": "user",
+          "message": "india",
+          "tool": "medical_knowledge"
+        },
+        {
+          "sender": "ai",
+          "message": "Could you clarify which medical condition you\u2019re interested in? For example, are you asking about a disease that\u2019s common in India, a specific symptom, or something else?",
+          "tool": "medical_knowledge"
+        },
+        {
+          "sender": "user",
+          "message": "who is the prime minister of india?",
+          "tool": "medical_knowledge"
+        },
+        {
+          "sender": "ai",
+          "message": "The current Prime Minister of India is Narendra Modi.",
+          "tool": "medical_knowledge"
+        }
+      ],
+      "updated_at": "2026-04-10T10:38:47.349376"
+    },
+    {
+      "conversation_id": 26436627,
+      "chat_history": [
+        {
+          "sender": "user",
+          "message": "Show summary for patient: Ananya Krishnan",
+          "tool": "summarization"
+        },
+        {
+          "sender": "ai",
+          "message": "**1) Access Scope**  \nNurse\n\n**2) Patient Summary**  \n- **Name:** Ananya\u202fKrishnan  \n- **Gender:** Female  \n- **Blood Group:** B+  \n- **Ward/Room:** Respiratory Ward, Room\u202f302  \n- **Admission:** 15\u202fApril\u202f2024 \u2013 19\u202fApril\u202f2024  \n- **Chief Complaint:** Acute severe asthma attack with worsening wheeze, breathlessness, and inability to speak full sentences.  \n- **Chronic Condition:** Severe persistent bronchial asthma (since age\u202f8).  \n- **Allergies:** Dust mites (asthma trigger); aspirin\u2011exacerbated.\n\n**3) Key Clinical Points**  \n| Time | PEFR | SpO\u2082 | Notes |\n|------|------|------|-------|\n| Arrival | 38\u202f% predicted (life\u2011threatening) | 91\u202f% RA \u2192 95\u202f% on O\u2082 | Severe wheeze, accessory muscle use, tachycardia (HR\u202f114\u202fbpm), RR\u202f30/min |\n| Hour\u202f2 | 52\u202f% | 96\u202f% | Improvement after initial therapy |\n| Hour\u202f6 | 65\u202f% | \u2013 | Wheeze improving |\n| Day\u202f2 | 72\u202f% | \u2013 | Nebulization stepped down to 4\u2011hourly |\n| Day\u202f3 | 81\u202f% | \u2013 | Oral prednisolone started |\n| Day\u202f4 | 88\u202f% | \u2013 | Discharge criteria met |\n\n**4) Medications and Follow\u2011up**  \n- **Discharge Medications**  \n  - Fluticasone/Salmeterol 500/50\u202f\u00b5g\u202fBD (twice daily)  \n  - Salbutamol 100\u202f\u00b5g PRN (as needed)  \n  - Montelukast 10\u202fmg OD (once daily)  \n  - Prednisolone 40\u202fmg OD (complete 5\u2011day course)  \n\n- **Follow\u2011up Plan**  \n  - Respiratory OPD appointment in 1\u202fweek.  \n  - Maintain a PEFR diary.  \n  - Review asthma action plan.  \n  - Referral to allergy clinic.  \n\n- **Red Flag Symptoms** \u2013 Return immediately if symptoms worsen acutely or new concerns arise.\n\n**5) Restrictions Note**  \nNo additional restrictions.",
+          "tool": "summarization"
+        },
+        {
+          "sender": "user",
+          "message": "Show summary for patient: Arjun Sharma",
+          "tool": "summarization"
+        },
+        {
+          "sender": "ai",
+          "message": "**1) Access Scope**  \nPublic nursing\u2011safe care information only.\n\n**2) Patient Summary**  \n- **Name:** Arjun Sharma  \n- **Gender:** Male  \n- **Blood Group:** B+  \n- **Ward / Room:** General Ward, Room\u202f204  \n- **Admission Date:** 07\u202fMarch\u202f2024  \n- **Discharge Date:** 12\u202fMarch\u202f2024  \n- **Assigned Doctor:** Dr.\u202fPriya\u202fMehta, MD (Internal Medicine)  \n- **Allergies:** Penicillin (rash)  \n- **Chronic Conditions:** Hypertension  \n- **Age:** Not available in accessible report.\n\n**3) Key Clinical Points**  \n- **Chief Complaint:** 4\u2011day history of high\u2011grade fever (39.8\u202f\u00b0C), productive cough with yellowish sputum, progressive shortness of breath, generalized fatigue, and right\u2011sided chest discomfort.  \n- **Vital Signs (at presentation):**  \n  - Temperature: 39.2\u202f\u00b0C  \n  - BP: 138/86\u202fmmHg  \n  - HR: 102\u202fbpm  \n  - RR: 24\u202fbreaths/min  \n  - SpO\u2082: 93\u202f% on room air  \n- **Physical Exam:** Decreased air entry in right lower lobe; coarse crepitations bilaterally.  \n- **Clinical Progress:**  \n  - Day\u202f1\u20112: Fever 38.8\u202f\u00b0C; SpO\u2082 95\u202f% on supplemental O\u2082.  \n  - Day\u202f3: Afebrile; transitioned to oral antibiotics on Day\u202f4.  \n  - Day\u202f6: Ambulating.  \n  - Discharge (Day\u202f7): SpO\u2082 98\u202f% on room air, afebrile for 48\u202fh.  \n\n**4) Medications and Follow\u2011up**  \n- **Discharge Medications:**  \n  - Azithromycin 500\u202fmg once daily (complete course)  \n  - Amlodipine 5\u202fmg once daily  \n  - Paracetamol as needed for pain/fever  \n- **Follow\u2011up Plan:**  \n  - Outpatient review with Dr.\u202fPriya\u202fMehta on 19\u202fMarch\u202f2024.  \n  - Chest X\u2011ray and CBC to be performed at follow\u2011up.  \n- **Red Flag Symptoms:** Return to hospital immediately if symptoms worsen acutely or new concerns arise.\n\n**5) Restrictions Note**  \nNo additional restrictions.",
+          "tool": "summarization"
+        }
+      ],
+      "updated_at": "2026-04-10T10:18:27.003072"
+    },
+    {
+      "conversation_id": 12650223,
+      "chat_history": [
+        {
+          "sender": "user",
+          "message": "Show summary for patient: Deepak Malhotra",
+          "tool": "summarization"
+        },
+        {
+          "sender": "ai",
+          "message": "**1) Access Scope**  \nPublic nursing\u2011safe care information only. No diagnostic or advanced treatment details beyond what is publicly available.\n\n**2) Patient Summary**  \n- **Name:** Deepak\u202fMalhotra  \n- **Gender:** Male  \n- **Blood Group:** O+  \n- **Ward/Room:** Oncology Ward, Room\u202f501  \n- **Admission/Discharge:** 20\u202fApr\u202f2024 \u2013 29\u202fApr\u202f2024  \n- **Age:** Not available in accessible report.  \n- **Chief complaints:** Persistent haemoptysis, weight loss, cough, right\u2011sided chest pain.  \n- **Key physical findings:** Mild fever, normal BP/HR, SpO\u2082\u202f96\u202f% RA, reduced air entry/dullness right upper zone, right supraclavicular lymphadenopathy, ECOG\u202fPS\u202f1.  \n- **Allergy:** Morphine (causes nausea/vomiting).  \n- **Chronic condition:** None significant; ex\u2011smoker.\n\n**3) Key Clinical Points**  \n- **Monitoring:**  \n  - Vital signs (temperature, BP, HR, SpO\u2082) daily.  \n  - Respiratory assessment: air entry, percussion, cough pattern.  \n  - Weight trend (baseline 75\u202fkg \u2192 67\u202fkg).  \n  - Pain assessment (right chest).  \n- **Escalation triggers (red\u2011flag symptoms):**  \n  - Sudden worsening of haemoptysis or chest pain.  \n  - New or worsening shortness of breath.  \n  - Fever >\u202f38\u202f\u00b0C or signs of infection.  \n  - Any new symptom that is acute or concerning.  \n- **Medication administration:**  \n  - **Osimertinib 80\u202fmg once daily** \u2013 oral targeted therapy.  \n  - **Ondansetron 8\u202fmg three times daily** \u2013 anti\u2011emetic.  \n  - **Dexamethasone** \u2013 tapering dose (exact taper not specified).  \n  - **Oxycodone SR 10\u202fmg twice daily** \u2013 pain control (avoid morphine due to allergy).  \n  - **Omeprazole 20\u202fmg once daily** \u2013 gastric protection.  \n- **Follow\u2011up tasks:**  \n  - Oncology outpatient visit in 3\u202fweeks for Cycle\u202f2 of chemotherapy.  \n  - Weekly radiotherapy sessions.  \n  - CT restaging after completion of 2 chemotherapy cycles.  \n  - Referral to palliative care for symptom support.\n\n**4) Medications and Follow\u2011up**  \n- **Current discharge meds:** Osimertinib, Ondansetron, Dexamethasone (taper), Oxycodone SR, Omeprazole.  \n- **Next appointments:**  \n  - Oncology OPD (Cycle\u202f2) \u2013 3\u202fweeks post\u2011discharge.  \n  - Radiotherapy department \u2013 weekly.  \n  - CT restaging \u2013 after 2 cycles.  \n  - Palliative care referral \u2013 for ongoing symptom management.\n\n**5) Restrictions Note**  \n- Morphine is contraindicated due to documented nausea/vomiting allergy; use alternative analgesics (e.g., oxycodone).  \n- All nursing actions should adhere to the above medication plan and escalation triggers.",
+          "tool": "summarization"
+        },
+        {
+          "sender": "user",
+          "message": "What should I monitor for a patient with high fever and cough in first 24 hours?",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "**Access Scope:**  \nI can use the patient report and the publicly\u2011available clinical protocols for nursing care.\n\n**Answer:**  \n- Record vital signs (temperature, pulse, respiratory rate, blood pressure, SpO\u2082) at the intervals specified in the protocol.  \n- Observe for changes in respiratory status: decreased air entry, new or worsening crepitations, increased work of breathing, or SpO\u2082 <\u202f92\u202f%.  \n- Monitor for signs of systemic deterioration: rising temperature, tachycardia, hypotension, or altered mental status.  \n- Ensure patient comfort and positioning (e.g., semi\u2011upright to aid breathing).  \n- Maintain adequate hydration and nutrition as tolerated.  \n- Document all findings, interventions, and any changes in condition promptly in the patient record.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "What are standard infection control precautions in ward care?",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "**Access Scope:**  \nI can provide nursing\u2011safe instructions on infection control precautions in ward care.\n\n**Answer:**  \n- Perform hand hygiene before and after each patient contact.  \n- Use appropriate personal protective equipment (PPE) as dictated by the procedure and patient status.  \n- Employ sterile techniques whenever required for invasive or aseptic procedures.  \n- Follow standardized infection control protocols to maintain patient safety and early detection of deterioration.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "What is cause of high blood pressure?",
+          "tool": "medical_knowledge"
+        },
+        {
+          "sender": "ai",
+          "message": "- **Primary (essential) hypertension** \u2013 most cases; linked to genetics, age, and lifestyle factors.  \n- **Obesity & physical inactivity** \u2013 excess weight and lack of exercise raise BP.  \n- **High\u2011salt diet, alcohol, and caffeine** \u2013 can acutely and chronically elevate pressure.  \n- **Stress & poor sleep** \u2013 chronic stress hormones and sleep apnea increase BP.  \n- **Secondary causes** \u2013 kidney disease, endocrine disorders (e.g., hyperaldosteronism), certain medications, and sleep\u2011disordered breathing.  \n\n*If blood pressure remains high, monitor regularly and seek medical guidance.*",
+          "tool": "medical_knowledge"
+        },
+        {
+          "sender": "user",
+          "message": "can you give more detail",
+          "tool": "medical_knowledge"
+        },
+        {
+          "sender": "ai",
+          "message": "Sure! Which medical condition would you like more details about?",
+          "tool": "medical_knowledge"
+        }
+      ],
+      "updated_at": "2026-04-10T10:32:00.163592"
+    },
+    {
+      "conversation_id": 23148277,
+      "chat_history": [
+        {
+          "sender": "user",
+          "message": "Show summary for patient: Deepak Malhotra",
+          "tool": "summarization"
+        },
+        {
+          "sender": "ai",
+          "message": "**1) Access Scope**  \nPublic\u2011level report; information suitable for nursing bedside care.\n\n**2) Patient Summary**  \n- **Name:** Deepak\u202fMalhotra  \n- **Gender:** Male  \n- **Blood Group:** O+  \n- **Ward/Room:** Oncology Ward, Room\u202f501  \n- **Admission Date:** 20\u202fApril\u202f2024  \n- **Discharge Date:** 29\u202fApril\u202f2024  \n- **Assigned Doctor:** Dr.\u202fSanjay\u202fKapoor, MCh (Surgical Oncology)  \n- **Allergies:** Morphine (causes nausea/vomiting)  \n- **Chronic Conditions:** None significant; ex\u2011smoker (20 pack\u2011years, quit 2019)  \n- **Age:** Not available in accessible report  \n\n**3) Key Clinical Points**  \n- Persistent haemoptysis, weight loss (8\u202fkg over 3\u202fmonths), cough, right\u2011sided chest pain.  \n- Physical exam: reduced air entry and dullness in right upper zone; right supraclavicular lymphadenopathy (1.5\u202fcm, firm).  \n- ECOG Performance Status\u202f1.  \n- Day\u202f2: bronchoscopy performed; biopsy pending.  \n- Day\u202f6: MDT decided on concurrent chemoradiotherapy (cCRT) plus Osimertinib.  \n- Day\u202f7: first cycle of chemotherapy given, well tolerated.  \n- Day\u202f9: patient discharged for outpatient radiotherapy.\n\n**4) Medications and Follow\u2011up**  \n- **Osimertinib:** 80\u202fmg once daily (OD).  \n- **Ondansetron:** 8\u202fmg three times daily (TDS).  \n- **Dexamethasone:** tapering dose.  \n- **Oxycodone SR:** 10\u202fmg twice daily (BD).  \n- **Omeprazole:** 20\u202fmg once daily (OD).  \n\n**Follow\u2011up plan**  \n- Oncology outpatient department visit in 3\u202fweeks for Cycle\u202f2.  \n- Radiotherapy department: weekly sessions.  \n- CT restaging after completion of 2 chemotherapy cycles.  \n- Referral to palliative care for symptom support.  \n- **Red\u2011flag symptoms:** return to hospital immediately if symptoms worsen acutely or new concerns arise.\n\n**5) Restrictions Note**  \nNo additional restrictions.",
+          "tool": "summarization"
+        },
+        {
+          "sender": "user",
+          "message": "what are early warning signs?",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "**Access Scope:** I can provide nursing\u2011safe instructions from the public clinical protocols.\n\n**Answer:**\n- Sudden drop in oxygen saturation  \n- Altered consciousness  \n- Abnormal (as noted in the protocol, though the specific abnormality is not fully listed in the provided text)",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "what are sterile techniques?",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "**Access Scope:** I can provide information from the Clinical_Protocols.txt public section.  \n\n**Answer:** I cannot find this information in the allowed medical protocols.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "what is infection controls",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "**Access Scope:**  \nI can provide nursing\u2011safe information from the public clinical protocols regarding infection control.\n\n**Answer:**  \n- All procedures must follow infection control protocols, including hand hygiene, PPE usage, and sterile techniques where required.  \n- Infection control involves systematic assessment of all patients, including initial triage and stabilization.  \n- Continuous monitoring of patients is required to detect early signs of deterioration.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "clinical governance",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "I cannot provide access to this information for your current role.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "what are treatment plans",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "ai",
+          "message": "**Access Scope:**  \nI can provide nursing\u2011safe information from the provided medical protocols.\n\n**Answer:**  \n- **Discharge Medications**  \n  - Osimertinib 80\u202fmg once daily  \n  - Ondansetron 8\u202fmg three times daily  \n  - Dexamethasone tapering schedule (reducing dose)  \n  - Oxycodone SR 10\u202fmg twice daily  \n  - Omeprazole 20\u202fmg once daily  \n\n- **Follow\u2011Up Plan**  \n  - Oncology outpatient department visit in 3 weeks (Cycle\u202f2)  \n  - Radiation therapy department weekly appointments  \n  - CT restaging after 2 cycles of therapy  \n  - Referral to palliative care for symptom support  \n\n- **Red Flag Symptoms**  \n  - Return to the hospital immediately if symptoms worsen acutely or new concerns arise.",
+          "tool": "retrieval"
+        },
+        {
+          "sender": "user",
+          "message": "Show summary for patient: Ananya Krishnan",
+          "tool": "summarization"
+        },
+        {
+          "sender": "ai",
+          "message": "**1) Access Scope**  \nPublic nursing\u2011safe care information only.\n\n**2) Patient Summary**  \n- **Name:** Ananya\u202fKrishnan  \n- **Gender:** Female  \n- **Blood Group:** B+  \n- **Ward/Room:** Respiratory Ward, Room\u202f302  \n- **Admission/Discharge:** 15\u202fApril\u202f2024 \u2013 19\u202fApril\u202f2024  \n- **Chronic Condition:** Severe persistent bronchial asthma (since age\u202f8)  \n- **Allergies:** Dust mites (asthma trigger); aspirin\u2011exacerbated respiratory disease  \n\n**3) Key Clinical Points**  \n- Acute severe asthma attack: wheeze, breathlessness, accessory muscle use, limited speech.  \n- PEFR on arrival: 38\u202f% predicted (life\u2011threatening threshold <\u202f33\u202f%).  \n- SpO\u2082: 91\u202f% on room air, improved to 95\u202f% with oxygen.  \n- Rapid improvement:  \n  - Hour\u202f2: PEFR\u202f52\u202f%, SpO\u2082\u202f96\u202f%  \n  - Hour\u202f6: PEFR\u202f65\u202f%  \n  - Day\u202f2: PEFR\u202f72\u202f% \u2192 nebulization 4\u2011hourly  \n  - Day\u202f3: PEFR\u202f81\u202f% \u2192 oral prednisolone started  \n  - Day\u202f4: PEFR\u202f88\u202f% \u2192 discharge criteria met  \n\n**4) Medications and Follow\u2011up**  \n- **Discharge Medications**  \n  - Fluticasone/Salmeterol 500/50\u202f\u00b5g\u202fBD (twice daily)  \n  - Salbutamol 100\u202f\u00b5g PRN (as needed)  \n  - Montelukast 10\u202fmg OD (once daily)  \n  - Prednisolone 40\u202fmg OD (complete 5\u2011day course)  \n- **Follow\u2011up Plan**  \n  - Respiratory OPD appointment in 1\u202fweek  \n  - Maintain PEFR diary  \n  - Review asthma action plan  \n  - Referral to allergy clinic  \n- **Red Flag Symptoms** \u2013 Return immediately if symptoms worsen acutely or new concerns arise.  \n\n**5) Restrictions Note**  \nNo additional restrictions beyond standard nursing\u2011safe care.",
+          "tool": "summarization"
+        },
+        {
+          "sender": "user",
+          "message": "Show summary for patient: Farhan Sheikh",
+          "tool": "summarization"
+        },
+        {
+          "sender": "ai",
+          "message": "**1) Access Scope**  \nPublic nursing\u2011safe care information only \u2013 no diagnostic or advanced treatment details.\n\n**2) Patient Summary**  \n- **Name:** Farhan Sheikh  \n- **Gender:** Male  \n- **Ward/Room:** GI Ward, Room\u202f308  \n- **Admission Date:** 01\u202fApril\u202f2024  \n- **Discharge Date:** 07\u202fApril\u202f2024  \n- **Chronic Condition:** Alcohol Use Disorder (heavy) \u2013 no prior liver disease documented  \n- **Allergies:** None known  \n- **Age:** Not available in accessible report  \n\n**3) Key Clinical Points**  \n- **Chief complaint on admission:** Haematemesis (~400\u202fmL), melaena for 3\u202fdays, severe epigastric pain, dizziness; haemodynamically unstable.  \n- **Initial vitals:** BP\u202f88/60\u202fmmHg, HR\u202f118\u202fbpm, RR\u202f22\u202fbpm, SpO\u2082\u202f96\u202f% RA.  \n- **Resuscitation:** BP rose to 118/74\u202fmmHg, HR to 88\u202fbpm after fluid resuscitation and transfusion.  \n- **Interventions:** Endoscopic variceal ligation (EVL) performed on Day\u202f1; no re\u2011bleed noted.  \n- **Monitoring:** Daily hemoglobin checks (Day\u202f1 Hb\u202f8.2\u202fg/dL, Day\u202f5 Hb\u202f9.1\u202fg/dL), INR (Day\u202f5 INR\u202f1.5).  \n- **Progress:** Day\u202f3 haemodynamically stable, oral diet tolerated.  \n- **Discharge:** Stable, no active bleeding, counselled on alcohol cessation.\n\n**4) Medications and Follow\u2011up**  \n- **Discharge Medications:**  \n  - Propranolol 40\u202fmg twice daily (variceal prophylaxis)  \n  - Omeprazole 20\u202fmg once daily  \n  - Thiamine 100\u202fmg once daily  \n  - Spironolactone 50\u202fmg once daily  \n- **Follow\u2011up Plan:**  \n  - Gastroenterology outpatient visit in 2\u202fweeks  \n  - Repeat oesophagogastroduodenoscopy (OGD) in 6\u202fweeks  \n  - Referral to Hepatology and Alcohol Liaison services  \n- **Red\u2011flag symptoms:** Return to hospital immediately if bleeding recurs, severe pain, dizziness, or new symptoms appear.\n\n**5) Restrictions Note**  \nNo additional restrictions beyond standard nursing care.",
+          "tool": "summarization"
+        },
+        {
+          "sender": "user",
+          "message": "Show summary for patient: Arjun Sharma",
+          "tool": "summarization"
+        },
+        {
+          "sender": "ai",
+          "message": "**1) Access Scope**  \nPublic nursing\u2011safe care information only \u2013 no diagnostic or advanced treatment details.\n\n**2) Patient Summary**  \n- **Name:** Arjun Sharma  \n- **Gender:** Male  \n- **Blood Group:** B+  \n- **Ward / Room:** General Ward, Room\u202f204  \n- **Admission Date:** 07\u202fMarch\u202f2024  \n- **Discharge Date:** 12\u202fMarch\u202f2024  \n- **Assigned Doctor:** Dr.\u202fPriya\u202fMehta, MD (Internal Medicine)  \n- **Allergies:** Penicillin (rash)  \n- **Chronic Conditions:** Hypertension  \n- **Age:** Not available in accessible report  \n\n**3) Key Clinical Points**  \n- **Chief Complaint:** 4\u2011day history of high\u2011grade fever (39.8\u202f\u00b0C), productive cough with yellowish sputum, progressive shortness of breath, generalized fatigue, and right\u2011sided chest discomfort.  \n- **Vital Signs (at presentation):**  \n  - Temperature: 39.2\u202f\u00b0C  \n  - BP: 138/86\u202fmmHg  \n  - HR: 102\u202fbpm  \n  - RR: 24\u202fbreaths/min  \n  - SpO\u2082: 93\u202f% on room air  \n- **Physical Exam:** Decreased air entry in right lower lobe; coarse crepitations bilaterally.  \n- **Clinical Progress:**  \n  - Day\u202f1\u20112: Fever 38.8\u202f\u00b0C; SpO\u2082 95\u202f% on supplemental O\u2082.  \n  - Day\u202f3: Afebrile; transitioned to oral antibiotics on Day\u202f4.  \n  - Day\u202f6: Ambulating.  \n  - Discharge (Day\u202f7): SpO\u2082 98\u202f% on room air, afebrile for 48\u202fh.  \n\n**4) Medications and Follow\u2011up**  \n- **Discharge Medications:**  \n  - Azithromycin 500\u202fmg once daily (complete course)  \n  - Amlodipine 5\u202fmg once daily  \n  - Paracetamol as needed for fever/pain  \n- **Follow\u2011up Plan:**  \n  - OPD review with Dr.\u202fPriya\u202fMehta on 19\u202fMarch\u202f2024.  \n  - Chest X\u2011ray and CBC at follow\u2011up visit.  \n- **Red Flag Symptoms:** Return to hospital immediately if symptoms worsen acutely or new concerns arise (e.g., increased shortness of breath, chest pain, fever >38.5\u202f\u00b0C, or any new symptoms).  \n\n**5) Restrictions Note**  \nNone.",
+          "tool": "summarization"
+        }
+      ],
+      "updated_at": "2026-04-10T10:49:22.240470"
+    },
+    {
+      "conversation_id": 82696684,
+      "chat_history": [
+        {
+          "sender": "user",
+          "message": "what are the causes of fever?",
+          "tool": "medical_knowledge"
+        },
+        {
+          "sender": "ai",
+          "message": "- Infections: bacterial, viral, fungal, or parasitic  \n- Inflammatory or autoimmune disorders (e.g., rheumatoid arthritis, lupus)  \n- Drug reactions or \u201cdrug fever\u201d (antibiotics, anticonvulsants)  \n- Immunizations (post\u2011vaccination fever)  \n- Malignancies (leukemia, lymphoma)  \n- Heat\u2011related illnesses (heat stroke, heat exhaustion)  \n\n*If a fever lasts more than a few days or is accompanied by severe symptoms, seek medical attention.*",
+          "tool": "medical_knowledge"
+        }
+      ],
+      "updated_at": "2026-04-10T10:49:58.969707"
+    }
+  ]
+}
