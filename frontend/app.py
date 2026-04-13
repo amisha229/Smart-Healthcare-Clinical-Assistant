@@ -1,11 +1,16 @@
 import streamlit as st
 import requests
 import os
+import json
+from datetime import datetime
+from pathlib import Path
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
 API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
+FRONTEND_DATA_DIR = Path(__file__).parent / ".streamlit_data"
+FRONTEND_DATA_DIR.mkdir(exist_ok=True)
 
 # Page Configuration
 st.set_page_config(
@@ -18,29 +23,26 @@ st.set_page_config(
 # Custom CSS
 st.markdown("""
     <style>
-    .login-container {
-        max-width: 400px;
-        margin: 50px auto;
-        padding: 30px;
-        border-radius: 10px;
-        background-color: #f8f9fa;
+    .status-chip {
+        display: inline-block;
+        background-color: #172035;
+        border: 1px solid #2d3d63;
+        color: #dbe7ff;
+        border-radius: 999px;
+        padding: 4px 10px;
+        margin-right: 8px;
+        font-size: 0.85rem;
     }
-    .chat-container {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
+    .title-clean {
+        color: #f8fafc;
+        margin-bottom: 0.25rem;
     }
-    .message-user {
-        background-color: #e3f2fd;
-        padding: 10px;
-        border-radius: 5px;
-        margin: 5px 0;
-    }
-    .message-ai {
-        background-color: #f3e5f5;
-        padding: 10px;
-        border-radius: 5px;
-        margin: 5px 0;
+    .hint-box {
+        border-left: 4px solid #2b6cb0;
+        background: #111a2d;
+        color: #d6e3ff;
+        padding: 10px 12px;
+        border-radius: 8px;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -56,6 +58,85 @@ if "logged_in" not in st.session_state:
     st.session_state.patients = []
     st.session_state.conversations = []  # Store old conversations
     st.session_state.last_summarized_patient = None  # Track last selected patient
+
+
+def _user_store_file(username: str) -> Path:
+    safe_username = "".join(ch for ch in username if ch.isalnum() or ch in ("-", "_"))
+    return FRONTEND_DATA_DIR / f"{safe_username}_chat_store.json"
+
+
+def load_user_conversations(username: str):
+    store_file = _user_store_file(username)
+    if not store_file.exists():
+        return []
+
+    try:
+        with open(store_file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data.get("conversations", [])
+    except Exception:
+        return []
+
+
+def save_user_conversations(username: str):
+    if not username:
+        return
+
+    store_file = _user_store_file(username)
+    payload = {
+        "updated_at": datetime.utcnow().isoformat(),
+        "conversations": st.session_state.conversations,
+    }
+
+    with open(store_file, "w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2)
+
+
+def upsert_current_conversation_snapshot():
+    if not st.session_state.username:
+        return
+    if not st.session_state.chat_history:
+        return
+
+    convo_id = st.session_state.conversation_id or int(datetime.utcnow().timestamp())
+    snapshot = {
+        "conversation_id": convo_id,
+        "chat_history": st.session_state.chat_history.copy(),
+        "updated_at": datetime.utcnow().isoformat(),
+    }
+
+    existing_idx = None
+    for idx, convo in enumerate(st.session_state.conversations):
+        if convo.get("conversation_id") == convo_id:
+            existing_idx = idx
+            break
+
+    if existing_idx is None:
+        st.session_state.conversations.append(snapshot)
+    else:
+        st.session_state.conversations[existing_idx] = snapshot
+
+    save_user_conversations(st.session_state.username)
+
+
+def build_contextual_message(user_message: str, max_turns: int = 6) -> str:
+    """Embed recent turns so backend can answer with conversation continuity."""
+    recent = st.session_state.chat_history[-max_turns:]
+    if not recent:
+        return user_message
+
+    transcript_lines = []
+    for item in recent:
+        role = "User" if item.get("sender") == "user" else "Assistant"
+        transcript_lines.append(f"{role}: {item.get('message', '')}")
+
+    transcript = "\n".join(transcript_lines)
+    return (
+        "Use the following recent conversation context for continuity. "
+        "Do not repeat old answers unless needed.\n\n"
+        f"Recent context:\n{transcript}\n\n"
+        f"Current user question:\n{user_message}"
+    )
 
 
 # Helper Functions
@@ -75,6 +156,7 @@ def login_user(username: str, password: str):
             st.session_state.user_role = data.get("role")
             st.session_state.conversation_id = None
             st.session_state.chat_history = []
+            st.session_state.conversations = load_user_conversations(username)
             return True, "Login successful!"
         else:
             return False, "Invalid credentials"
@@ -98,7 +180,13 @@ def register_user(username: str, password: str, role: str):
         return False, f"Error: {str(e)}"
 
 
-def send_chat_message(message: str, selected_tool: str, patient_name: str = None):
+def send_chat_message(
+    message: str,
+    selected_tool: str,
+    patient_name: str = None,
+    knowledge_type: str = "condition",
+    use_rag: bool = True,
+):
     """Send message to chat API"""
     try:
         payload = {
@@ -107,6 +195,8 @@ def send_chat_message(message: str, selected_tool: str, patient_name: str = None
             "user_role": st.session_state.user_role,
             "selected_tool": selected_tool,
             "patient_name": patient_name if selected_tool == "summarization" else None,
+            "knowledge_type": knowledge_type if selected_tool == "medical_knowledge" else None,
+            "use_rag": use_rag if selected_tool == "medical_knowledge" else True,
             "message": message
         }
         
@@ -118,6 +208,7 @@ def send_chat_message(message: str, selected_tool: str, patient_name: str = None
         if response.status_code == 200:
             data = response.json()
             st.session_state.conversation_id = data.get("conversation_id")
+            upsert_current_conversation_snapshot()
             return True, data.get("response")
         else:
             return False, f"Error: {response.text}"
@@ -170,18 +261,16 @@ else:
     col1, col2, col3 = st.columns([0.7, 0.15, 0.15])
     
     with col1:
-        st.markdown(f"## 🏥 Healthcare Clinical Assistant")
-        st.markdown(f"**User:** {st.session_state.username} | **Role:** {st.session_state.user_role}")
+        st.markdown("<h2 class='title-clean'>🏥 Healthcare Clinical Assistant</h2>", unsafe_allow_html=True)
+        st.markdown(
+            f"<span class='status-chip'>User: {st.session_state.username}</span>"
+            f"<span class='status-chip'>Role: {st.session_state.user_role}</span>",
+            unsafe_allow_html=True
+        )
     
     with col2:
         if st.button("🔄 New Chat", use_container_width=True):
-            # Save current conversation to history if it has messages
-            if st.session_state.chat_history:
-                st.session_state.conversations.append({
-                    "conversation_id": st.session_state.conversation_id,
-                    "chat_history": st.session_state.chat_history.copy(),
-                    "timestamp": len(st.session_state.conversations)
-                })
+            upsert_current_conversation_snapshot()
             st.session_state.conversation_id = None
             st.session_state.chat_history = []
             st.session_state.last_summarized_patient = None
@@ -189,6 +278,7 @@ else:
     
     with col3:
         if st.button("🚪 Logout", use_container_width=True):
+            upsert_current_conversation_snapshot()
             st.session_state.logged_in = False
             st.session_state.user_id = None
             st.session_state.username = None
@@ -197,7 +287,6 @@ else:
             st.session_state.chat_history = []
             st.session_state.conversations = []
             st.rerun()
-    
     st.divider()
     
     # Admin Register Section (only for Admin users)
@@ -237,28 +326,26 @@ else:
     with col1:
         # Filter tools based on role
         if st.session_state.user_role == "Admin":
-            available_tools = ["retrieval"]
-            selected_tool = "retrieval"
-            st.selectbox(
-                "Select Tool",
-                ["retrieval"],
-                format_func=lambda x: "📚 Retrieval (Clinical Guidelines)",
-                key="tool_selector",
-                disabled=True
-            )
+            available_tools = ["retrieval", "medical_knowledge"]
         else:
-            available_tools = ["retrieval", "summarization"]
-            selected_tool = st.selectbox(
-                "Select Tool",
-                available_tools,
-                format_func=lambda x: "📚 Retrieval (Clinical Guidelines)" if x == "retrieval" else "📋 Summarization (Patient Reports)",
-                key="tool_selector"
-            )
+            available_tools = ["retrieval", "summarization", "medical_knowledge"]
+
+        selected_tool = st.selectbox(
+            "Select Tool",
+            available_tools,
+            format_func=lambda x: (
+                "📚 Retrieval (Clinical Guidelines)" if x == "retrieval" else
+                "📋 Summarization (Patient Reports)" if x == "summarization" else
+                "🧠 Medical Knowledge"
+            ),
+            key="tool_selector"
+        )
     
     patient_name = None
+    selected_knowledge_type = "condition"
+    use_rag_for_knowledge = False
     with col2:
         if selected_tool == "summarization":
-            st.info("Fetching accessible patients...")
             patients = fetch_patients()
             
             if patients:
@@ -269,7 +356,7 @@ else:
                 )
                 patient_name = selected_patient
                 
-                # Auto-trigger summarization when patient selected
+                # Auto-trigger summarization when patient selection changes
                 if patient_name != st.session_state.last_summarized_patient:
                     st.session_state.last_summarized_patient = patient_name
                     
@@ -291,11 +378,24 @@ else:
                             "message": response,
                             "tool": "summarization"
                         })
+                        upsert_current_conversation_snapshot()
                         st.rerun()
                     else:
                         st.error(f"Error: {response}")
             else:
                 st.warning("No accessible patient reports found for your role.")
+
+        elif selected_tool == "medical_knowledge":
+            selected_knowledge_type = st.selectbox(
+                "Knowledge Type",
+                ["condition", "drug", "symptom", "procedure", "guideline"],
+                key="knowledge_type_selector"
+            )
+            use_rag_for_knowledge = st.toggle(
+                "Augment with clinical context",
+                value=False,
+                key="knowledge_use_rag_toggle"
+            )
     
     st.divider()
     
@@ -303,34 +403,26 @@ else:
     st.markdown("### 💬 Current Conversation")
     
     if st.session_state.chat_history:
-        for idx, chat in enumerate(st.session_state.chat_history):
+        for chat in st.session_state.chat_history:
             if chat["sender"] == "user":
-                st.markdown(f"**👤 You:** {chat['message']}")
+                with st.chat_message("user"):
+                    st.write(chat["message"])
             else:
-                st.markdown(f"**🤖 Assistant:** {chat['message']}")
-            st.divider()
+                with st.chat_message("assistant"):
+                    st.write(chat["message"])
     else:
-        st.info("Start a conversation by typing a message below or selecting a patient for summarization.")
+        st.markdown(
+            "<div class='hint-box'>Start a conversation by typing a message below or selecting a patient for summarization.</div>",
+            unsafe_allow_html=True,
+        )
     
     # Chat Input (hidden for summarization mode)
-    if selected_tool == "retrieval":
-        st.markdown("### ✉️ Send Message")
-        
-        col1, col2 = st.columns([0.9, 0.1])
-        
-        with col1:
-            user_input = st.text_area(
-                "Type your message here...",
-                height=100,
-                key="user_input",
-                placeholder="Ask a clinical question..."
-            )
-        
-        with col2:
-            send_button = st.button("Send ➜", use_container_width=True, key="send_button")
-        
+    if selected_tool in ["retrieval", "medical_knowledge"]:
+        input_label = "Ask a clinical question..." if selected_tool == "retrieval" else "Ask a general medical question..."
+        user_input = st.chat_input(input_label)
+
         # Process Message
-        if send_button and user_input.strip():
+        if user_input and user_input.strip():
             # Add user message to history
             st.session_state.chat_history.append({
                 "sender": "user",
@@ -343,7 +435,9 @@ else:
                 success, response = send_chat_message(
                     user_input,
                     selected_tool,
-                    None
+                    None,
+                    selected_knowledge_type,
+                    use_rag_for_knowledge,
                 )
             
             if success:
@@ -353,6 +447,7 @@ else:
                     "message": response,
                     "tool": selected_tool
                 })
+                upsert_current_conversation_snapshot()
                 st.rerun()
             else:
                 st.error(f"Error: {response}")
@@ -371,8 +466,14 @@ else:
         if st.session_state.conversations:
             st.markdown("### 📜 Previous Conversations")
             
-            for idx, conv in enumerate(reversed(st.session_state.conversations)):
-                with st.expander(f"Conversation {len(st.session_state.conversations) - idx}", expanded=False):
+            ordered = sorted(
+                st.session_state.conversations,
+                key=lambda x: x.get("updated_at", ""),
+                reverse=True,
+            )
+
+            for idx, conv in enumerate(ordered):
+                with st.expander(f"Conversation {idx + 1}", expanded=False):
                     st.markdown(f"**ID:** {conv.get('conversation_id', 'N/A')}")
                     st.markdown(f"**Messages:** {len([m for m in conv.get('chat_history', []) if m['sender'] == 'user'])}")
                     
@@ -385,7 +486,7 @@ else:
                             st.markdown(f"**🤖 Assistant:** {chat['message']}")
                         st.divider()
                     
-                    if st.button(f"Load Conversation {len(st.session_state.conversations) - idx}", key=f"load_conv_{idx}"):
+                    if st.button(f"Load Conversation {idx + 1}", key=f"load_conv_{idx}"):
                         st.session_state.conversation_id = conv.get('conversation_id')
                         st.session_state.chat_history = conv.get('chat_history', []).copy()
                         st.rerun()

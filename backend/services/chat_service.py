@@ -10,14 +10,18 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from services.retrieval_service import retrieve_clinical_context
 from services.summarization_service import summarize_patient_report
+from services.medical_knowledge_service import get_medical_knowledge
 from dotenv import load_dotenv
 
 from models.message import Message
 from models.conversation import Conversation
 from models.user import User
+from models.medical_knowledge_cache import MedicalKnowledgeCache
+from database import engine
 
 # Load the .env file containing the Groq API key
 load_dotenv()
+MedicalKnowledgeCache.__table__.create(bind=engine, checkfirst=True)
 
 # Initialize Groq using OpenAI-compatible client endpoint (This prevents decommissioning errors)
 llm = ChatOpenAI(
@@ -125,6 +129,8 @@ def process_chat(
     user_role: str = "Doctor",
     selected_tool: str = "retrieval",
     patient_name: Optional[str] = None,
+    knowledge_type: str = "condition",
+    use_rag: bool = True,
 ):
 
     if conversation_id is None:
@@ -163,6 +169,15 @@ def process_chat(
             ai_text = "Please provide patient_name when using summarization tool."
         else:
             ai_text = summarize_patient_report(db, patient_name=patient_name, user_role=user_role)
+    elif tool == "medical_knowledge":
+        mk = get_medical_knowledge(
+            query=user_message,
+            knowledge_type=knowledge_type or "condition",
+            db=db,
+            user_role=user_role,
+            use_rag=use_rag,
+        )
+        ai_text = mk.get("response", "Unable to fetch medical knowledge right now.")
     else:
         ai_text = generate_ai_response(user_message, user_role=user_role)
 

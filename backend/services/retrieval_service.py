@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 from langchain_huggingface import HuggingFaceEmbeddings
 import sys
 import os
+import re
 
 # Add backend to path if needed
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -21,6 +22,7 @@ def retrieve_clinical_context(query: str, user_role: str, top_k: int = 3) -> str
     query_vector = embeddings.embed_query(query)
     normalized_role = (user_role or "Doctor").strip().title()
     query_lower = (query or "").lower()
+    query_tokens = {t for t in re.findall(r"[a-z0-9]+", query_lower) if len(t) >= 3}
     admin_intent_keywords = {
         "audit", "audit logs", "compliance", "governance", "data security",
         "access control", "modification", "modifications", "record access", "policy"
@@ -60,7 +62,7 @@ def retrieve_clinical_context(query: str, user_role: str, top_k: int = 3) -> str
             best_role_distance = role_candidates[0][1] if role_candidates else None
             role_has_best = normalized_role.lower() in (best_any_chunk.allowed_roles or "").lower()
 
-            strong_overall_match = best_any_distance is not None and best_any_distance <= 0.50
+            strong_overall_match = best_any_distance is not None and best_any_distance <= 0.47
             role_is_much_weaker = (
                 best_role_distance is None or
                 (best_role_distance is not None and (best_role_distance - best_any_distance) >= 0.05)
@@ -68,12 +70,26 @@ def retrieve_clinical_context(query: str, user_role: str, top_k: int = 3) -> str
 
             admin_intent = any(keyword in query_lower for keyword in admin_intent_keywords)
             best_any_is_admin_only = (best_any_chunk.allowed_roles or "").strip().lower() == "admin"
+            has_admin_only_candidate = any(
+                ((cand_chunk.allowed_roles or "").strip().lower() == "admin") and (cand_dist is not None and cand_dist <= 0.62)
+                for cand_chunk, cand_dist in unrestricted_candidates[:8]
+            )
+
+            # If role-visible candidates have meaningful lexical overlap, prefer serving those
+            # instead of classifying as restricted.
+            role_has_viable_match = False
+            for role_chunk, role_dist in role_candidates[:5]:
+                role_tokens = {t for t in re.findall(r"[a-z0-9]+", (role_chunk.chunk_text or "").lower()) if len(t) >= 3}
+                overlap_count = len(query_tokens & role_tokens)
+                if overlap_count >= 1 and role_dist is not None and role_dist <= 0.60:
+                    role_has_viable_match = True
+                    break
 
             # Strongly bias to ACCESS_RESTRICTED for governance/admin intent asked by non-admin roles.
-            if admin_intent and normalized_role != "Admin" and best_any_is_admin_only:
+            if admin_intent and normalized_role != "Admin" and (best_any_is_admin_only or has_admin_only_candidate):
                 return "ACCESS_RESTRICTED: Relevant content exists but is restricted by your role permissions."
 
-            if strong_overall_match and (not role_has_best) and role_is_much_weaker:
+            if strong_overall_match and (not role_has_best) and role_is_much_weaker and not role_has_viable_match:
                 return "ACCESS_RESTRICTED: Relevant content exists but is restricted by your role permissions."
 
         # 4. Build final role-filtered result set.
@@ -89,7 +105,17 @@ def retrieve_clinical_context(query: str, user_role: str, top_k: int = 3) -> str
         # 5. Additional guard: if role results are all weak, classify as not found.
         best_role_distance = role_candidates[0][1] if role_candidates else None
         if best_role_distance is not None and best_role_distance > 0.42:
-            return "NO_RELEVANT_DATA: No relevant medical protocols found in the knowledge base."
+            # Lexical fallback for short/specific terms (e.g., ICU, nephritis, audit logs).
+            top_role_chunks = [row[0] for row in role_candidates[:5]]
+            has_overlap = False
+            for chunk in top_role_chunks:
+                text_tokens = {t for t in re.findall(r"[a-z0-9]+", (chunk.chunk_text or "").lower()) if len(t) >= 3}
+                if query_tokens & text_tokens:
+                    has_overlap = True
+                    break
+
+            if not has_overlap:
+                return "NO_RELEVANT_DATA: No relevant medical protocols found in the knowledge base."
 
         # 6. Format role-filtered context blocks.
         context_blocks = []
