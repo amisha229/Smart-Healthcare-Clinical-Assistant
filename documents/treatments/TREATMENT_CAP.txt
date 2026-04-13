@@ -1,0 +1,383 @@
+DISEASE_START
+
+disease_name: Community-Acquired Pneumonia
+disease_code: CAP
+icd_code: J18.9
+severity_spectrum: Mild Outpatient to Severe ICU/Ventilatory Support
+document_category: Treatment Comparison
+document_type: treatment
+
+DISEASE_OVERVIEW
+Community-Acquired Pneumonia (CAP) is acute lower respiratory tract infection diagnosed in non-hospitalized patients (or within 48 hours of hospital admission). Severity and microbial aetiology determine treatment strategy. CURB-65 score (Confusion, Urea >7, Respiratory rate >30, BP systolic <90 or diastolic <60, age ≥65) stratifies patients: score 0-1 (mild, outpatient), 2 (moderate, hospital), 3-5 (severe, ICU). Bacterial aetiologies include Streptococcus pneumoniae, Haemophilus influenzae, Community-acquired MRSA, Atypicals (Mycoplasma, Legionella, Chlamydia), and Pseudomonas (in specific risk groups). Treatment selection balances empiric broad-spectrum coverage against antibiotic stewardship and drug tolerance.
+
+TARGET_CONDITIONS
+- Fever resolution (defervescence target within 48-72 hours)
+- Symptom improvement (cough, dyspnoea, chest pain)
+- Oxygenation improvement (SpO2 ≥94% on room air target)
+- Prevention of complications (sepsis, ARDS, organ failure)
+- eradication of causative pathogen
+- Reduction of mortality (especially severe CAP)
+- Appropriate de-escalation (narrow spectrum as culture results clarify)
+
+ACCESS_POLICY
+public_roles: Nurse,Doctor
+private_roles: Doctor
+
+TREATMENT_TAGS
+comorbidities: chronic_lung_disease, immunosuppression, structural_lung_disease, aspiration_risk, renal_impairment
+medication_classes: beta_lactam, macrolide, fluoroquinolone, beta_lactam_inhibitor, anti_pseudomonal
+route_categories: oral, intravenous
+patient_demographics: mixed_age, varying_severity, different_risk_factors
+severity_stratification: curb65_score, psi_score, complications, need_for_icu
+
+---
+
+SECTION_A_PUBLIC
+Disease Overview & Clinical Context
+
+Community-Acquired Pneumonia develops when respiratory pathogens bypass upper airway defences and establish infection in distal alveoli. Severity depends on:
+- Patient age and comorbidities (diabetes, COPD, asthma, immunosuppression)
+- Organism virulence and antibiotic resistance patterns
+- Speed of clinical deterioration
+- Development of complications (sepsis, ARDS, empyema)
+
+Risk stratification tools:
+- CURB-65 Score: 0-5 points; guides admission and intensity of therapy
+  - Score 0-1: Low risk; outpatient oral antibiotics
+  - Score 2: Intermediate risk; consider hospitalization or close outpatient monitoring
+  - Score 3-5: High risk; hospitalization mandatory; ICU consideration if score ≥4
+- PSI (Pneumonia Severity Index): 4-class system; alternative risk stratification
+
+Treatment principles:
+1. Early empiric therapy (within 1 hour of diagnosis) improves outcomes
+2. Cover common organisms per local resistance patterns
+3. De-escalate to narrower spectrum once culture/susceptibility available
+4. Duration typically 5-7 days (oral) or 7-10 days (IV)
+5. Monitor clinical response at 48-72 hours
+
+This section presents three real-world patients with same diagnosis (CAP) but markedly different severity, requiring escalating therapeutic intensity and complexity.
+
+---
+
+PATIENT_CASE_007
+
+case_id: P-007-CAP
+patient_identifier: Anonymized Patient 007
+primary_diagnosis: Community-Acquired Pneumonia, Mild (Streptococcal aetiology presumed)
+icd_codes: J18.9 (CAP unspecified), B95.5 (Streptococcus pneumoniae infection)
+baseline_curb65_score: 1 point (age <65; no confusion; urea normal; RR <30; BP normal)
+baseline_psi_score: Class I-II (low risk)
+baseline_o2_saturation: 96% on room air (essentially normal)
+baseline_respiratory_rate: 22 breaths/min (normal)
+baseline_temperature: 38.2°C (low-grade fever)
+comorbidities: None; healthy young adult (age 28)
+risk_factors: Smoker (10 cigarettes/day); no prior lung disease
+chest_xray_findings: Left lower lobe infiltrate; limited to single lobe; small extent
+
+Clinical Presentation - Symptoms
+- Productive cough with yellowish sputum (3-day duration; worsening trend)
+- Low-grade fever (38.2°C; self-limited, responds to acetaminophen)
+- Mild dyspnoea on exertion (patient can walk upstairs but feels breathless)
+- Pleuritic chest pain (sharp; worsens with deep breathing; localizes to left lower chest)
+- Myalgia and malaise (mild; attributed to systemic illness)
+
+Clinical Context
+Young healthy patient with uncomplicated CAP, likely streptococcal aetiology (classic presentation: productive cough, fever, lobar infiltrate). Low CURB-65 score (1) and normal oxygenation indicate outpatient management feasible. Risk of deterioration minimal; suitable for narrow-spectrum oral therapy.
+
+Treatment Regimen
+- Primary: Amoxicillin 500 mg orally three times daily × 5 days (narrow-spectrum beta-lactam)
+- Adjunctive: Acetaminophen 1 g Q6H PRN for fever/myalgia; Dextromethorphan 15-20 mg Q4-6H for cough suppression
+- Supportive: Hydration counsel (2-3 L fluids daily); rest; follow-up CXR if symptoms persist >7 days
+
+Rationale
+- Amoxicillin: First-line for streptococcal CAP in non-severe cases; excellent lung penetration; narrow spectrum (pneumococcal coverage); oral bioavailability >95%
+- Penicillin allergy documented? If yes, consider azithromycin 500 mg OD × 3 days or doxycycline 100 mg BD × 5 days
+- Outpatient therapy appropriate: CURB-65 score ≤1; normal O2; no confusion; motivated patient
+- Short duration (5 days) supported by clinical data (most streptococcal CAP responds by day 3-4)
+
+Treatment Advantages (Pros)
+✓ Narrow spectrum; minimal impact on normal flora
+✓ Oral route; allows outpatient management; no IV access needed
+✓ Low cost; amoxicillin inexpensive (~Rs. 20-30 per course)
+✓ Excellent streptococcal coverage (minimal resistance in India)
+✓ Minimal adverse effects; well-tolerated
+✓ Patient autonomy and comfort of home-based care
+✓ Reduces unnecessary hospitalizations
+
+Treatment Disadvantages (Cons)
+✗ Penicillin allergy risk (~1% true IgE-mediated, but ~10% report allergy history)
+✗ Does NOT cover atypical organisms (Mycoplasma, Legionella, Chlamydia); if clinical course worsens, escalation required
+✗ Resistance emerging in some regions (with increasing MRSA, ESBL prevalence)
+✗ No coverage for H. influenzae or other gram-negatives if they are causative
+✗ Oral bioavailability variable if vomiting occurs (no backup IV route readily available)
+✗ Requires reliable patient adherence and ability to recognize deterioration
+
+Clinical Outcome (at Day 5)
+- Fever: 38.2°C → AFEBRILE (normal temperature from day 2)
+- Cough: Productive → Dry and minimal; resolved by day 4
+- Dyspnoea: Mild dyspnoea → Resolved; normal exertional tolerance
+- O2 sat: 96% maintained (normal throughout)
+- Chest pain: RESOLVED by day 3
+- Myalgia/malaise: Resolved by day 4
+- Follow-up CXR: Left lower lobe infiltrate → Minimal residual haziness; clearance evident
+- Adverse events: NONE; excellent tolerability
+- Patient satisfaction: HIGH; preferred outpatient management; avoided hospitalization
+- Assessment: EXCELLENT success; rapid defervescence (day 2); symptom resolution by day 5; no complications; uncomplicated recovery
+
+---
+
+PATIENT_CASE_008
+
+case_id: P-008-CAP
+patient_identifier: Anonymized Patient 008
+primary_diagnosis: Community-Acquired Pneumonia, Moderate (Atypical organism suspected; mixed aetiology possible)
+icd_codes: J18.9 (CAP unspecified), A78 (Q. fever / Coxiella burnetii suspected)
+baseline_curb65_score: 2 points (age 60, RR 28, BP 110/70, no confusion, urea 6 mg/dL)
+baseline_psi_score: Class III (moderate risk; mortality ~0.6-2.6%)
+baseline_o2_saturation: 93% on room air (borderline low; requires monitoring)
+baseline_respiratory_rate: 28 breaths/min (elevated; tachypnea)
+baseline_temperature: 39.0°C (moderate-grade fever)
+comorbidities: COPD (mild, on occasional salbutamol); mild hypertension (on amlodipine)
+risk_factors: Occupational exposure (farmer; contact with animal products)
+chest_xray_findings: Bilateral patchy infiltrates; more prominent right side; ground-glass appearance suggesting atypical pathology
+
+Clinical Presentation - Symptoms
+- Dry cough (nonproductive; irritative; significant cough burden; worsens at night)
+- High fever 39°C (moderate; patient reports rigors)
+- Myalgia (severe; especially lower back and legs)
+- Headache (frontal; resistant to simple analgesics)
+- O2 sat 93% on room air (borderline; patient reports mild dyspnoea at rest)
+- Nausea and diarrhoea (GI involvement; suggests atypical pathology)
+
+Clinical Context
+Middle-aged patient with COPD background and occupational risk (farmer). Atypical presentation:
+- Dry cough (not classic productive CAP cough)
+- Bilateral infiltrates on CXR (suggests viral or atypical bacterial pathology)
+- Systemic symptoms (myalgia, headache severe)
+- GI symptoms
+- Likely atypical organism (Q fever / Legionella / Mycoplasma)
+- CURB-65 = 2 suggests hospitalization consideration
+- O2 sat 93% borderline; close monitoring required
+
+Treatment Regimen (hospital admission; IV step-down to oral)
+- Primary: IV Co-amoxiclav (Amoxicillin-clavulanic acid) 1.2 g three times daily
+- Secondary: Clarithromycin 500 mg intravenously or orally twice daily
+- Tertiary: IV fluids (normal saline 500 mL/hr); supplemental O2 if SpO2 drops <94%
+- Supportive: Acetaminophen 1 g Q6H; antiemetics (metoclopramide 10 mg TDS)
+- Step-down plan (Day 4): Switch to oral azithromycin 500 mg OD + oral amoxicillin 500 mg TDS if clinical improvement evident
+
+Rationale
+- IV Co-amoxiclav: Covers streptococcal + H. influenzae (typical CAP bacteria) + gram-negatives; clavulanic acid adds anaerobic coverage
+- Clarithromycin: Macrolide (not azithromycin, which is less potent for respiratory bugs); excellent atypical coverage (Legionella, Mycoplasma, Chlamydia); good lung penetration
+- Complementary coverage: Two-agent regimen addresses both typical and atypical organisms
+- IV-to-oral step-down: Allows rapid transition once clinical improvement evident (typically day 3-4)
+- Hospitalization justified: CURB-65 = 2, borderline O2 sat, clinical severity, need for IV
+
+Treatment Advantages (Pros)
+✓ Broad spectrum covers both typical CAP (streptococcal, H. influenzae) and atypical organisms (Legionella, Mycoplasma)
+✓ IV route ensures rapid therapeutic levels; good tissue penetration
+✓ Macrolide+beta-lactam combination provides synergy for atypical pathogens
+✓ Step-down to oral feasible after 48-72 hours (improves patient autonomy later in course)
+✓ O2 saturation monitoring available in hospital setting; safer for borderline sats
+
+Treatment Disadvantages (Cons)
+✗ Clarithromycin: QT prolongation risk (especially ~3% with arrhythmia history; requires baseline EKG)
+✗ Macrolide-induced GI upset (nausea, diarrhoea); can worsen existing GI symptoms
+✗ IV access required (inconvenience; phlebitis risk; line care)
+✗ Clavulanic acid can cause diarrhoea; C. difficile risk if extended course
+✗ Higher cost than narrow-spectrum agents
+✗ Hospitalization itself carries risks (nosocomolar infection, delirium in elderly, immobility)
+
+Clinical Outcome (at Day 7)
+- Fever: 39.0°C → AFEBRILE by day 3 (rapid defervescence; IV therapy effective)
+- Cough: Dry, severe → Improvement by day 3; productive by day 5 (sign of macrophage-mediated clearance)
+- Myalgia: Severe → Resolved by day 4
+- Headache: Resolved by day 3
+- O2 sat: 93% → 96% on room air by day 3 (step-down O2 not required)
+- Nausea/Diarrhoea: Improved by day 2; resolved by day 4
+- CXR at day 5: Bilateral infiltrates → Right-sided infiltrate improving; left mostly clear
+- Hospital course: Admitted day 1; stepped down to oral day 4; discharged day 6 with 3-day oral course remaining
+- Adverse events: Mild diarrhoea (day 2-3); resolved with probiotics; no severe complications
+- Patient satisfaction: Good; appreciates IV efficacy but relieved to transition home
+- Assessment: GOOD success; effective dual therapy; rapid defervescence (day 3); good step-down tolerance; hospitalisation justified by clinical complexity
+
+---
+
+PATIENT_CASE_009
+
+case_id: P-009-CAP
+patient_identifier: Anonymized Patient 009
+primary_diagnosis: Community-Acquired Pneumonia, Severe (ICU admission; ARDS; septic shock; mechanical ventilation)
+icd_codes: J18.9 (CAP), A41.9 (sepsis), J96.0 (ARDS), R65.21 (septic shock)
+baseline_curb65_score: 4 points (age 72, confusion present, RR 38, SBP 88 mmHg, urea 12)
+baseline_psi_score: Class V (mortality >40% without ICU; >10-15% with ICU)
+baseline_o2_saturation: 86% on room air (severe hypoxia)
+baseline_respiratory_rate: 38 breaths/min (severe tachypnea; respiratory distress)
+baseline_blood_pressure: 88/60 mmHg (hypotension; shock)
+baseline_temperature: 40.0°C (high fever)
+baseline_consciousness: Confusion; disorientation to time/place (acute altered mental status)
+comorbidities: Chronic kidney disease Stage 3 (eGFR 45), Diabetes Type 2 (HbA1c 8.2%), prior myocardial infarction (2 years ago)
+risk_factors: Age 72, male, smoker (30 pack-years), malnutrition
+chest_xray_findings: Bilateral multi-lobar infiltrates (diffuse); ground-glass opacification; evidence of pulmonary edema
+ards_criteria: PaO2/FiO2 = 120 (severe ARDS; needs PEEP + high FiO2)
+
+Clinical Presentation - Symptoms
+- HIGH FEVER 40.0°C (systemic sepsis manifestation)
+- Confusion and disorientation (encephalopathy; indicates organ dysfunction)
+- SEVERE dyspnoea (respiratory distress; uses accessory muscles; profound fear)
+- O2 sat 86% on room air (critical hypoxia; immediately life-threatening)
+- HYPOTENSION 88/60 mmHg (septic shock; tissue perfusion compromised)
+- Oliguria (urine output <0.5 mL/kg/hr; acute kidney dysfunction)
+- Rapid, shallow breathing (38 breaths/min; work of breathing excessive)
+
+Clinical Context
+Elderly patient presenting with SEVERE sepsis and ARDS from CAP. Multi-system organ failure:
+- Respiratory: bilateral multi-lobar pneumonia, ARDS, PaO2/FiO2 = 120, hypoxic respiratory failure
+- Cardiovascular: hypotension (septic shock); requires vasopressor support
+- Neurologic: sepsis-induced encephalopathy; confusion
+- Renal: oliguria; acute kidney injury likely (creatinine rise >0.5 mg/dL acutely)
+- Infectious: severe sepsis with systemic inflammatory response
+
+This is a medical emergency requiring ICU admission, mechanical ventilation, broad-spectrum antibiotics, and comprehensive critical care.
+
+Treatment Regimen (ICU; ventilatory support; vasopressor)
+- PRIMARY: IV Piperacillin-Tazobactam (Pip-Tazo) 4.5 g intravenously every 8 hours (3 doses/day; total 13.5 g/day)
+- SECONDARY: IV Levofloxacin 500 mg intravenously once daily (fluoroquinolone for lung penetration; respiratory fluoroquinolone preferred)
+- TERTIARY: Supportive ICU care:
+  - Mechanical ventilation: Lung-protective strategy (6 mL/kg IBW; PEEP 12 cm H2O; FiO2 titrated to SpO2 >90%)
+  - Vasopressor: Noradrenaline infusion titrated to MAP >65 mmHg
+  - IV fluid: Balanced resuscitation (normal saline ~30 mL/kg initially; reassess based on response)
+  - Corticosteroid: Methylprednisolone 1 g IV (controversial; considered for ARDS if PaO2/FiO2 <150 for 7 days)
+- Blood cultures, sputum culture, lactate monitoring (baseline, 3-hour, 6-hour to assess tissue perfusion response)
+- Antibiotic therapy duration: Min 7-10 days IV (potential longer if complications)
+
+Rationale
+- Piperacillin-Tazobactam: Broad-spectrum beta-lactam + beta-lactamase inhibitor; covers:
+  - Streptococcal + H. influenzae (typical CAP bacteria)
+  - Pseudomonas aeruginosa (critical in severe CAP, ventilated patients, healthcare-associated organisms)
+  - Anaerobes, gram-negatives (E. coli, Klebsiella, etc.)
+  - Achieves good lung tissue penetration
+- Levofloxacin: Fluoroquinolone; respiratory-penetrating; covers atypicals (Legionella, Mycoplasma) and resistant gram-negatives
+- Two-agent empiric therapy justified: unknown causative organism; severity mandates broader coverage
+- De-escalation: Once culture/susceptibility results return (typically day 2-3), narrow to identified organism if possible
+
+Treatment Advantages (Pros)
+✓ Very broad-spectrum; covers all likely CAP organisms including Pseudomonas
+✓ Good lung tissue penetration (piperacillin); critical for pneumonia
+✓ Synergistic coverage: beta-lactam + fluoroquinolone addresses typical + atypical + gram-negatives
+✓ Empiric therapy optimized for severe sepsis (early broad coverage proven to improve outcomes in sepsis trials)
+✓ IV route ensures therapeutic levels even in shock states (no oral absorption concern)
+✓ ICU setting provides hemodynamic monitoring, vasopressor titration, ventilator management
+
+Treatment Disadvantages (Cons)
+✗ Clostridioides difficile (C. diff) infection risk (~1-5% with broad-spectrum agents; elevated in elderly + prolonged stay)
+✗ Very high cost (~Rs. 2,000-3,000 for 24-hour Pip-Tazo course; adds up quickly for 10-14 day course)
+✗ Pseudomonal resistance emerging in some ICU settings (requires local antibiogram data)
+✗ Prolonged IV access: central line needed for vasopressors; infection risk
+✗ Ventilator-associated pneumonia (VAP) risk rises with each day intubated (mechanical ventilation-associated complications)
+✗ Antibiotic stewardship concern: broad-spectrum therapy in all severe CAP without culture result (culture results may show narrow organism, enabling de-escalation)
+✗ Mortality risk remains significant even with aggressive therapy (septic shock mortality ~25-40%; elderly >50%)
+
+Clinical Outcome (at Day 14)
+- INTENSIVE CARE PHASE (Days 1-7)
+  - Fever: 40.0°C → afebrile by day 2 (IV broad-spectrum antibiotics effective)
+  - Hypotension: 88/60 → stabilized to 95/65 by hour 6 (vasopressor + fluid resuscitation)
+  - Confusion: Present day 1 → improved by day 3 (sepsis encephalopathy reversible with sepsis control)
+  - O2 sat: 86% (on FiO2 100%) → improved to 94% (on FiO2 60%) by day 4 → 92-95% on FiO2 40% by day 6
+  - Respiratory status: Severe tachypnea, respiratory distress → gradual improvement; spontaneous breathing trial initiated day 6
+  - Mechanical ventilation: Intubated day 1 → extubated day 7 (successful spontaneous breathing trial; extubation without reintubation)
+  - Vasopressor: Noradrenaline required 6 days → weaned by day 6
+  - Renal function: Oliguria day 1-2 → urine output normalized day 3 onwards (lactate improved; tissue perfusion restored)
+
+- STEP-DOWN PHASE (Days 8-10)
+  - High-dependency unit transfer on day 7 (post-extubation)
+  - Antibiotics: Pip-Tazo continued IV through day 10; blood cultures negative (no organism isolated; likely aspiration or sensitive aerobic coverage)
+  - Switched to oral fluoroquinolone (levofloxacin 500 mg OD) from day 11-14
+
+- HOSPITAL DISCHARGE (Day 14)
+  - CXR: Bilateral infiltrates → predominantly resolved; minimal residual consolidation
+  - Vitals: Stable; no ongoing oxygen need
+  - Mental status: Alert, oriented; mild delirium clearing
+  - Adverse events: 
+    - Hypokalemia (day 3-4; from sepsis + IV fluids; corrected with K+ supplementation)
+    - Acute kidney injury Stage 2 (creatinine peaked at 2.8 mg/dL day 2; recovered to 1.6 mg/dL by day 10)
+    - Mild diarrhoea (day 8-10; likely post-antibiotic dysbiosis; no C. diff detected)
+  - Mortality: SURVIVED; discharged to step-down rehab facility for 2 weeks monitoring before home discharge
+
+- OVERALL ASSESSMENT: MODERATE success; patient survived severe CAP with ARDS and septic shock; this is a victory. However, ICU stay was prolonged (7 days); multiple complications (AKI, dysbiosis); prolonged recovery (2 weeks rehab + 6 weeks convalescence). High morbidity cost even with successful outcome. Early recognition and aggressive ICU care averted death.
+
+---
+
+SECTION_B_PRIVATE
+Detailed Clinical Comparison & Decision Framework
+
+COMPARATIVE ANALYSIS TABLE
+┌────────────────────────────────────────────────────────────────────────────────────┐
+│PATIENT│    SEVERITY    │  KEY ADVANTAGE      │  KEY RISK            │ SETTING │ SCORE│
+├────────────────────────────────────────────────────────────────────────────────────┤
+│ P-007 │ Mild (CURB 1)  │ Narrow spectrum;    │ Penicillin allergy;  │Outpat   │ 9/10 │
+│       │                │ oral; low cost      │ no atypical cover    │         │      │
+├────────────────────────────────────────────────────────────────────────────────────┤
+│ P-008 │Moderate(CURB 2)│ Broad + atypical;   │ QT risk; C.diff;     │Hospital │ 7/10 │
+│       │                │ effective step-down │ IV access            │         │      │
+├────────────────────────────────────────────────────────────────────────────────────┤
+│ P-009 │Severe (CURB 4) │ Ultra-broad;        │ Pseudomonal risk;    │ICU      │ 6/10*│
+│       │                │ covers Pseudomonas  │ C.diff; high cost    │         │      │
+│       │                │ *Success despite    │ mortality 25-40%     │         │      │
+│       │                │ ARDS/shock=victory  │                      │         │      │
+└────────────────────────────────────────────────────────────────────────────────────┘
+
+DECISION FRAMEWORK FOR CLINICIANS
+
+1. IF MILD CAP (CURB-65 ≤1) + Normal O2 + No Risk Factors
+   → Approach: Narrow-spectrum oral monotherapy (Case 007 model)
+   → Suitable: Age <65, alert, RR <30, BP normal, SBP >90, urea normal, O2 sat >95%
+   → First-line: Amoxicillin 500 mg TDS × 5 days (penicillin-elastic)
+   → Alternatives: Azithromycin 500 mg OD × 3 days OR Doxycycline 100 mg BD × 5 days
+   → Monitor: Phone follow-up day 2-3; CXR if symptoms persist >7 days
+   → Expected: Defervescence by day 3; symptom resolution by day 5; outpatient discharge
+
+2. IF MODERATE CAP (CURB-65 = 2) + Borderline O2 (90-94%) + Risk Factors/Atypicals
+   → Approach: IV dual therapy with step-down (Case 008 model)
+   → Suitable: Age 50-70, RR 25-30, BP 100-110, O2 sat 90-94%, possible atypical features
+   → First-line: IV Co-amoxiclav 1.2 g TDS + Clarithromycin 500 mg BD (3 days) → oral step-down
+   → Monitor: Hospitalization justified; daily clinical assessment; CXR day 5
+   → Expected: Defervescence by day 3; step-down by day 4; discharge by day 5-7
+
+3. IF SEVERE CAP (CURB-65 ≥3) + Hypoxia (<90%) + Hemodynamic Instability
+   → Approach: ICU admission; broad-spectrum IV dual/triple therapy + critical care (Case 009 model)
+   → Suitable: Respiratory distress, shock, altered mental status, ARDS, need for ventilator
+   → First-line: IV Piperacillin-Tazobactam 4.5 g Q8H + IV Levofloxacin 500 mg OD
+   → Monitor: ICU monitoring; mechanical ventilation plan; vasopressor titration; daily reassessment
+   → Expected: High mortality risk (25-40%); if survive, prolonged ICU stay (7-14 days) + rehab
+
+---
+
+SECTION_C_TREATMENT_EVIDENCE
+Evidence-Based Outcomes & Literature Basis
+
+Regimen 007 (Amoxicillin Oral)
+- Reference: CAP Guidelines (IDSA/ATS 2019; BTS 2009)
+- Cure rate in mild CAP: ~90-95% (excellent outcomes)
+- Defervescence timing: 48-72 hours typical
+- Cost-effectiveness: Most cost-effective approach
+- Mortality: <1% in mild CAP (very low-risk population)
+
+Regimen 008 (Co-amoxiclav + Clarithromycin IV → oral)
+- Reference: CAP trials (SEPIA, REACH studies)
+- Defervescence timing: 48-72 hours (IV initiation accelerates response)
+- Step-down success: ~85% (most patients tolerate transition to oral by day 3-4)
+- QT prolongation: ~0.1-0.3% with acceptable EKG screening
+- Mortality: ~1-3% in moderate CAP (low-risk with appropriate treatment)
+
+Regimen 009 (Piperacillin-Tazobactam + Levofloxacin + ICU)
+- Reference: Surviving Sepsis Campaign (SCCM 2021); PROWESS-Shock trial
+- Mortality in severe CAP/septic shock: 25-40% even with aggressive care
+- ICU duration: Mean 7-14 days for mechanically ventilated patients
+- Pseudomonal coverage: Critical in ventilator-associated organisms
+- De-escalation: Recommended if culture specifies narrower organism (reduces C. difficile risk)
+- Outcome: Survival of severe ARDS/septic shock from CAP is major clinical victory; long-term morbidity significant
+
+---
+
+DISEASE_END

@@ -186,6 +186,7 @@ def send_chat_message(
     patient_name: str = None,
     knowledge_type: str = "condition",
     use_rag: bool = True,
+    disease_name: str = None,
 ):
     """Send message to chat API"""
     try:
@@ -197,6 +198,7 @@ def send_chat_message(
             "patient_name": patient_name if selected_tool == "summarization" else None,
             "knowledge_type": knowledge_type if selected_tool == "medical_knowledge" else None,
             "use_rag": use_rag if selected_tool == "medical_knowledge" else True,
+            "disease_name": disease_name if selected_tool == "treatment_comparison" else None,
             "message": message
         }
         
@@ -327,8 +329,10 @@ else:
         # Filter tools based on role
         if st.session_state.user_role == "Admin":
             available_tools = ["retrieval", "medical_knowledge"]
+        elif st.session_state.user_role == "Doctor":
+            available_tools = ["retrieval", "summarization", "medical_knowledge", "treatment_comparison", "diagnosis_recommendation"]
         else:
-            available_tools = ["retrieval", "summarization", "medical_knowledge"]
+            available_tools = ["retrieval", "summarization", "medical_knowledge", "treatment_comparison"]
 
         selected_tool = st.selectbox(
             "Select Tool",
@@ -336,7 +340,9 @@ else:
             format_func=lambda x: (
                 "📚 Retrieval (Clinical Guidelines)" if x == "retrieval" else
                 "📋 Summarization (Patient Reports)" if x == "summarization" else
-                "🧠 Medical Knowledge"
+                "🧠 Medical Knowledge" if x == "medical_knowledge" else
+                "💊 Treatment Comparison" if x == "treatment_comparison" else
+                "🩺 Diagnosis Recommendation"
             ),
             key="tool_selector"
         )
@@ -344,6 +350,7 @@ else:
     patient_name = None
     selected_knowledge_type = "condition"
     use_rag_for_knowledge = False
+    selected_disease = None
     with col2:
         if selected_tool == "summarization":
             patients = fetch_patients()
@@ -396,6 +403,20 @@ else:
                 value=False,
                 key="knowledge_use_rag_toggle"
             )
+        
+        elif selected_tool == "treatment_comparison":
+            diseases = [
+                "Type 2 Diabetes Mellitus",
+                "Hypertensive Heart Disease",
+                "Community-Acquired Pneumonia",
+                "Major Depressive Disorder",
+                "Rheumatoid Arthritis"
+            ]
+            selected_disease = st.selectbox(
+                "Select Disease",
+                diseases,
+                key="disease_selector"
+            )
     
     st.divider()
     
@@ -417,8 +438,16 @@ else:
         )
     
     # Chat Input (hidden for summarization mode)
-    if selected_tool in ["retrieval", "medical_knowledge"]:
-        input_label = "Ask a clinical question..." if selected_tool == "retrieval" else "Ask a general medical question..."
+    if selected_tool in ["retrieval", "medical_knowledge", "treatment_comparison", "diagnosis_recommendation"]:
+        if selected_tool == "retrieval":
+            input_label = "Ask a clinical question..."
+        elif selected_tool == "medical_knowledge":
+            input_label = "Ask a general medical question..."
+        elif selected_tool == "treatment_comparison":
+            input_label = f"Ask about treatment options for {selected_disease}..."
+        else:
+            input_label = "Enter symptoms to get possible diagnoses and recommendations..."
+        
         user_input = st.chat_input(input_label)
 
         # Process Message
@@ -438,6 +467,7 @@ else:
                     None,
                     selected_knowledge_type,
                     use_rag_for_knowledge,
+                    selected_disease,
                 )
             
             if success:

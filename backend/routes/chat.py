@@ -36,6 +36,7 @@ def chat(request: ChatRequest, db: Session = Depends(get_db)):
         patient_name=request.patient_name,
         knowledge_type=request.knowledge_type or "condition",
         use_rag=request.use_rag,
+        disease_name=request.disease_name,
     )
 
     return ChatResponse(
@@ -45,6 +46,7 @@ def chat(request: ChatRequest, db: Session = Depends(get_db)):
         selected_tool=request.selected_tool,
         patient_name=request.patient_name,
         knowledge_type=request.knowledge_type,
+        disease_name=request.disease_name,
         response=response,
     )
 
