@@ -1,5 +1,6 @@
 import os
 import sys
+import re
 from typing import Optional
 from sqlalchemy.orm import Session
 
@@ -11,6 +12,8 @@ from langchain_openai import ChatOpenAI
 from services.retrieval_service import retrieve_clinical_context
 from services.summarization_service import summarize_patient_report
 from services.medical_knowledge_service import get_medical_knowledge
+from services.treatment_comparison_tool import compare_treatments
+from services.diagnosis_recommendation import recommend_diagnosis
 from dotenv import load_dotenv
 
 from models.message import Message
@@ -31,6 +34,32 @@ llm = ChatOpenAI(
     temperature=0.2, # Low temperature for high factual consistency
     max_tokens=1000
 )
+
+
+def _is_treatment_comparison_query(user_message: str) -> bool:
+    """Heuristic guard to ensure treatment tool is used only for treatment-focused prompts."""
+    text = (user_message or "").strip().lower()
+    if not text:
+        return False
+
+    # Queries that are clearly meta/general and should not hit treatment comparison.
+    blocked_patterns = [
+        r"\bwho\s+are\s+you\b",
+        r"\bwhat\s+agent\b",
+        r"\bprime\s+minister\b",
+        r"\bwhat\s+time\b",
+        r"\bweather\b",
+    ]
+    for pattern in blocked_patterns:
+        if re.search(pattern, text):
+            return False
+
+    treatment_keywords = [
+        "treatment", "regimen", "therapy", "compare", "comparison", "medication",
+        "drug", "dose", "dosing", "side effect", "adverse", "contraindication",
+        "pros", "cons", "efficacy", "outcome", "management", "guideline"
+    ]
+    return any(keyword in text for keyword in treatment_keywords)
 
 
 def _get_role_guidance(user_role: str) -> str:
@@ -131,6 +160,7 @@ def process_chat(
     patient_name: Optional[str] = None,
     knowledge_type: str = "condition",
     use_rag: bool = True,
+    disease_name: Optional[str] = None,
 ):
 
     if conversation_id is None:
@@ -178,6 +208,24 @@ def process_chat(
             use_rag=use_rag,
         )
         ai_text = mk.get("response", "Unable to fetch medical knowledge right now.")
+    elif tool == "treatment_comparison":
+        if not disease_name:
+            ai_text = "Please provide disease_name when using treatment_comparison tool. E.g., 'Type 2 Diabetes Mellitus', 'Rheumatoid Arthritis'."
+        elif not _is_treatment_comparison_query(user_message):
+            ai_text = "This is not related to a treatment-comparison question."
+        else:
+            ai_text = compare_treatments(
+                query=user_message,
+                disease_name=disease_name,
+                user_role=user_role,
+                db=db
+            )
+    elif tool == "diagnosis_recommendation":
+        ai_text = recommend_diagnosis(
+            query=user_message,
+            user_role=user_role,
+            db=db,
+        )
     else:
         ai_text = generate_ai_response(user_message, user_role=user_role)
 

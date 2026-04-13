@@ -1,0 +1,263 @@
+DISEASE_START
+
+disease_name: Type 2 Diabetes Mellitus
+disease_code: T2DM
+icd_code: E11
+severity_spectrum: Uncomplicated to Advanced with Complications
+document_category: Treatment Comparison
+document_type: treatment
+
+DISEASE_OVERVIEW
+Type 2 Diabetes Mellitus represents the most common form of diabetes (90-95% of cases). Management varies significantly based on comorbidities, BMI, renal function, and cardiovascular risk. This document presents three distinct clinical presentations with divergent treatment strategies within the same diagnostic category, enabling comparison of therapeutic approaches and outcomes.
+
+TARGET_CONDITIONS
+- Glycemic control (HbA1c target typically 7.0-7.5%)
+- Weight management (especially if BMI > 30)
+- Renal function preservation
+- Cardiovascular risk reduction
+- Neuropathy symptom management
+- Infection prevention
+
+ACCESS_POLICY
+public_roles: Nurse,Doctor
+private_roles: Doctor
+
+TREATMENT_TAGS
+comorbidities: neuropathy, obesity, ckd, hypertension, cardiovascular_disease
+medication_classes: metformin, insulin, glp1_agonist, sglt2_inhibitor, dipeptidyl_peptidase_4_inhibitor
+route_categories: oral, injection, subcutaneous, intravenous
+patient_demographics: mixed_age, mixed_bmi, varying_disease_severity
+
+---
+
+SECTION_A_PUBLIC
+Disease Overview & Clinical Context
+
+Type 2 Diabetes Mellitus is a metabolic disorder characterized by insulin resistance and progressive pancreatic beta-cell dysfunction. Management requires individualized treatment selection based on:
+- Patient comorbidities (renal disease, cardiovascular disease, obesity)
+- Baseline glycemic control (HbA1c)
+- Symptom burden and complications
+- Patient preference and tolerability
+
+This section presents three real-world patients with the SAME diagnosis (Type 2 DM) but DIFFERENT clinical presentations, requiring DIFFERENT treatment strategies.
+
+---
+
+PATIENT_CASE_001
+
+case_id: P-001-T2DM
+patient_identifier: Anonymized Patient 001
+primary_diagnosis: Type 2 Diabetes Mellitus with Peripheral Neuropathy
+icd_codes: E11, G63 (neuropathy complication)
+baseline_hba1c: 9.2% (poorly controlled)
+baseline_bmi: 28 (overweight)
+comorbidities: Hypertension, Peripheral Neuropathy, prior_myocardial_infarction
+
+Clinical Presentation - Symptoms
+- Polyuria (frequent urination, especially nocturia)
+- Polydipsia (excessive thirst)
+- Tingling and numbness in both feet (peripheral neuropathy)
+- Generalized fatigue and low energy
+- Blurred vision (early diabetic retinopathy indicator)
+- Slow wound healing on lower extremities
+
+Clinical Context
+Patient has long-standing poorly controlled diabetes with neuropathic complications and cardiovascular risk. Requires rapid glycemic control to prevent progression of microvascular complications.
+
+Treatment Regimen
+- Primary: Metformin 1000 mg twice daily (total 2000 mg/day)
+- Secondary: Insulin Glargine 20 units at bedtime (basal insulin for fasting control)
+- Adjunctive: Paracetamol for neuropathic pain; Pregabalin 150 mg OD for neuropathic symptoms
+
+Rationale
+- Metformin: First-line agent; cardioprotective; addresses insulin resistance
+- Insulin: Rapid glucose reduction needed; HbA1c 9.2% indicates strong advantage of basal-bolus therapy for neuropathy prevention
+- Combination: Aggressive glycemic control to prevent further neuropathic progression
+
+Treatment Advantages (Pros)
+✓ Rapid and potent glucose control
+✓ Well-established safety profile across decades of use
+✓ Metformin reduces cardiovascular risk
+✓ Flexible dosing; insulin can be titrated upward with simple calculations
+
+Treatment Disadvantages (Cons)
+✗ Hypoglycaemia risk (especially fasting with basal insulin)
+✗ Weight gain pattern with insulin therapy
+✗ Daily injection burden; lower patient adherence risk
+✗ Requires education on carbohydrate counting and injection technique
+✗ Need for regular blood glucose monitoring (fingerstick or CGM)
+
+Clinical Outcome
+- 12-week HbA1c: 7.8% (reduction of 1.4%)
+- Weight change: +1.5 kg (modest weight gain)
+- Neuropathy symptoms: Stable; some improvement in pain with pregabalin
+- Adverse events: One mild hypoglycaemic episode (fasting 68 mg/dL, self-treated)
+- Assessment: MODERATE success; acceptable glycemic improvement with manageable hypoglycaemia risk
+
+---
+
+PATIENT_CASE_002
+
+case_id: P-002-T2DM
+patient_identifier: Anonymized Patient 002
+primary_diagnosis: Type 2 Diabetes Mellitus with Obesity
+icd_codes: E11, E66 (obesity complication)
+baseline_hba1c: 8.5% (moderately controlled but suboptimal)
+baseline_bmi: 34 (obese)
+comorbidities: Obesity, Hypertension, NAFLD (non-alcoholic fatty liver disease), Acanthosis Nigricans
+
+Clinical Presentation - Symptoms
+- Excessive hunger and postprandial fatigue (meals cause energy crashes)
+- Frequent infections (slower wound healing; thrush episodes)
+- Acanthosis nigricans (dark, velvety skin patches on neck/axillae—insulin resistance marker)
+- Dyspnoea on exertion (obesity-related)
+- Sleep apnoea symptoms (daytime somnolence)
+
+Clinical Context
+Patient has significant insulin resistance (evidenced by acanthosis nigricans and BMI 34). Weight loss is as important as glycemic control. Rapid-acting agents and weight-loss benefits are priority.
+
+Treatment Regimen
+- Primary: Semaglutide 1 mg subcutaneously once weekly
+- Secondary: Metformin 500 mg twice daily (total 1000 mg/day, lower than Case 001)
+- Adjunctive: Lisinopril 10 mg OD for hypertension; Atorvastatin 40 mg OD for lipid control
+
+Rationale
+- Semaglutide (GLP-1 agonist): Powerful weight loss agent (3-5 kg expected); cardiovascular protection; once-weekly convenience
+- Metformin: Lower dose sufficient with GLP-1; reduces hepatic glucose production
+- Combination: Addresses both glycemic control AND obesity; high patient satisfaction
+
+Treatment Advantages (Pros)
+✓ Significant weight loss (expected 4-8 kg in 12-16 weeks)
+✓ Once-weekly dosing improves adherence vs. daily pills
+✓ Strong cardiovascular benefit (reduces MI/stroke risk)
+✓ Very low hypoglycaemia risk (physiologic insulin secretion preserved)
+✓ Improves lipid profile and liver enzymes (NAFLD improvement)
+
+Treatment Disadvantages (Cons)
+✗ Nausea and vomiting initially (weeks 1-4, usually mild and transient)
+✗ High acquisition cost (~Rs. 8,000-10,000 per month)
+✗ Requires injection training; patient must remember weekly injection day
+✗ Rare: Medullary thyroid carcinoma risk (absolute contraindication in personal/family hx of MTC)
+✗ GI side effects can mean reduced appetite/oral intake (patient compliance challenge)
+
+Clinical Outcome
+- 16-week HbA1c: 7.1% (reduction of 1.4%)
+- Weight change: −6 kg (significant weight loss achieved)
+- Acanthosis nigricans: Gradual fading observed by 12 weeks
+- Sleep apnoea: Mild improvement in daytime somnolence
+- Adverse events: Nausea for first 3 weeks (mild); resolved without intervention
+- Assessment: GOOD success; excellent glycemic control + weight loss + improved quality of life
+
+---
+
+PATIENT_CASE_003
+
+case_id: P-003-T2DM
+patient_identifier: Anonymized Patient 003
+primary_diagnosis: Type 2 Diabetes Mellitus with Chronic Kidney Disease Stage 3a
+icd_codes: E11, N18.1 (CKD Stage 3a)
+baseline_hba1c: 8.0% (moderately controlled)
+baseline_bmi: 26 (normal)
+baseline_egfr: 52 mL/min/1.73m² (CKD Stage 3a)
+comorbidities: Chronic Kidney Disease Stage 3a, Hypertension, Mild albuminuria (ACR 35 mg/g), Dyslipidaemia
+
+Clinical Presentation - Symptoms
+- Polyuria and mild nocturia (diabetes + CKD)
+- Bilateral ankle oedema (CKD-related fluid retention; not severe)
+- Persistent fatigue (CKD anaemia contribution)
+- Mild hypertension (resistant to prior monotherapy)
+- Slow-to-heal minor cuts/bruises (CKD anaemia + diabetes)
+
+Clinical Context
+Patient has early renal disease (eGFR 52). Standard metformin is contraindicated (eGFR <45). Requires renal-protective agents that also reduce albuminuria progression and preserve eGFR.
+
+Treatment Regimen
+- Primary: Empagliflozin 10 mg once daily (SGLT2 inhibitor)
+- Secondary: Linagliptin 5 mg once daily (DPP-4 inhibitor, no renal dose adjustment needed)
+- Adjunctive: Losartan 50 mg OD (ARB for renal/BP protection); Ferrous sulphate 325 mg OD (CKD anaemia)
+
+Rationale
+- Empagliflozin: SGLT2 inhibitor; renal-protective via multiple mechanisms; reduces eGFR decline by ~30-40%; cardioprotective
+- Linagliptin: DPP-4 inhibitor; no renal dose adjustment; low hypoglycaemia risk; neutral on weight
+- Combination: Avoids metformin (contraindicated); achieves glycemic control while slowing CKD progression
+
+Treatment Advantages (Pros)
+✓ Renal-protective; slows eGFR decline and albuminuria progression (evidence-based)
+✓ Cardioprotective (SGLT2 inhibitors reduce CV death + HF hospitalizations)
+✓ Both agents are ORAL (no injections; high adherence)
+✓ Very low hypoglycaemia risk (physiologic insulin secretion preserved)
+✓ Weight-neutral; no adverse weight changes
+✓ Safe in advanced CKD (eGFR ≥20 mL/min; adjustments only at eGFR <20)
+
+Treatment Disadvantages (Cons)
+✗ SGLT2i risk: Urinary Tract Infections (UTI) and genital mycotic infections (10-15% incidence)
+✗ Rare: Diabetic Ketoacidosis risk (manageable with patient education)
+✗ Cost: Both agents are expensive in India (~Rs. 3,000-5,000/month combined)
+✗ Requires monitoring: Urine ketones, genital hygiene education, annual urine culture screening
+✗ Dose limitations: Empagliflozin not recommended if eGFR <20 mL/min (requires reassessment in future CKD progression)
+
+Clinical Outcome
+- 24-week HbA1c: 7.3% (reduction of 0.7% — slower but stable)
+- eGFR: 51 mL/min/1.73m² (STABLE; prevented decline; typical CKD progression ~2-3 mL/min/year expected)
+- Albuminuria: Reduced from 35 to 18 mg/g (improvement in kidney proteinuria)
+- Blood Pressure: Improved to 128/78 mmHg (controlled on losartan + empagliflozin)
+- Adverse events: One UTI episode at week 8 (treated with cephalexin); resolved
+- Assessment: GOOD success; glycemic control MAINTAINED while achieving renal protection and CKD stabilization
+
+---
+
+SECTION_B_PRIVATE
+Detailed Clinical Comparison & Decision Framework
+
+COMPARATIVE ANALYSIS TABLE
+┌────────────────────────────────────────────────────────────────────────────────────┐
+│ PATIENT │ KEY ADVANTAGE          │ KEY RISK              │ HBA1C OUTCOME │ SCORE │
+├────────────────────────────────────────────────────────────────────────────────────┤
+│ P-001   │ Rapid glucose control  │ Hypoglycaemia risk    │ 7.8% (1.4↓)   │ 7/10  │
+│ P-002   │ Weight loss + CV       │ Nausea; high cost     │ 7.1% (1.4↓)   │ 9/10  │
+│ P-003   │ Renal-protective       │ UTI/genital risk      │ 7.3% (0.7↓)   │ 8/10  │
+└────────────────────────────────────────────────────────────────────────────────────┘
+
+DECISION FRAMEWORK FOR CLINICIANS
+
+1. IF Patient has Neuropathic Complications + CVD Risk + Normal Renal Function
+   → Approach: Aggressive glycemic control via basal insulin + metformin (Case 001 model)
+   → Suitable: HbA1c > 9%, presence of microvascular complications, normal eGFR
+   → Monitor: Hypoglycaemia; weight gain; neuropathic symptom progression
+
+2. IF Patient has Significant Obesity (BMI > 30) + Suboptimal Control + No CKD
+   → Approach: GLP-1 agonist (weekly) + metformin for dual benefit (Case 002 model)
+   → Suitable: Weight loss is priority equal to glycemic control; high CV risk; motivated patient
+   → Monitor: Nausea tolerance; weight trajectory; cost-benefit for long-term adherence
+
+3. IF Patient has CKD Stage 3-4 + Microalbuminuria + Need for Renal Protection
+   → Approach: SGLT2i + DPP-4i, avoiding metformin (Case 003 model)
+   → Suitable: eGFR 20-59 (Stage 3-4); albuminuria present; need for long-term nephroprotection
+   → Monitor: UTI; genital infections; eGFR trend; potassium levels (if CKD Stage 4)
+
+---
+
+SECTION_C_TREATMENT_EVIDENCE
+Evidence-Based Outcomes & Literature Basis
+
+Regimen 001 (Metformin + Basal Insulin)
+- Reference: UKPDS 33; Diabetes Care 1998
+- HbA1c reduction: typically 1.5-2% when combined
+- Hypoglycaemia incidence: 5-10% with basal-only insulin
+- Cardiovascular benefit: Modest (metformin reduces MI by ~18%)
+
+Regimen 002 (Semaglutide + Metformin)
+- Reference: SUSTAIN-6 trial (Semaglutide in Type 2 Diabetes); NEJM 2016
+- HbA1c reduction: 1.5-1.8%
+- Weight loss: 3-5 kg average; up to 10 kg in responsive patients
+- CV outcomes: 26% reduction in CV death/MI/stroke
+
+Regimen 003 (Empagliflozin + Linagliptin)
+- Reference: EMPA-KIDNEY trial (2022); LANCET Diabetes Endocrinol
+- HbA1c reduction: 0.8-1.0%
+- eGFR protection: 28% slower decline vs placebo
+- CV outcomes: 25% reduction in CV death/hospitalization in CKD cohorts
+
+---
+
+DISEASE_END

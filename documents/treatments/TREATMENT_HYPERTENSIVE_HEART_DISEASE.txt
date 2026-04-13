@@ -1,0 +1,314 @@
+DISEASE_START
+
+disease_name: Hypertensive Heart Disease
+disease_code: HHD
+icd_code: I11
+severity_spectrum: Uncomplicated to Advanced with AF & HFpEF
+document_category: Treatment Comparison
+document_type: treatment
+
+DISEASE_OVERVIEW
+Hypertensive Heart Disease (HHD) results from chronic uncontrolled hypertension leading to cardiac remodelling, left ventricular hypertrophy (LVH), diastolic dysfunction, and progressive heart failure. Treatment strategies vary significantly based on blood pressure severity, presence of atrial fibrillation, left ventricular ejection fraction (LVEF), and comorbid metabolic disorders. This document presents three distinct clinical presentations ranging from uncomplicated hypertension with LVH to resistant hypertension with metabolic syndrome to hypertension complicated by AF and heart failure.
+
+TARGET_CONDITIONS
+- Blood pressure control (target typically <130/80 mmHg for cardiac patients)
+- Left ventricular hypertrophy (LVH) regression
+- Prevention of chronic heart failure progression
+- Rate control in concurrent atrial fibrillation
+- Reduction of cardiovascular morbidity and mortality
+- Fluid/electrolyte balance (especially with diuretics)
+- Arrhythmia prevention and stroke risk reduction
+
+ACCESS_POLICY
+public_roles: Nurse,Doctor
+private_roles: Doctor
+
+TREATMENT_TAGS
+comorbidities: lvh, metabolic_syndrome, atrial_fibrillation, heart_failure, diastolic_dysfunction, epistaxis
+medication_classes: calcium_channel_blocker, ace_inhibitor, arb, thiazide_diuretic, beta_blocker, anticoagulant
+route_categories: oral
+patient_demographics: mixed_age, mixed_symptom_burden, varying_disease_complexity
+cardiac_monitoring: echocardiography, ekg, holter_monitor, blood_pressure_logs
+
+---
+
+SECTION_A_PUBLIC
+Disease Overview & Clinical Context
+
+Hypertensive Heart Disease is a progressive condition developing over years of inadequately controlled hypertension. The left ventricle hypertrophies to compensate for chronic pressure overload, leading to:
+- Impaired diastolic relaxation (Diastolic Heart Failure or HFpEF = Heart Failure with Preserved Ejection Fraction)
+- Increased risk of arrhythmias, especially Atrial Fibrillation (AF)
+- Progressive deterioration of systolic function in severe cases
+- Increased risk of acute coronary syndromes and sudden cardiac death
+
+Treatment selection depends on:
+- Severity of hypertension (Stage 1, Stage 2, Resistant)
+- Presence of target organ damage (LVH, albuminuria)
+- Presence of complications (AF, HF, CKD)
+- Patient tolerability and comorbidities
+- Medication adherence capacity
+
+This section presents three real-world patients with the same primary diagnosis (Hypertensive Heart Disease) but markedly different clinical complexity requiring distinct therapeutic strategies.
+
+---
+
+PATIENT_CASE_004
+
+case_id: P-004-HHD
+patient_identifier: Anonymized Patient 004
+primary_diagnosis: Stage 2 Hypertension with Left Ventricular Hypertrophy
+icd_codes: I11, I51.7 (LVH)
+baseline_systolic_bp: 162 mmHg (Stage 2)
+baseline_diastolic_bp: 98 mmHg (Stage 2)
+baseline_lvh: Confirmed on echocardiography (LVMI 118 g/m²; normal <115 for women, <125 for men)
+comorbidities: Dyslipidaemia, Family history of premature MI, Sedentary lifestyle
+duration_of_hypertension: 8 years (poorly controlled for most)
+
+Clinical Presentation - Symptoms
+- Episodic headache (morning predominance, often related to sleep patterns)
+- Dyspnoea on exertion (mild; related to LVH and diastolic dysfunction)
+- Palpitations (occasional; usually benign PACs with exertion)
+- Chest heaviness or tightness with exertion (anginal quality, but normal troponin/ECG)
+- Dizziness with rapid position changes (position-dependent blood pressure swings)
+
+Clinical Context
+Patient has uncomplicated Stage 2 hypertension with objective evidence of target organ damage (LVH on echocardiography). The goal is aggressive BP control to regress LVH and reduce CV events. No complications (AF, HF, CKD) at baseline.
+
+Treatment Regimen
+- Primary: Amlodipine 10 mg once daily (calcium channel blocker)
+- Secondary: Ramipril 5 mg once daily (ACE inhibitor)
+- Tertiary: Aspirin 75 mg OD (antiplatelet); Rosuvastatin 20 mg OD (lipid control)
+
+Rationale
+- Amlodipine: First-line CCB; potent vasodilator; proven LVH regression; minimal metabolic side effects
+- Ramipril: ACE inhibitor; renal-protective; prevents LVH progression; cardioprotective (post-MI benefit); reduces AL proteinuria if present
+- Combination: Synergistic BP reduction (typically 20-30 mmHg systolic reduction); proven in ALLHAT trial
+
+Treatment Advantages (Pros)
+✓ Proven LVH regression with combination (ALLHAT trial; meta-analyses show 15-20% LVMI reduction in 12-24 weeks)
+✓ Renal protective via ACE inhibitor mechanism
+✓ Well tolerated; low adverse event rate
+✓ Flexible dosing; can titrate independently
+✓ Cardiovascular risk reduction (post-MI benefit with ACE-I)
+✓ Should improve diastolic dysfunction over time
+
+Treatment Disadvantages (Cons)
+✗ Persistent dry cough due to ACE inhibitor (affects ~10-15% of patients; may require switch to ARB)
+✗ Ankle oedema (can occur with CCB as monotherapy; sometimes dose-related)
+✗ Teratogenic (BOTH amlodipine and ramipril contraindicated in pregnancy; requires counselling for women of childbearing age)
+✗ Hyperkalemia risk if ramipril dose increased or K+ supplemented (monitor K+, Cr)
+✗ Potentiation of orthostatic hypotension in elderly (requires monitoring)
+
+Clinical Outcome (at 8 weeks)
+- Systolic BP: 162 → 128 mmHg (34 mmHg reduction; excellent)
+- Diastolic BP: 98 → 82 mmHg (16 mmHg reduction; excellent)
+- Symptoms: Headache resolved; dyspnoea on exertion improved
+- Echocardiography (repeat at 12 weeks): LVMI 118 → 105 g/m² (LVH regression evident)
+- Adverse events: Minimal cough noted; patient tolerating well
+- Serum K+: 4.2 mEq/L (normal; no hyperkalemia)
+- Assessment: GOOD success; target organ damage regressing; symptom improvement; excellent BP control
+
+---
+
+PATIENT_CASE_005
+
+case_id: P-005-HHD
+patient_identifier: Anonymized Patient 005
+primary_diagnosis: Resistant Hypertension (BP uncontrolled on 2 agents) with Metabolic Syndrome
+icd_codes: I11, E88.81 (Metabolic Syndrome)
+baseline_systolic_bp: 178 mmHg (Stage 2, uncontrolled despite 2 agents)
+baseline_diastolic_bp: 104 mmHg (Stage 2, uncontrolled)
+baseline_bmi: 32 (obese)
+metabolic_markers: Fasting glucose 118 mg/dL (impaired), TG 210 mg/dL (elevated), HDL 38 mg/dL (low)
+comorbidities: Metabolic Syndrome, Obesity, Dyslipidaemia, Hyperuricemia (gout history)
+duration_of_hypertension: 12 years; on amlodipine + lisinopril with inadequate control
+
+Clinical Presentation - Symptoms
+- Severe headache (persistent; often occipital; unrelieved by analgesics)
+- Epistaxis (recurrent nosebleeds; suggests severe uncontrolled BP)
+- Visual disturbance (blurred vision; concern for hypertensive retinopathy; needs fundoscopy)
+- Exertional breathlessness (progressive; suggests early diastolic dysfunction or LVH)
+- Orthostatic lightheadedness (conflicting symptom; may relate to vasodilator overtreatment later)
+
+Clinical Context
+Patient has RESISTANT hypertension (defined as BP >130/80 on 3 or more antihypertensives, or requiring 4+ agents). Metabolic syndrome complicates management (insulin resistance worsens hypertension). Requires triple therapy addressing volume overload, vasoconstriction, and metabolic dysfunction.
+
+Treatment Regimen (3rd-agent addition to prior amlodipine + lisinopril)
+- Primary: Losartan 100 mg once daily (ARB; replaces ACE inhibitor)
+- Secondary: Chlorthalidone 12.5 mg once daily (long-acting thiazide-like diuretic; replaces weaker agent)
+- Tertiary: Amlodipine 5 mg once daily (maintained)
+- Quaternary: Metoprolol 50 mg BD (beta-blocker added if BP still uncontrolled after 4 weeks)
+
+Rationale
+- Switch to Losartan (ARB): Avoids ACE-I cough; different RAS pathway inhibition; may improve metabolic profile slightly vs. ACE-I
+- Chlorthalidone: More potent than HCTZ; longer T½ (66 hours vs. 6 hours); volumetric diuresis for resistant HTN
+- Triple therapy approach: Addresses volume (diuretic), vasoconstriction (ARB + CCB), and sympathetic tone (if beta-blocker added)
+- Losartan 100 mg is maximal dose; chlorthalidone 12.5 mg is potent thiazide-type diuretic
+
+Treatment Advantages (Pros)
+✓ Triple therapy addresses multiple pathogenic pathways (volume, vasoconstriction, sympathetic)
+✓ ARB avoids ACE-I cough; effective as second RAS inhibitor
+✓ Chlorthalidone more potent than HCTZ; maintains BP control longer between doses
+✓ Volume-depleting diuretic particularly effective in obesity-related resistant HTN
+✓ Synergistic effect allows BP reduction despite metabolic resistance
+
+Treatment Disadvantages (Cons)
+✗ Electrolyte monitoring REQUIRED (hypokalemia risk with chlorthalidone; can precipitate arrhythmias)
+✗ Hypotension risk (especially after rapid titration or volume depletion; dizziness, syncope possible)
+✗ Hyperuricemia worsening (thiazide diuretics raise uric acid; problematic for gout-prone patients)
+✗ Metabolic derangement (hyperglycemia worsening; glucose tolerance may deteriorate with thiazide)
+✗ Complex regimen; adherence challenging (3-4 pills daily)
+✗ Hypomagnesemia risk (diuretic-induced; can worsen cardiac arrhythmia tendency)
+✗ Sexual dysfunction potential with beta-blocker (if added as 4th agent)
+
+Clinical Outcome (at 12 weeks)
+- Systolic BP: 178 → 142 mmHg (36 mmHg reduction; improvement but still above goal of <130)
+- Diastolic BP: 104 → 90 mmHg (14 mmHg reduction; improvement)
+- Headache: Somewhat improved but persistent; epistaxis resolved
+- Serum K+: 3.4 mEq/L (LOW; hypokalemia present; requires K+ supplementation or potassium-sparing agent addition)
+- Fasting glucose: 118 → 128 mg/dL (WORSENED; thiazide-induced hyperglycemia)
+- Uric acid: 7.8 → 8.4 mg/dL (elevated; gout flare risk)
+- Adverse events: Orthostatic dizziness; hypokalemia; hyperglycemia; poor adherence to 3 agents (admitted skipping doses)
+- Adherence counselling added at week 12; consideration for 4th agent (spironolactone vs. beta-blocker) deferred pending adherence improvement
+- Assessment: MODERATE success; BP improved but control suboptimal; metabolic complications emerging; adherence challenge limiting further progress
+
+---
+
+PATIENT_CASE_006
+
+case_id: P-006-HHD
+patient_identifier: Anonymized Patient 006
+primary_diagnosis: Hypertension with Atrial Fibrillation and Heart Failure with Preserved Ejection Fraction (HFpEF)
+icd_codes: I11, I48.91 (AF with RVR), I50.22 (HFpEF)
+baseline_systolic_bp: 155 mmHg (Stage 2)
+baseline_diastolic_bp: 95 mmHg (Stage 2)
+baseline_lvef: 55% (PRESERVED; normal EF but diastolic dysfunction confirms HFpEF)
+baseline_af_rate: 110-130 bpm (rapid ventricular response; AF with RVR)
+baseline_nyha_class: NYHA Class II-III (significant dyspnoea)
+comorbidities: Atrial Fibrillation (paroxysmal), HFpEF (diastolic heart failure), Hypertension, Dyslipidaemia, mild CKD (eGFR 58)
+duration_of_hypertension: 10 years; LVH present on prior echo
+
+Clinical Presentation - Symptoms
+- Irregular palpitations (most prominent; patient very aware of AF episodes)
+- Bilateral ankle oedema (progressive; worsens by evening; relates to HFpEF and AF)
+- Orthopnoea (dyspnoea when supine; must use 2 pillows; classic HFpEF symptom)
+- Fatigue and reduced exercise capacity (limits walking to <100 meters before dyspnoea)
+- Exertional dyspnoea (worsens with tachycardia during AF episodes)
+
+Clinical Context
+Complex multi-system disease: hypertension → LVH → diastolic dysfunction → HFpEF → AF (frequently seen together). Patient requires:
+1. BP control to reduce afterload on stiffened LV
+2. AF rate control to allow diastolic filling time and reduce symptoms
+3. Diuresis to manage fluid overload (oedema, orthopnoea)
+4. Anticoagulation to prevent thromboembolic stroke (CHADS₂-VASc score likely ≥2)
+
+Treatment Regimen
+- Primary: Bisoprolol 5 mg once daily (beta-blocker for rate control and cardioprotection)
+- Secondary: Furosemide 40 mg once daily (loop diuretic for diuresis/oedema)
+- Tertiary: Apixaban 5 mg twice daily (anticoagulant for AF stroke prevention)
+- Quaternary: Atorvastatin 20 mg OD (lipid control); Spironolactone 25 mg OD (aldosterone antagonist for HFpEF)
+
+Rationale
+- Bisoprolol: Beta-blocker achieves dual benefit: (1) AF rate control to 60-80 bpm at rest, (2) cardioprotective for HFpEF and post-MI benefit
+- Furosemide: Loop diuretic preferred for HFpEF; achieves volume depletion and resolves oedema/orthopnoea
+- Apixaban: DOA (Direct Oral Anticoagulant) preferred over warfarin; superior safety and convenience; AF stroke risk requires anticoagulation
+- Spironolactone: Aldosterone antagonist; improves HFpEF outcomes and reduces mortality in heart failure
+
+Treatment Advantages (Pros)
+✓ Rate control for AF achieved; patient reports improved symptom burden (palpitations less severe)
+✓ Loop diuresis rapidly resolves oedema and orthopnoea (within days)
+✓ Anticoagulation reduces stroke risk dramatically (81% risk reduction vs. placebo in AF)
+✓ Beta-blocker improves HFpEF prognosis (modest but evidence-based)
+✓ Combination addresses all three components: HTN + AF + HF
+
+Treatment Disadvantages (Cons)
+✗ Bleeding risk with anticoagulation (Apixaban has ~3% major bleeding risk annually; requires patient education)
+✗ Electrolyte loss with loop diuretic (hypokalemia, hypomagnesemia risk; requires monitoring K+, Mg2+)
+✗ Bradycardia risk with beta-blocker (HR can drop to 50-55 if overdosed; requires HR monitoring)
+✗ Diuretic-induced dehydration/orthostatic hypotension (especially in elderly or volume-depleted states)
+✗ Need for regular INR/bleeding symptom monitoring (though DOA reduces this vs. warfarin)
+✗ Acute kidney injury risk if diuresis too aggressive (monitor Cr, eGFR; hold diuretic if volume too depleted)
+✗ Sexual dysfunction potential with beta-blocker (common complaint; affects quality of life)
+
+Clinical Outcome (at 6 weeks)
+- Systolic BP: 155 → 132 mmHg (23 mmHg reduction; good)
+- Diastolic BP: 95 → 85 mmHg (10 mmHg reduction; acceptable)
+- AF ventricular rate: 110-130 → 68-78 bpm at rest (excellent rate control; bisoprolol effective)
+- Ankle oedema: RESOLVED; patient reports improved mobility and no orthopnoea
+- NYHA Functional Class: Class II-III → Class II (significant functional improvement)
+- BNP (B-type Natriuretic Peptide): 450 pg/mL (baseline) → 180 pg/mL (improved; indicates HF improvement)
+- Serum K+: 3.8 mEq/L (LOW; on spironolactone, K+ sparing helps; monitored)
+- Serum Cr: 1.1 mg/dL (stable; no AKI from diuresis)
+- Bleeding events: None; patient compliant with apixaban
+- AF episodes: Reduced frequency (previously 2-3/week; now ~1/week); less severe
+- Adverse events: Minimal bradycardia (HR 54-58 at night); patient tolerating well
+- Assessment: MODERATE to GOOD success; excellent symptomatic improvement; AF rate control achieved; fluid overload resolved; anticoagulation protective; stable renal function
+
+---
+
+SECTION_B_PRIVATE
+Detailed Clinical Comparison & Decision Framework
+
+COMPARATIVE ANALYSIS TABLE
+┌────────────────────────────────────────────────────────────────────────────────────┐
+│PATIENT│   BP COMPLEXITY    │  KEY ADVANTAGE       │  KEY RISK          │ SCORE │
+├────────────────────────────────────────────────────────────────────────────────────┤
+│ P-004 │ Uncomplicated S2HT │ Proven LVH regression│ ACE-I cough; ankle │ 9/10  │
+│       │                    │                      │ oedema             │       │
+├────────────────────────────────────────────────────────────────────────────────────┤
+│ P-005 │ Resistant HT       │ Multipharmacy        │ Electrolyte loss;  │ 6/10  │
+│       │ + Met Synd         │ multimodal           │ metabolic worsen   │       │
+├────────────────────────────────────────────────────────────────────────────────────┤
+│ P-006 │ HT + AF + HFpEF    │ Symptom improvement  │ Bleeding risk;     │ 7/10  │
+│       │ (complex)          │ + rate control       │ electrolyte wasting│       │
+└────────────────────────────────────────────────────────────────────────────────────┘
+
+DECISION FRAMEWORK FOR CLINICIANS
+
+1. IF Stage 2 Hypertension + Objective LVH + No Complications
+   → Approach: Amlodipine + ACE-I dual therapy for LVH regression (Case 004 model)
+   → Suitable: BP 160-180/90-110, LVMI >110, no AF/HF, normal eGFR
+   → Monitor: Dry cough (consider switch to ARB); ankle oedema; K+/Cr annually
+   → Expected: LVH regression at 12-24 weeks; BP target <130/80
+
+2. IF Resistant Hypertension + Metabolic Syndrome + Obesity
+   → Approach: Triple therapy (ARB + long-acting thiazide + CCB) ± 4th agent (Case 005 model)
+   → Suitable: BP uncontrolled on 2 agents, BMI >30, TG elevated, metabolic dysfunction
+   → Monitor: K+, Mg2+, glucose, uric acid frequently (monthly→quarterly); adherence counselling critical
+   → Expected: Slower BP reduction; metabolic side effects risk; complex regimen challenges
+
+3. IF Hypertension + AF with RVR + HFpEF
+   → Approach: Beta-blocker + diuretic + anticoagulation + aldosterone antagonist (Case 006 model)
+   → Suitable: AF with rapid rate, HFpEF (EF >40%), symptoms oedema/dyspnoea, CHADS₂-VASc ≥2
+   → Monitor: HR (target 60-80 at rest), K+, Mg2+, Cr (AKI risk), bleeding symptoms, BNP trends
+   → Expected: Rapid symptom improvement; AF rate control; oedema resolution; protect EF; reduce AF burden
+
+---
+
+SECTION_C_TREATMENT_EVIDENCE
+Evidence-Based Outcomes & Literature Basis
+
+Regimen 004 (Amlodipine + Ramipril)
+- Reference: ALLHAT Trial (Antihypertensive and Lipid-Lowering Treatment to Prevent Heart Attack Trial); JAMA 2002
+- BP reduction: 20-30 mmHg systolic
+- LVH regression: 15-20% LVMI reduction at 12-24 weeks (amlodipine + ACE-I combination superior to amlodipine alone)
+- CV outcomes: 10-15% reduction in CV death/MI compared to chlorthalidone monotherapy
+- Cough incidence: 10-15% (major reason for ACE-I discontinuation; consider ARB if occurs)
+
+Regimen 005 (Losartan + Chlorthalidone + Amlodipine ± Beta-blockers)
+- Reference: SPRINT Trial (Systolic Blood Pressure Intervention Trial); NEJM 2015
+- BP reduction: 20-30 mmHg with double agent, additional 10-15 with triple
+- Resistant HTN triple therapy: Achieves <130/80 in ~40-50% of patients
+- Electrolyte complications: Hypokalemia (~20%), hypomagnesemia (~15%)
+- Metabolic side effects: Glucose worsening in ~20% (thiazide-induced hyperglycemia)
+
+Regimen 006 (Bisoprolol + Furosemide + Apixaban + Spironolactone)
+- Reference: AFFIRM Trial (Atrial Fibrillation Follow-up Investigation of Rhythm Management); NEJM 2002
+- AF rate control: Target HR <80 at rest; bisoprolol achieves this in 85-90%
+- Stroke prevention: Apixaban reduces stroke risk by 81% vs. placebo; NNT ~47 over 1 year
+- HFpEF outcomes: Spironolactone in TOPCAT trial showed modest mortality benefit (13% reduction)
+- Symptom improvement: Loop diuretics resolve HF symptoms in >90% within 2-4 weeks
+
+---
+
+DISEASE_END
