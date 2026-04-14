@@ -1,0 +1,83 @@
+REPORT_START
+patient_name: Priya Subramaniam
+report_id: MR-2024-00734
+report_date: 2024-05-02
+department: Rheumatology
+hospital: Manipal Hospital, Bengaluru
+attending_doctor: Dr. Nandini Shetty, MD DNB (Rheumatology)
+
+ACCESS_POLICY
+public_roles: Nurse,Doctor
+private_roles: Doctor
+
+SECTION_A_PUBLIC
+Patient Information
+- Patient Name: Priya Subramaniam
+- Gender: Female
+- Blood Group: A+
+- Ward / Room: Rheumatology Ward, Room 118
+- Admission Date: 25 April 2024
+- Discharge Date: 02 May 2024
+- Assigned Doctor: Dr. Nandini Shetty, MD DNB (Rheumatology)
+- Allergies: None known
+- Chronic Conditions: Systemic Lupus Erythematosus (SLE, diagnosed 2021)
+
+Chief Complaint
+- Acute bilateral joint pain and swelling (wrists, knees, ankles)
+- Facial rash worsening over 3 weeks
+- High-grade fever
+- Severe fatigue
+- New-onset haematuria
+
+Physical Examination
+- Temperature: 38.4 C
+- Blood Pressure: 138/88 mmHg
+- Heart Rate: 96 bpm
+- Malar Rash: Erythematous butterfly rash across cheeks and nose bridge
+- Joints: Bilateral wrist, knee, and ankle synovitis; warm, tender, swollen
+- Urine Dipstick: Blood 3+, Protein 2+
+- SLEDAI-2K Score: 18 (severe flare)
+- Weight: 58 kg (stable)
+
+Clinical Progress Summary
+- Day 1-3: Pulse methylprednisolone; fever settled by Day 2.
+- Day 4: Joint swelling reducing; rash improving.
+- Day 5: Renal biopsy result showed Class III nephritis; MMF initiated.
+- Day 7: Discharged on oral taper.
+
+Discharge Instructions
+- Discharge Medications: Prednisolone 60 mg OD (tapering schedule provided); MMF 1.5 g BD; Hydroxychloroquine 400 mg OD; Losartan 50 mg OD; Alendronate weekly; Co-trimoxazole 480 mg OD
+- Follow-Up Plan: Rheumatology OPD in 2 weeks; Nephrology review in 4 weeks; U&E and urine PCR in 1 week; Ophthalmology (HCQ monitoring) in 6 months
+- Red Flag Symptoms: Return immediately if symptoms worsen acutely or new concerns arise.
+
+SECTION_B_PRIVATE
+History of Present Illness
+- 30-year-old known SLE patient on Hydroxychloroquine presenting with disease flare.
+- Malar rash worsened following sun exposure.
+- New renal involvement suspected on urinalysis (haematuria, proteinuria).
+- SLEDAI-2K score 18 (severe flare).
+
+Investigations and Results
+- dsDNA Antibody: 1:640 titre (Reference: < 1:10) -> High titre, active SLE
+- C3 Complement: 0.42 g/L (Reference: 0.75-1.65 g/L) -> Low, disease activity
+- C4 Complement: 0.06 g/L (Reference: 0.14-0.54 g/L) -> Very low
+- Urine PCR: 185 mg/mmol (Reference: < 30 mg/mmol) -> Lupus nephritis range
+- Renal Biopsy: ISN Class III Focal Proliferative Lupus Nephritis -> Nephritis confirmed
+- ANA: 1:1280 homogenous pattern (Reference: Negative) -> Positive
+
+Diagnosis
+- Systemic Lupus Erythematosus (SLE), severe flare
+- Lupus Nephritis Class III (Focal Proliferative)
+- Polyarthritis
+
+Treatment Administered
+- IV Methylprednisolone: 500 mg IV OD for 3 days (pulse therapy) -> Prednisolone 60 mg oral OD taper
+- Immunosuppression: Mycophenolate Mofetil (MMF) 1.5 g BD (induction; target 3 g/day)
+- Hydroxychloroquine: Continued 400 mg OD (maintenance)
+- Renal Protection: Losartan 50 mg OD; target BP < 130/80; low-salt diet
+- Bone Protection: Alendronate 70 mg weekly; Cholecalciferol 800 IU OD; Calcium 1000 mg OD (steroid prophylaxis)
+- PCP Prophylaxis: Co-trimoxazole 480 mg OD (Pneumocystis prophylaxis on immunosuppression)
+
+CONFIDENTIALITY_NOTICE
+This document is confidential. Issued by Manipal Hospital, Bengaluru. Unauthorized disclosure is prohibited.
+REPORT_END

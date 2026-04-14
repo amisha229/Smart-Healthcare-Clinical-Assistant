@@ -1,5 +1,6 @@
 import os
 import sys
+import re
 from typing import Optional
 from sqlalchemy.orm import Session
 
@@ -9,14 +10,21 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from services.retrieval_service import retrieve_clinical_context
+from services.summarization_service import summarize_patient_report
+from services.medical_knowledge_service import get_medical_knowledge
+from services.treatment_comparison_tool import compare_treatments
+from services.diagnosis_recommendation import recommend_diagnosis
 from dotenv import load_dotenv
 
 from models.message import Message
 from models.conversation import Conversation
 from models.user import User
+from models.medical_knowledge_cache import MedicalKnowledgeCache
+from database import engine
 
 # Load the .env file containing the Groq API key
 load_dotenv()
+MedicalKnowledgeCache.__table__.create(bind=engine, checkfirst=True)
 
 # Initialize Groq using OpenAI-compatible client endpoint (This prevents decommissioning errors)
 llm = ChatOpenAI(
@@ -26,6 +34,32 @@ llm = ChatOpenAI(
     temperature=0.2, # Low temperature for high factual consistency
     max_tokens=1000
 )
+
+
+def _is_treatment_comparison_query(user_message: str) -> bool:
+    """Heuristic guard to ensure treatment tool is used only for treatment-focused prompts."""
+    text = (user_message or "").strip().lower()
+    if not text:
+        return False
+
+    # Queries that are clearly meta/general and should not hit treatment comparison.
+    blocked_patterns = [
+        r"\bwho\s+are\s+you\b",
+        r"\bwhat\s+agent\b",
+        r"\bprime\s+minister\b",
+        r"\bwhat\s+time\b",
+        r"\bweather\b",
+    ]
+    for pattern in blocked_patterns:
+        if re.search(pattern, text):
+            return False
+
+    treatment_keywords = [
+        "treatment", "regimen", "therapy", "compare", "comparison", "medication",
+        "drug", "dose", "dosing", "side effect", "adverse", "contraindication",
+        "pros", "cons", "efficacy", "outcome", "management", "guideline"
+    ]
+    return any(keyword in text for keyword in treatment_keywords)
 
 
 def _get_role_guidance(user_role: str) -> str:
@@ -59,8 +93,11 @@ def generate_ai_response(user_message: str, user_role: str = "Doctor"):
     # 1. Retrieve the exact database chunks (Our Retrieval Engine)
     context_chunks = retrieve_clinical_context(user_message, user_role)
     
-    if "No relevant medical protocols" in context_chunks:
-        return "I cannot find relevant medical protocols for your access level."
+    if context_chunks.startswith("ACCESS_RESTRICTED:"):
+        return "I cannot provide access to this information for your current role."
+
+    if context_chunks.startswith("NO_RELEVANT_DATA:"):
+        return "This question is outside the medical knowledge base available to this assistant. Please ask a medical guideline, treatment protocol, or patient-report question."
 
     print("Feeding chunks to Groq LLM for answer generation...")
     role_guidance = _get_role_guidance(user_role)
@@ -119,6 +156,11 @@ def process_chat(
     user_message: str,
     user_id: int = 1,
     user_role: str = "Doctor",
+    selected_tool: str = "retrieval",
+    patient_name: Optional[str] = None,
+    knowledge_type: str = "condition",
+    use_rag: bool = True,
+    disease_name: Optional[str] = None,
 ):
 
     if conversation_id is None:
@@ -148,8 +190,44 @@ def process_chat(
     db.add(user_msg)
     db.commit()
 
-    # 2. Generate AI response
-    ai_text = generate_ai_response(user_message, user_role=user_role)
+    # 2. Generate AI response based on selected tool
+    tool = (selected_tool or "retrieval").strip().lower()
+    if tool == "summarization":
+        if (user_role or "").strip().title() == "Admin":
+            ai_text = "Summarization tool is not available for Admin role."
+        elif not patient_name:
+            ai_text = "Please provide patient_name when using summarization tool."
+        else:
+            ai_text = summarize_patient_report(db, patient_name=patient_name, user_role=user_role)
+    elif tool == "medical_knowledge":
+        mk = get_medical_knowledge(
+            query=user_message,
+            knowledge_type=knowledge_type or "condition",
+            db=db,
+            user_role=user_role,
+            use_rag=use_rag,
+        )
+        ai_text = mk.get("response", "Unable to fetch medical knowledge right now.")
+    elif tool == "treatment_comparison":
+        if not disease_name:
+            ai_text = "Please provide disease_name when using treatment_comparison tool. E.g., 'Type 2 Diabetes Mellitus', 'Rheumatoid Arthritis'."
+        elif not _is_treatment_comparison_query(user_message):
+            ai_text = "This is not related to a treatment-comparison question."
+        else:
+            ai_text = compare_treatments(
+                query=user_message,
+                disease_name=disease_name,
+                user_role=user_role,
+                db=db
+            )
+    elif tool == "diagnosis_recommendation":
+        ai_text = recommend_diagnosis(
+            query=user_message,
+            user_role=user_role,
+            db=db,
+        )
+    else:
+        ai_text = generate_ai_response(user_message, user_role=user_role)
 
     # 3. Store AI response
     ai_msg = Message(

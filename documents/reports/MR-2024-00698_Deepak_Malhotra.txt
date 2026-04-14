@@ -1,0 +1,82 @@
+REPORT_START
+patient_name: Deepak Malhotra
+report_id: MR-2024-00698
+report_date: 2024-04-29
+department: Surgical Oncology
+hospital: AIIMS, New Delhi
+attending_doctor: Dr. Sanjay Kapoor, MCh (Surgical Oncology)
+
+ACCESS_POLICY
+public_roles: Nurse,Doctor
+private_roles: Doctor
+
+SECTION_A_PUBLIC
+Patient Information
+- Patient Name: Deepak Malhotra
+- Gender: Male
+- Blood Group: O+
+- Ward / Room: Oncology Ward, Room 501
+- Admission Date: 20 April 2024
+- Discharge Date: 29 April 2024
+- Assigned Doctor: Dr. Sanjay Kapoor, MCh (Surgical Oncology)
+- Allergies: Morphine (nausea/vomiting)
+- Chronic Conditions: Nil significant; ex-smoker (20 pack-years, quit 2019)
+
+Chief Complaint
+- Persistent haemoptysis for 6 weeks
+- 8 kg unintentional weight loss over 3 months
+- Persistent cough
+- Right-sided chest pain
+- Initially attributed to URTI
+
+Physical Examination
+- Temperature: 37.1 C
+- Blood Pressure: 128/82 mmHg
+- Heart Rate: 80 bpm
+- Weight: 67 kg (down from 75 kg in 3 months)
+- SpO2: 96% on room air
+- Chest: Reduced air entry right upper zone; dullness to percussion RUZ
+- Lymph Nodes: Right supraclavicular lymphadenopathy (1.5 cm, firm, non-tender)
+- Performance Status: ECOG PS 1
+
+Clinical Progress Summary
+- Day 2: Bronchoscopy completed; biopsy results on Day 5.
+- Day 6: MDT meeting; cCRT + Osimertinib plan agreed.
+- Day 7: Cycle 1 chemotherapy administered; tolerated well.
+- Day 9: Discharged for outpatient radiotherapy.
+
+Discharge Instructions
+- Discharge Medications: Osimertinib 80 mg OD; Ondansetron 8 mg TDS; Dexamethasone reducing; Oxycodone SR 10 mg BD; Omeprazole 20 mg OD
+- Follow-Up Plan: Oncology OPD in 3 weeks (Cycle 2); RT department weekly; CT restaging after 2 cycles; palliative care referral for symptom support
+- Red Flag Symptoms: Return immediately if symptoms worsen acutely or new concerns arise.
+
+SECTION_B_PRIVATE
+History of Present Illness
+- 46-year-old ex-smoker with 6-week history of haemoptysis and progressive weight loss.
+- GP chest X-ray showed right upper lobe mass.
+- CT chest confirmed 4.2 cm spiculated RUL mass with ipsilateral mediastinal lymphadenopathy.
+- Bronchoscopy with biopsy performed.
+
+Investigations and Results
+- CT Chest: 4.2 cm spiculated RUL mass with ipsilateral mediastinal lymph nodes -> Highly suspicious for lung carcinoma
+- PET-CT: FDG-avid RUL mass (SUVmax 12.4), N2 mediastinal nodes, no M1 disease -> Stage IIIA
+- Bronchoscopy Biopsy: Non-small cell lung carcinoma, adenocarcinoma -> Confirmed NSCLC
+- EGFR Mutation: Positive, Exon 19 deletion -> Eligible for targeted therapy
+- PD-L1 Expression: TPS 45% (reference < 1%) -> Immunotherapy candidate
+- Pulmonary Function: FEV1 72% predicted (reference >= 80%) -> Mildly reduced
+
+Diagnosis
+- Non-Small Cell Lung Carcinoma (Adenocarcinoma), Stage IIIA (T2bN2M0)
+- EGFR Exon 19 deletion positive
+
+Treatment Administered
+- Targeted Therapy: Osimertinib 80 mg OD (EGFR TKI, first line given Exon 19 deletion)
+- MDT Decision: Concurrent chemoradiotherapy (cCRT) planned; surgical resection not feasible (N2)
+- Chemotherapy: Carboplatin AUC5 + Pemetrexed 500 mg/m2 every 3 weeks for 4 cycles
+- Radiotherapy: Planning commenced; 60 Gy in 30 fractions to primary lesion and nodes
+- Supportive Care: Ondansetron 8 mg TDS; Dexamethasone 8 mg pre-chemo; G-CSF if neutropenia
+- Analgesia: Paracetamol 1 g QDS; Oxycodone SR 10 mg BD (morphine allergy)
+
+CONFIDENTIALITY_NOTICE
+This document is confidential. Issued by AIIMS, New Delhi. Unauthorized disclosure is prohibited.
+REPORT_END

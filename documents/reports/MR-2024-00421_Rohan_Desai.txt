@@ -1,0 +1,80 @@
+REPORT_START
+patient_name: Rohan Desai
+report_id: MR-2024-00421
+report_date: 2024-03-22
+department: Endocrinology
+hospital: Ruby Hall Clinic, Pune
+attending_doctor: Dr. Anita Joshi, MD DM (Endocrinology)
+
+ACCESS_POLICY
+public_roles: Nurse,Doctor
+private_roles: Doctor
+
+SECTION_A_PUBLIC
+Patient Information
+- Patient Name: Rohan Desai
+- Gender: Male
+- Blood Group: A+
+- Ward / Room: Endocrinology Ward, Room 112
+- Admission Date: 18 March 2024
+- Discharge Date: 22 March 2024
+- Assigned Doctor: Dr. Anita Joshi, MD DM (Endocrinology)
+- Allergies: Sulfa drugs (urticaria)
+- Chronic Conditions: Type 1 Diabetes Mellitus (diagnosed age 16)
+
+Chief Complaint
+- Polyuria, polydipsia, vomiting for 2 days, abdominal pain, confusion, and fruity odour on breath.
+- Blood glucose at triage: 28.4 mmol/L
+
+Physical Examination
+- Temperature: 37.6 C
+- Blood Pressure: 102/68 mmHg (hypotensive)
+- Heart Rate: 118 bpm
+- Respiratory Rate: 28 breaths/min (Kussmaul)
+- SpO2: 97% on room air
+- GCS: 13/15 (mild confusion)
+- Abdomen: Diffuse tenderness; no guarding
+- Breath: Fruity/acetone odour
+
+Clinical Progress Summary
+- Hour 1-4: BG fell to 18 mmol/L; pH improving.
+- Hour 8: pH 7.28; ketones 2.1.
+- Hour 14: pH 7.34; ketones 0.4; DKA resolved.
+- Day 2: SC insulin restarted; tolerating diet.
+- Day 4: Discharge.
+
+Discharge Instructions
+- Discharge Medications: Insulin Glargine 22 units SC at bedtime; Insulin Aspart with meals; ketone meter provided
+- Follow-Up Plan: Endocrinology OPD in 1 week; DSN (Diabetes Specialist Nurse) education session; HbA1c recheck in 3 months
+- Red Flag Symptoms: Return immediately if symptoms worsen acutely or new concerns arise.
+
+SECTION_B_PRIVATE
+History of Present Illness
+- 34-year-old Type 1 DM patient on basal-bolus insulin missed doses for 2 days due to gastroenteritis.
+- Developed DKA precipitated by intercurrent viral illness.
+- No prior DKA admissions.
+- Carbohydrate intake markedly reduced.
+
+Investigations and Results
+- Blood Glucose: 28.4 mmol/L (Reference: 3.9-7.8 mmol/L) -> Critically high
+- Blood Ketones: 5.8 mmol/L (Reference: < 0.6 mmol/L) -> DKA range
+- pH (ABG): 7.18 (Reference: 7.35-7.45) -> Acidosis
+- Bicarbonate: 10 mmol/L (Reference: 22-29 mmol/L) -> Low
+- Potassium: 3.1 mmol/L (Reference: 3.5-5.0 mmol/L) -> Low, monitor closely
+- Urine Ketones: 3+ strongly positive (Reference: Negative) -> Positive
+
+Diagnosis
+- Diabetic Ketoacidosis (DKA) precipitated by intercurrent viral gastroenteritis
+- Type 1 Diabetes Mellitus
+
+Treatment Administered
+- IV Fluids: 0.9% NaCl 1 L in 1 hr -> 1 L over 2 hrs -> 1 L over 4 hrs -> reassess
+- Insulin VRIII: Fixed-rate IV Insulin Infusion, 0.1 units/kg/hr Actrapid
+- Potassium: KCl 40 mmol IV over 4 hrs (K 3.1), recheck hourly
+- Monitoring: BG hourly; ABG 2-hourly; ketones 2-hourly; U&E 4-hourly
+- Switch to SC when: pH > 7.3, ketones < 0.6, BG < 14; then resume basal-bolus
+- Antiemetic: Ondansetron 4 mg IV TDS
+
+CONFIDENTIALITY_NOTICE
+This document is confidential. Issued by Ruby Hall Clinic, Pune. Unauthorized disclosure is prohibited.
+REPORT_END

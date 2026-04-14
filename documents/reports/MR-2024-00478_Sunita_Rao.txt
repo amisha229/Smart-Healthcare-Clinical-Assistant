@@ -1,0 +1,78 @@
+REPORT_START
+patient_name: Sunita Rao
+report_id: MR-2024-00478
+report_date: 2024-04-04
+department: Neurosurgery
+hospital: NIMS Hospital, Hyderabad
+attending_doctor: Dr. Krishnamurthy Iyer, MCh (Neurosurgery)
+
+ACCESS_POLICY
+public_roles: Nurse,Doctor
+private_roles: Doctor
+
+SECTION_A_PUBLIC
+Patient Information
+- Patient Name: Sunita Rao
+- Gender: Female
+- Blood Group: AB+
+- Ward / Room: Neurology HDU, Bed 6
+- Admission Date: 25 March 2024
+- Discharge Date: 04 April 2024
+- Assigned Doctor: Dr. Krishnamurthy Iyer, MCh (Neurosurgery)
+- Allergies: Aspirin (bronchospasm)
+- Chronic Conditions: Atrial Fibrillation (on Warfarin), Hypertension
+
+Chief Complaint
+- Sudden onset right-sided weakness, facial droop, slurred speech, and inability to raise right arm.
+- Onset 1.5 hours before arrival.
+- FAST positive.
+
+Physical Examination
+- Temperature: 36.9 C
+- Blood Pressure: 178/102 mmHg
+- Heart Rate: 84 bpm (irregular)
+- NIHSS Score: 14 (moderate-severe stroke)
+- Right Arm Power: 1/5
+- Right Leg Power: 2/5
+- Facial Droop: Right-sided UMN pattern
+- Speech: Dysarthria + expressive dysphasia
+
+Clinical Progress Summary
+- Day 1: Post-thrombolysis, NIHSS improved to 9.
+- Day 3: INR 2.4; neurological gains continuing.
+- Day 5: Daily physiotherapy; NIHSS 6.
+- Day 10: Discharged to stroke rehab unit with NIHSS 5.
+
+Discharge Instructions
+- Discharge Medications: Warfarin (target INR 2-3); Amlodipine 5 mg OD; Atorvastatin 40 mg OD; Omeprazole 20 mg OD
+- Follow-Up Plan: Stroke clinic in 4 weeks; INR check in 1 week; Neuro-rehabilitation OPD
+- Red Flag Symptoms: Return immediately if symptoms worsen acutely or new concerns arise.
+
+SECTION_B_PRIVATE
+History of Present Illness
+- 51-year-old female with AF on Warfarin (INR subtherapeutic at 1.3 on presentation) developed acute onset left MCA territory symptoms.
+- Last seen well 90 minutes prior.
+- CT head performed within 25 minutes of arrival.
+
+Investigations and Results
+- CT Head (plain): No haemorrhage; subtle early ischaemic changes in left MCA territory -> Ischaemic stroke pattern
+- MRI DWI: Acute infarct in left MCA territory -> Confirmed
+- INR: 1.3 (Reference: 2.0-3.0) -> Subtherapeutic
+- Blood Glucose: 7.2 mmol/L (Reference: < 7.8 mmol/L) -> Normal
+- ECG: Atrial fibrillation -> AF confirmed
+- Carotid Doppler: No significant stenosis -> Normal
+
+Diagnosis
+- Acute Ischaemic Stroke, Left MCA territory (cardioembolic, AF related)
+- Subtherapeutic anticoagulation
+
+Treatment Administered
+- Thrombolysis: IV Alteplase 0.9 mg/kg (max 90 mg) within 3 hrs of onset
+- Anticoagulation: Warfarin withheld for 48 h post-thrombolysis; restarted Day 3; target INR 2.5
+- Antihypertensive: Labetalol IV to keep SBP < 180 mmHg acutely; Amlodipine 5 mg OD ongoing
+- Neuroprotection: DVT prophylaxis; early physiotherapy; SALT review
+- Monitoring: Continuous cardiac monitoring; neuro observations Q1H for 24 h; blood glucose Q6H
+
+CONFIDENTIALITY_NOTICE
+This document is confidential. Issued by NIMS Hospital, Hyderabad. Unauthorized disclosure is prohibited.
+REPORT_END

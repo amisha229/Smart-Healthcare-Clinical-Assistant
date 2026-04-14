@@ -1,0 +1,79 @@
+REPORT_START
+patient_name: Meera Nair
+report_id: MR-2024-00389
+report_date: 2024-03-21
+department: Cardiology
+hospital: KIMS Hospital, Kochi
+attending_doctor: Dr. Suresh Pillai, MD DM (Cardiology)
+
+ACCESS_POLICY
+public_roles: Nurse,Doctor
+private_roles: Doctor
+
+SECTION_A_PUBLIC
+Patient Information
+- Patient Name: Meera Nair
+- Gender: Female
+- Blood Group: O+
+- Ward / Room: Cardiology ICU, Bed 3
+- Admission Date: 14 March 2024
+- Discharge Date: 21 March 2024
+- Assigned Doctor: Dr. Suresh Pillai, MD DM (Cardiology)
+- Allergies: None known
+- Chronic Conditions: Type 2 Diabetes, Hypertension, Dyslipidaemia
+
+Chief Complaint
+- Sudden onset crushing central chest pain radiating to left arm and jaw, diaphoresis, nausea, and breathlessness lasting 45 minutes.
+- Pain score: 9/10
+
+Physical Examination
+- Temperature: 36.8 C
+- Blood Pressure: 158/94 mmHg
+- Heart Rate: 88 bpm (irregular)
+- Respiratory Rate: 20 breaths/min
+- SpO2: 95% on 2L O2
+- Cardiovascular: S3 gallop; no murmurs; JVP mildly elevated
+- Chest: Fine bibasal crepitations
+
+Clinical Progress Summary
+- Day 1: Stabilised in CICU; pain-free post-PCI.
+- Day 3: Troponin trending down.
+- Day 5: Echo EF improved to 48%.
+- Day 7: Ambulating; transferred to general ward.
+- Day 8: Discharged.
+
+Discharge Instructions
+- Discharge Medications: Aspirin 75 mg OD; Ticagrelor 90 mg BD (12 months); Atorvastatin 80 mg; Bisoprolol 5 mg; Ramipril 5 mg; Metformin 1 g BD
+- Follow-Up Plan: Cardiac rehab referral; Cardiology OPD in 2 weeks; Echo repeat in 6 weeks
+- Red Flag Symptoms: Return immediately if symptoms worsen acutely or new concerns arise.
+
+SECTION_B_PRIVATE
+History of Present Illness
+- 68-year-old female with known T2DM (HbA1c 8.2%), hypertension, and dyslipidaemia presented via ambulance.
+- Chest pain onset at rest, not relieved by antacids.
+- ECG changes noted on arrival.
+- Previous stable angina managed with GTN spray.
+
+Investigations and Results
+- Troponin I (0h): 4.82 ng/mL (Reference: < 0.04 ng/mL) -> Markedly elevated
+- Troponin I (3h): 9.14 ng/mL (Reference: < 0.04 ng/mL) -> Rising, NSTEMI pattern
+- ECG: ST depression in leads V4-V6, T-wave inversion -> Ischaemic changes
+- Echo: EF 42%; anterior wall hypokinesia (Reference EF: >= 55%) -> Reduced EF
+- HbA1c: 8.2% (Reference: < 7.0%) -> Poorly controlled
+- LDL Cholesterol: 3.9 mmol/L (Reference: < 1.8 mmol/L) -> Elevated
+
+Diagnosis
+- Non-ST Elevation Myocardial Infarction (NSTEMI), Anterior wall
+- Secondary: Type 2 Diabetes Mellitus, Hypertension, Dyslipidaemia
+
+Treatment Administered
+- Antiplatelet: Aspirin 300 mg loading -> 75 mg OD; Ticagrelor 180 mg loading -> 90 mg BD
+- Anticoagulant: Enoxaparin 1 mg/kg SC BD for 5 days
+- Statin: Atorvastatin 80 mg OD (high-intensity)
+- Beta-blocker: Bisoprolol 2.5 mg OD titrated to 5 mg
+- ACE Inhibitor: Ramipril 2.5 mg OD
+- Intervention: Coronary angiography Day 2; PCI to LAD with DES stenting
+
+CONFIDENTIALITY_NOTICE
+This document is confidential. Issued by KIMS Hospital, Kochi. Unauthorized disclosure is prohibited.
+REPORT_END

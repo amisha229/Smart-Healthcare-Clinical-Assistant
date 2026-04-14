@@ -1,0 +1,437 @@
+DISEASE_START
+
+disease_name: Rheumatoid Arthritis
+disease_code: RA
+icd_code: M05
+severity_spectrum: Early Seropositive to Moderate TNFi-Resistant to Severe Refractory with Vasculitis
+document_category: Treatment Comparison
+document_type: treatment
+
+DISEASE_OVERVIEW
+Rheumatoid Arthritis (RA) is a chronic autoimmune inflammatory disorder affecting ~0.5-1% of population globally. It targets synovial joints causing symmetrical polyarthritis, typically affecting small joints of hands/feet. Severity ranges from early RA (DMARD-responsive) to moderate RA (TNF-inhibitor failure) to severe refractory RA with systemic manifestations (vasculitis, digital infarcts). Disease-Modifying Antirheumatic Drugs (DMARDs), including conventional synthetic DMARDs (csDMARDs like methotrexate) and biologic agents (TNF-inhibitors, B-cell targeting) form the backbone of treatment. Early aggressive therapy prevents joint destruction (erosions). Severity assessed via DAS28 score (Disease Activity Score in 28 joints): <2.6 = remission, 2.6-3.2 = low disease activity, 3.2-5.1 = moderate activity, >5.1 = high activity. Treatment goal: Tight control aiming for remission by 3-6 months.
+
+TARGET_CONDITIONS
+- Reduction of joint inflammation (swelling, warmth, tenderness)
+- Control of systemic inflammation (CRP, ESR normalization)
+- Achievement of remission or low disease activity
+- Prevention of structural joint damage (erosions, deformities)
+- Prevention of extra-articular manifestations (vasculitis, lung, cardiac)
+- Functional improvement (pain relief, joint preservation, improved mobility)
+- Quality of life and work capacity restoration
+
+ACCESS_POLICY
+public_roles: Doctor,Nurse
+private_roles: Doctor
+
+TREATMENT_TAGS
+comorbidities: early_erosive_disease, tnf_inhibitor_resistance, systemic_vasculitis, digital_infarcts, rheumatoid_lung, rheumatoid_nodules
+medication_classes: methotrexate, hydroxychloroquine, sulfasalazine, tnf_inhibitor_biologic, b_cell_inhibitor_rituximab, janus_kinase_inhibitor
+route_categories: oral, subcutaneous_injection, intravenous_infusion
+patient_demographics: mixed_age, mixed_disease_duration, varying_complications
+severity_assessment_tools: das28_score, cda_score, imaging_erosions, crp_esr, rheumatoid_factor
+
+---
+
+SECTION_A_PUBLIC
+Disease Overview & Clinical Context
+
+Rheumatoid Arthritis is a systemic autoimmune disease with B-cell and T-cell involvement leading to:
+- Synovial inflammation (joint swelling, morning stiffness >1 hour)
+- Symmetric small joint involvement (hands, feet, wrists)
+- Progressive structural damage (cartilage/bone erosions) without treatment
+- Extra-articular manifestations (rheumatoid nodules, vasculitis, interstitial lung disease, cardiac involvement)
+
+Early diagnosis and aggressive treatment within 3-6 months is critical for optimal outcomes. The "window of opportunity" for irreversible damage prevention is narrow; delayed treatment increases erosion risk.
+
+Treatment Escalation Pyramid:
+1. Conventional Synthetic DMARDs (csDMARDs): Methotrexate ± hydroxychloroquine/sulfasalazine (triple therapy)
+   - First-line; cost-effective; established safety; 60-70% achieve remission
+2. Add-on Biologic DMARD: TNF-inhibitor (infliximab, adalimumab, etanercept) OR B-cell inhibitor (rituximab)
+   - If csDMARD inadequate response; highly effective (80-90% response rates)
+3. Switch Biologic: Alternative TNF-inhibitor or different mechanism (B-cell, IL-6 inhibitor)
+   - If first biologic fails; janus kinase inhibitor (JAKi) increasingly used
+4. Triple+ Biologic: Rituximab (for seropositive RA failing TNFi) or other advanced monoclonal antibodies
+   - For severe resistant disease
+
+DAS28 Score (Disease Activity Score):
+- Low risk of progression: DAS28 <3.2
+- High risk if >3.2 without remission; tight control requires escalation
+
+This section presents three real-world presentations from early responsive RA to moderate TNFi-resistant to severe refractory vasculitic RA.
+
+---
+
+PATIENT_CASE_013
+
+case_id: P-013-RA
+patient_identifier: Anonymized Patient 013
+primary_diagnosis: Early Rheumatoid Arthritis, seropositive (RF+ / Anti-CCP+), DMARD-naive
+icd_codes: M05.9 (seropositive RA unspecified)
+baseline_das28_score: 4.2 (moderate disease activity; threshold for high risk without treatment ≥3.2)
+baseline_crp: 18 mg/L (elevated; normal <10)
+baseline_esr: 34 mm/hr (elevated; normal <20)
+baseline_rheumatoid_factor: 78 IU/mL (positive; normal <14)
+baseline_anti_ccp: 156 U/mL (strongly positive; normal <20)
+disease_duration: 8 weeks at presentation (early RA; window of opportunity still open for erosion prevention)
+patient_age: 48 years old; female; post-menopausal
+comorbidities: Hypertension (controlled on chlorthalidone); mild obesity (BMI 29)
+prior_joint_erosions: None on imaging (X-rays of hands/feet negative for erosions; early stage)
+morning_stiffness_duration: 2 hours (indicates inflammatory pattern)
+
+Clinical Presentation - Symptoms
+- Symmetrical small joint swelling (bilateral hands; PIP and MCP joints tender and swollen; wrists involved)
+- Morning stiffness >1 hour (worst in early morning; gradually improves during morning)
+- Fatigue (moderate; more noticeable in afternoon)
+- Low-grade fever (38.1°C intermittent; especially mornings)
+- Functional limitation (difficulty gripping; writing and typing affected)
+
+Clinical Context
+Recently diagnosed early RA. Strong seropositivity (RF+, Anti-CCP+) indicates high risk for erosive disease if untreated. Early window of opportunity for remission + erosion prevention is 3-6 months. No prior erosions on imaging. Patient motivated and compliant. Prognosis excellent with aggressive early DMARD therapy.
+
+Treatment Regimen
+- Primary: Methotrexate 15 mg oral once weekly (standard csDMARD induction dose)
+- Secondary: Hydroxychloroquine 200 mg twice daily (complements methotrexate in early RA)
+- Tertiary: Folic acid 5 mg ONCE WEEKLY (day after methotrexate dose; mitigates methotrexate toxicity)
+- Quaternary: Prednisone 10 mg daily × 2 weeks, then taper by 1 mg per week (bridge therapy for early inflammation control; reduces 12-month radiographic progression)
+- Supportive: NSAIDs (naproxen 500 mg BD) for symptomatic relief; hand physiotherapy
+
+Rationale
+- Methotrexate: Gold-standard first-line csDMARD; effective in 60-70% of early RA; acts on T-cells and macrophages
+- Hydroxychloroquine: Often combined with methotrexate (synergistic); modulates immune response; lower toxicity than methotrexate monotherapy
+- Triple therapy (MTX + HCQ + SSZ) is alternative but this patient on dual agent due to patient preference
+- Folic acid: Prevents methotrexate-induced hepatotoxicity and myelosuppression; critical safety measure
+- Prednisone bridge: Low-dose corticosteroid transiently suppresses inflammation while waiting for csDMARDs to take effect (4-6 week latency); early tapering avoids long-term adverse effects
+
+Treatment Advantages (Pros)
+✓ Proven disease-modifying: Methotrexate + hydroxychloroquine shown to induce remission in 60-70% of early RA
+✓ Prevention of erosions: Early aggressive therapy critically reduces structural damage risk
+✓ Cost-effective: Oral medications; inexpensive compared to biologics; long history of safety
+✓ Well-tolerated profile: Minimal serious adverse effects at these doses in most patients
+✓ Prednisone bridge: Provides rapid symptom relief while waiting for DMARD effect (4-6 week onset)
+✓ Reversible: If toxicity occurs, agents can be discontinued with recovery
+✓ Excellent long-term safety: Decades of clinical use with established monitoring protocols
+
+Treatment Disadvantages (Cons)
+✗ Methotrexate hepatotoxicity: Cirrhosis risk if prolonged use without monitoring (though rare at doses <20 mg/week)
+✗ Methotrexate myelosuppression: Leukopenia, anemia, thrombocytopenia (rare at 15 mg/week; requires blood monitoring)
+✗ Teratogenic: BOTH methotrexate and hydroxychloroquine contraindicated in pregnancy; requires reliable contraception/counseling
+✗ 4-6 week latency: No immediate symptom relief (prednisone bridge helps but patient needs patience)
+✗ Hydroxychloroquine retinopathy: Rare at standard doses but requires baseline/annual ophthalmology screening
+✗ GI intolerance: Some patients experience nausea, diarrhea (can limit adherence)
+✗ Monitoring burden: Regular blood tests (CBC, LFTs, creatinine) required (monthly initially, then 3-monthly)
+
+Clinical Outcome (at 6 months)
+- Week 2-4: Prednisone initiated; rapid symptom improvement; morning stiffness reduced to 30 min; swelling decreasing
+- Week 4-6: Methotrexate beginning to take effect; joint tenderness further reduced
+- Week 8-12: Significant improvement; DAS28 score dropping; CRP reducing
+- Month 6 (12 weeks):
+
+  - DAS28 score: 4.2 → 2.4 (REMISSION; target <2.6 achieved)
+  - CRP: 18 → 3.5 mg/L (normal range; normalization)
+  - ESR: 34 → 12 mm/hr (normalized)
+  - Joint swelling: RESOLVED; no detectable synovitis on examination
+  - Morning stiffness: <10 minutes (essentially resolved)
+  - Functional ability: Return to normal gripping; typing without difficulty
+  - Hand/foot imaging: NO NEW EROSIONS; baseline integrity maintained
+  - Fatigue: Resolved
+  - Prednisone: Tapered to discontinuation by week 8 (successful bridge taper)
+  - Methotrexate: Ongoing at 15 mg/week maintained
+  - Hydroxychloroquine: Ongoing at 200 mg BD
+  - Folic acid: Continuing weekly
+  - Adverse events: Minimal; mild GI upset with methotrexate (improved with food); no myelosuppression; liver function normal
+
+- 12-month follow-up:
+  - DAS28: Maintained at 2.3 (sustained remission)
+  - Imaging: No erosions developed (structural preservation achieved; high success rate for early intervention)
+  - Patient satisfaction: Very high; grateful for rapid improvement and erosion prevention
+  - Assessment: EXCELLENT success; early aggressive csDMARD therapy achieved remission within 3-6 months; erosion prevention goal met; patient remains on maintenance methotrexate
+
+---
+
+PATIENT_CASE_014
+
+case_id: P-014-RA
+patient_identifier: Anonymized Patient 014
+primary_diagnosis: Rheumatoid Arthritis, moderate, seropositive, inadequate response to methotrexate monotherapy
+icd_codes: M05.9 (RA seropositive), M19.91 (Secondary erosive arthritis, hand)
+baseline_das28_score: 5.1 (high disease activity; criteria for TNF-inhibitor escalation)
+baseline_crp: 42 mg/L (moderately elevated; significant inflammation)
+baseline_esr: 58 mm/hr (moderately elevated)
+baseline_rheumatoid_factor: 165 IU/mL (strongly positive)
+prior_methotrexate_trial: 20 mg/week × 12 weeks; inadequate response; DAS28 remained >4.5
+disease_duration: 24 months at presentation (established RA; window of opportunity partially closed but erosion prevention still possible)
+patient_age: 56 years old; male
+comorbidities: Controlled hypertension (on amlodipine); milder than Case 013
+prior_joint_erosions: Marginal erosions visible on hand X-rays (early erosive disease; indicates need for urgent escalation)
+morning_stiffness_duration: 2 hours (persistent despite methotrexate)
+
+Clinical Presentation - Symptoms
+- Persistent synovitis despite methotrexate (swelling and warmth in multiple joints; MCP, PIP, wrist, knee)
+- Joint deformity beginning (subtle ulnar deviation in fingers developing; MP swan-neck early changes)
+- Fatigue (moderate; affects work productivity)
+- Elevated inflammatory markers at baseline assessment
+- Functional limitation (difficulty with fine motor tasks; opening jars difficult)
+
+Clinical Context
+Established RA (24 months) with inadequate response to monotherapy methotrexate (failure to achieve DAS28 <3.2). Early erosions present = high risk for progressive destruction. TNF-inhibitor addition indicated (escalation per tight control strategy). Patient adequate for biologic therapy; no TB/latent TB, no active infection, no HBV/HCV.
+
+Treatment Regimen
+- Primary: Adalimumab (TNF-inhibitor) 40 mg subcutaneously every 2 weeks (standard dosing)
+- Secondary: Methotrexate 20 mg oral weekly CONTINUED (combination TNFi + csDMARD superior to TNFi monotherapy)
+- Tertiary: Folic acid 5 mg weekly (continued as in all patients on methotrexate)
+- Supportive: Prednisone 7.5 mg daily (bridge therapy for first 4-6 weeks until adalimumab effect takes hold)
+
+Rationale
+- TNF-inhibitor: Adalimumab (anti-TNF monoclonal antibody); rapidly effective (onset within 1-2 weeks, full effect 4-6 weeks); 80-85% response rate when added to inadequate MTX response
+- Continued methotrexate: Synergistic with TNFi; improves response rates vs. TNFi monotherapy; addresses different immune pathways
+- Prednisone bridge: Rapid symptom control while waiting for adalimumab onset
+- Biologic-conventional combination: Evidence-based approach for MTX-inadequate response
+
+Treatment Advantages (Pros)
+✓ Rapid onset: TNF-inhibitor effects evident within days-weeks (much faster than initial DMARD)
+✓ High efficacy: 80-85% achieve ACR-defined improvement when added to MTX failure
+✓ Erosion prevention: TNFi dramatically slows progression of structural damage (even in established RA)
+✓ Better long-term prognosis: Remission achievable even in established disease with biologics
+✓ Adalimumab preferred: SC every-2-weeks dosing improves adherence vs. weekly MTX + TNFi IV infusions
+✓ Combination with MTX synergistic: Superior outcomes to either agent alone
+
+Treatment Disadvantages (Cons)
+✗ TB reactivation risk: TNF-inhibitors increase TB risk 20-fold; TB screening/prophylaxis mandatory (this patient TB-negative; still requires vigilance)
+✗ Expense: Adalimumab ~Rs. 15,000-20,000 per injection; significant cost burden (typically 26 injections/year = Rs. 390,000-520,000 annually)
+✗ Injection site reactions: Erythema, pruritus at injection site (~5-10% incidence)
+✗ Immunosuppression: Increased risk of infections (bacterial, fungal, opportunistic); patient education on symptoms important
+✗ Hepatotoxicity when combined with MTX: Dual hepatotoxicity risk (though usually manageable with monitoring); LFT monitoring critical
+✗ Loss of efficacy: 10-15% of patients develop neutralizing antibodies over time (manifests as waning response after initial improvement)
+✗ Cardiovascular safety questions: Some concerns in heart failure (TNFi can worsen HF; not contraindicated in RA but caution needed)
+
+Clinical Outcome (at 3 months)
+- Week 1: First adalimumab injection; minimal symptom change yet
+- Week 2-4: Joint swelling noticeably decreasing; pain improving; morning stiffness reduced to 45 min
+- Week 4-8: Prominent improvement; patient notes ability to perform work tasks improving; range of motion expanding
+- Month 3 (12 weeks):
+
+  - DAS28 score: 5.1 → 3.1 (from HIGH activity to MODERATE activity; good response but not remission yet)
+  - CRP: 42 → 12 mg/L (significant reduction; approaching normal)
+  - ESR: 58 → 20 mm/hr (significant reduction; approaching normal)
+  - Joint examination: Marked reduction in synovitis; no new swelling in previously involved joints
+  - Functional improvement: Work tasks manageable; fine motor improving; jar opening now possible
+  - Hand X-rays: No NEW erosions developed in 3-month period (progression halted; prior erosions stable)
+  - Prednisone: Tapered and discontinued by week 8
+  - Methotrexate: Continued 20 mg weekly; blood work normal (no hepatotoxicity or myelosuppression)
+  - Adalimumab: Continuing every 2 weeks; well-tolerated; minimal injection site reactions
+  - Adverse events: Mild injection site erythema (first 2 injections); resolved spontaneously by week 4; no infections; no other AEs
+
+- 6-month follow-up:
+  - DAS28: 3.1 maintained (sustained response; may achieve 2.6 with longer continuation)
+  - Imaging: No progressive erosions (escalation to TNFi prevented further destruction)
+  - Patient satisfaction: Good; notes dramatic improvement from baseline; improved functional capacity
+  - Plan: Continue adalimumab + methotrexate long-term; reassess at 6 months for remission goal achievement
+  - Assessment: GOOD success; TNF-inhibitor addition to inadequate MTX response achieved significant disease reduction; erosion progression halted; functional recovery achieved
+
+---
+
+PATIENT_CASE_015
+
+case_id: P-015-RA
+patient_identifier: Anonymized Patient 015
+primary_diagnosis: Rheumatoid Arthritis, severe, seropositive, with systemic vasculitis, TNF-inhibitor resistant
+icd_codes: M05.9 (RA seropositive), M31.1 (Hypersensitivity vasculitis); L89 (Digital necrosis)
+baseline_das28_score: 6.3 (VERY HIGH disease activity; severe)
+baseline_crp: 78 mg/L (markedly elevated; severe inflammation)
+baseline_esr: 94 mm/hr (markedly elevated)
+baseline_rheumatoid_factor: 285 IU/mL (very strongly positive)
+baseline_anti_ccp: >250 U/mL (extremely positive; indicates aggressive seropositive disease)
+prior_tnf_inhibitor_trial: Infliximab 3 mg/kg IV × 4 infusions (standard induction) → inadequate response; persisting high DAS28 after 12 weeks
+disease_duration: 60 months (5 years; long-standing RA; window of opportunity closed; significant existing damage)
+patient_age: 63 years old; female; post-menopausal
+comorbidities: Mild CKD Stage 3 (eGFR 50); prior hypertension; dyslipidemia
+prior_structural_damage: Multiple hand erosions; joint space narrowing; subluxation in MCP joints (severe structural damage evident)
+systemic_complications: Rheumatoid vasculitis (small-vessel; skin lesions on lower extremities); digital infarcts developing on fingers (livedo pattern)
+weight_loss: 8 kg over 6 months (systemic inflammation manifestation)
+
+Clinical Presentation - Symptoms
+- Severe polyarthritis (bilateral hand, wrist, knee, ankle involvement; severe pain; significant swelling; warmth in multiple joints)
+- Skin vasculitic lesions (palpable purpura on lower extremities; painful nodules; erythematous patches)
+- Digital ischemia/infarcts (fingertip ulceration and necrosis beginning; risk of digit loss if untreated; tissue loss)
+- Severe fatigue and malaise (weight loss 8 kg; marked constitutional symptoms)
+- Night sweats (drenching; indicating systemic inflammation)
+- Functional limitation (barely able to perform ADLs; unable to work; significant disability)
+
+Clinical Context
+SEVERE REFRACTORY RHEUMATOID ARTHRITIS with systemic manifestations (vasculitis, digital infarcts). This is extra-articular RA with life- and limb-threatening complications:
+- TNF-inhibitor failure (infliximab inadequate despite adequate trial)
+- Established severe structural damage (progression largely irreversible at this stage)
+- Vasculitic complications (indicate disease in B-cell/immune complex realm; TNF-inhibitors less effective here)
+- Digital infarcts (medical emergency risk; tissue loss imminent; requires urgent effective therapy)
+
+Rituximab (B-cell depleting monoclonal antibody) strongly indicated:
+- Superior efficacy in TNF-inhibitor-resistant RA
+- Particularly effective in seropositive disease (RF+, Anti-CCP+)
+- Effective for extra-articular manifestations (vasculitis, digital ulcers respond better to rituximab than TNFi)
+
+Treatment Regimen
+- Primary: Rituximab 1000 mg intravenous infusion TWICE (2-week interval; standard RA induction protocol)
+  - Day 1: First 1000 mg IV infusion (over 3-4 hours with premedication)
+  - Day 15: Second 1000 mg IV infusion
+- Secondary: Methylprednisolone IV 1000 mg (day of each rituximab infusion; manages infusion reactions; provides systemic anti-inflammatory boost)
+- Tertiary: Methotrexate 20 mg weekly CONTINUED (maintenance; synergizes with rituximab)
+- Quaternary: Prednisone 30 mg daily (immediately after rituximab infusions) tapered over 8 weeks (bridge therapy; rapid anti-inflammatory effect for vasculitis)
+- Supportive: IV methylprednisolone pulses if vasculitis worsens; consider digital ulcer care/vascular surgery if tissue loss progresses
+
+Rationale
+- Rituximab: B-cell depleting monoclonal antibody; highly effective in TNFi-resistant seropositive RA (60-70% major response rates versus 20-30% in TNF-inhibitor failures)
+- IV methylprednisolone with each rituximab: Industry-standard approach; mitigates infusion reactions; provides acute anti-inflammatory effect
+- Prednisone bridge: High-dose corticosteroid transiently suppresses vasculitis inflammation while rituximab B-cell effect takes time (4-8 weeks)
+- Continued methotrexate: Enhances rituximab B-cell depletion durability; addresses residual T-cell activity
+- Rationale for rituximab over other TNFi-failures: Vasculitis component particularly responsive to B-cell depletion; rituximab proven superior in extra-articular RA
+
+Treatment Advantages (Pros)
+✓ Superior efficacy in TNFi failure: 60-70% major response in TNF-inhibitor-resistant RA (far higher than alternative TNFi agents)
+✓ Effective for extra-articular disease: Vasculitis and digital ulcers respond better to B-cell depletion than TNF-inhibition
+✓ Slower dosing schedule: Two infusions (2 weeks apart) then maintained for 6 months; convenient vs. repeated adalimumab injections
+✓ IL-6 inhibitor alternative slower onset: Rituximab onset faster (2-4 weeks vs. 4-6 weeks for other mechanisms)
+✓ Prevention of digit loss: Rituximab response often halts vasculitic progression before irreversible tissue loss occurs
+
+Treatment Disadvantages (Cons)
+✗ Infusion reactions: ~5-10% experience infusion-related symptoms during administration (fever, rigors, flushing); managed by slowing infusion rate or premedication
+✗ Progressive multifocal leukoencephalopathy (PML) risk: Rare (~1 per 50,000 rituximab-treated patients) but life-threatening if occurs; JC virus reactivation issue
+✗ Hepatitis B reactivation: Risk if HBsAg+ or HBcAb+; this patient screened and negative (still requires monitoring)
+✗ Profound immunosuppression: B-cell depletion; increased infection risk (bacterial, fungal, opportunistic); vaccination not effective during B-cell depletion period
+✗ Very high cost: Rituximab ~Rs. 40,000-60,000 per infusion; ×2 infusions = Rs. 80,000-120,000 for induction
+✗ Delayed response: Initial infusions may take 4-6 weeks for full effect (necessitates high-dose prednisone bridge for early control)
+✗ Long-term B-cell depletion effects: Unknown long-term consequences of sustained B-cell counts near zero (30+ years data not available)
+
+Clinical Outcome (at 6 months)
+- PRE-INFUSION (Baseline):
+  - DAS28: 6.3 (very severe)
+  - CRP: 78 mg/L; ESR: 94 mm/hr (marked inflammation)
+  - Digital infarcts: Progressive; tissue loss evident; high urgency for response
+
+- INFUSION #1 (Day 1):
+  - First rituximab 1000 mg IV administered
+  - IV methylprednisolone 1000 mg co-administered
+  - Prednisone 30 mg daily started
+  - Minor infusion reaction: Transient fever, chills first 30 min; managed with slowed infusion rate; resolved by end of procedure
+
+- INFUSION #2 (Day 15):
+  - Second rituximab 1000 mg IV infusion
+  - Premedication more aggressive; minimal infusion reaction this time
+  - Continuing methylprednisolone IV/oral prednisone
+
+- WEEKS 2-4:
+  - Joint swelling beginning to decrease
+  - Vasculitic lesions appearing less erythematous
+  - Fatigue slightly improved
+  - DAS28 trend downward but still high (delayed response expected with rituximab)
+
+- WEEKS 4-8:
+  - Dramatic change noted; patient reports significant improvement
+  - Joint pain markedly reduced; swelling resolving
+  - Vasculitic lesions fading; new lesions not appearing
+  - Digital infarcts: Appearing less dark/necrotic; suggesting halted vasculitic progression (tissue salvage!)
+  - Prednisone being tapered per schedule
+
+- MONTH 6 (24 weeks):
+
+  - DAS28 score: 6.3 → 4.0 (SIGNIFICANT REDUCTION; from VERY HIGH to MODERATE activity)
+  - CRP: 78 → 18 mg/L (substantial reduction; approaching normal)
+  - ESR: 94 → 25 mm/hr (substantial reduction)
+  - Joint examination: Marked reduction in synovitis; most joints showing only mild residual swelling
+  - Vasculitic lesions: RESOLVED; no active palpable purpura; prior lesions fading
+  - Digital infarcts: HALTED; no new ischemia; prior digital ulceration not progressing; tissue loss prevented (limb-salvaging success!)
+  - Functional improvement: Able to resume light ADLs; some work activity possible
+  - Prednisone: Tapered to 10 mg daily (goal further taper over next 6 months)
+  - Methotrexate: Continued 20 mg weekly; monitoring normal
+  - Rituximab: Maintained; no additional infusions planned until month 6 (retreatment as-needed for flare)
+  - Adverse events:
+    - Brief infusion reactions (controlled)
+    - Mild leukopenia (WBC 3.2K; monitored; above critical threshold)
+    - No infections; no serious AEs; no PML concerns
+
+- ONGOING PLAN:
+  - Rituximab retreatment considered at month 6 if response plateau or flare
+  - Continued prednisone taper aiming for discontinuation; methotrexate maintenance
+  - Monitor for infection, JC virus (PML screening annually)
+  - Hand/foot imaging at month 12 to assess for new erosions
+
+- Assessment: MODERATE-to-GOOD success; severe TNF-inhibitor-resistant RA with vasculitis responded dramatically to rituximab; digital tissue loss prevented (limb salvage achieved); significant functional improvement despite established structural damage; long-term rituximab maintenance likely required
+
+---
+
+SECTION_B_PRIVATE
+Detailed Clinical Comparison & Decision Framework
+
+COMPARATIVE ANALYSIS TABLE
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│PATIENT│  RA TYPE    │  KEY ADVANTAGE       │  KEY RISK           │SETTING │SCORE│
+├─────────────────────────────────────────────────────────────────────────────────┤
+│ P-013 │Early, DMARD │ DAS28 <2.6 remission │ Hepatotoxicity;    │Outpat  │ 9/10│
+│       │ naïve       │ erosion prevention   │ teratogenic         │        │     │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│ P-014 │Moderate,    │Rapid anti-inflam;   │ TB risk;            │Outpat  │ 8/10│
+│       │MTX-failure  │ erosion prevention   │ expensive;          │        │     │
+│       │             │ multi-modal approach │ immunity issues     │        │     │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│ P-015 │Severe,      │Targets B-cells;     │ PML risk; profound  │Outpat; │ 8/10│
+│       │TNFi-failure │ extra-articular      │ immunosuppression;  │IV      │*    │
+│       │+Vasculitis  │ disease response;    │ high cost           │center  │*    │
+│       │             │ digit salvage       │                     │        │     │
+└─────────────────────────────────────────────────────────────────────────────────┘
+* Score reflects excellent limb-salvaging outcome despite complexity
+
+DECISION FRAMEWORK FOR CLINICIANS
+
+1. IF Early RA (DAS28 4.2-5.1) + Seronegative/Seropositive + No Prior Erosions
+   → Approach: Combination csDMARD ± prednisone bridge (Case 013 model)
+   → Suitable: Disease duration <6 months, no erosions on imaging, DAS28 <5.1, motivated patient
+   → First-line: Methotrexate 15 mg/week + hydroxychloroquine 200 mg BD ± sulfasalazine for triple therapy
+   → Bridge: Prednisone 10 mg × 2 weeks, taper by 1 mg/week
+   → Monitor: Baseline CBC, LFTs, Cr; then 4-weekly for 12 weeks; 3-monthly thereafter
+   → Expected: Remission in 60-70% by 3-6 months; erosion prevention achieved
+
+2. IF Moderate RA (DAS28 ≥3.2) + Failed MTX Monotherapy (12 weeks at adequate dose)
+   → Approach: Add TNF-inhibitor + continue MTX (Case 014 model)
+   → Suitable: Early erosions present or progressive structural damage; MTX inadequate response
+   → First-line: Adalimumab 40 mg SC every 2 weeks + MTX 20 mg/week
+   → Alternative TNFi: Infliximab IV, etanercept SC weekly (all TNFi have similar efficacy ~80-85%)
+   → Bridge: Prednisone 7.5 mg × 4-6 weeks, taper
+   → Monitor: TB screening before initiation; TB prophylaxis if latent TB+; infection surveillance
+   → Expected: ACR major response in 80-85%; sustained remission or low disease activity
+
+3. IF Severe RA (DAS28 >5.1) + TNF-Inhibitor Failure + Systemic Manifestations (Vasculitis/Digital Ulcers)
+   → Approach: Switch to B-cell targeting (rituximab) ± high-dose corticosteroids (Case 015 model)
+   → Suitable: Failure of ≥1 TNF-inhibitor, seropositive disease (RF+/Anti-CCP+), extra-articular RA
+   → First-line: Rituximab 1000 mg IV × 2 (2-week interval) + IV methylprednisolone 1000 mg per infusion
+   → Continue: Methotrexate 20 mg/week; prednisone bridge (high-dose taper over 8 weeks)
+   → Monitor: B-cell counts; JC virus status (annually for PML); infection surveillance; HBV/HCV at baseline
+   → Expected: Major response in 60-70% TNFi failures; vasculitis/digital ulcers improve in 70-80%
+
+---
+
+SECTION_C_TREATMENT_EVIDENCE
+Evidence-Based Outcomes & Literature Basis
+
+Regimen 013 (Methotrexate + Hydroxychloroquine ± Prednisone Bridge)
+- Reference: BeSt Trial (Behandel Strategieën Reumatoïde Artritis; 2012); ATTRACT trial
+- Remission/Low DA achievement: 60-70% by 3-6 months with csDMARD combination + prednisone bridge
+- Erosion development: Reduced by 80-90% compared to untreated RA (early intervention critical)
+- DAS28 reduction: Average 2.5 points reduction; many achieve DAS28 <2.6 (remission)
+- Long-term prognosis: Early remission associated with improved lifetime outcomes
+
+Regimen 014 (Adalimumab + Methotrexate ± Prednisone Bridge)
+- Reference: ATTRACT Trial (Adding Infliximab to Methotrexate); Adalimumab similar data in RA registries
+- Response rate: 80-85% achieve ACR20 improvement when added to MTX failure
+- Erosion progression: Halted in 90%+ if TNFi added to MTX-inadequate response
+- Timeline: Initial response within 1-2 weeks; full effect 6-12 weeks
+- Long-term efficacy: Maintained in 80% at 1 year if continued; 50-60% if discontinued
+
+Regimen 015 (Rituximab + Methotrexate ± High-Dose Corticosteroids)
+- Reference: REFLEX Trial (Rituximab Extension For Vascular Events); REBUILD trial (extravasculitis outcomes)
+- Response rate in TNFi failure: 60-70% achieve major improvement (higher than alternative TNFi ~20-30%)
+- Extra-articular disease: Vasculitis response 70-80%; digital ulcers improve in majority
+- B-cell recovery: B-cells repopulate over 6-9 months; retreatment timing determines duration of response
+- Long-term safety: Infection data reassuring (~2-3% serious infections annually, similar to TNFi)
+
+---
+
+DISEASE_END
