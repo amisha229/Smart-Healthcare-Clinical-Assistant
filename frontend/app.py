@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import requests
 import os
 import json
@@ -59,6 +60,7 @@ if "logged_in" not in st.session_state:
     st.session_state.conversations = []  # Store old conversations
     st.session_state.last_summarized_patient = None  # Track last selected patient
     st.session_state.current_tool_selection = "retrieval"  # Track current tool
+    st.session_state.auto_scroll_to_latest = False
 
 
 def _user_store_file(username: str) -> Path:
@@ -301,6 +303,30 @@ else:
         st.markdown("### 📊 Current Session")
         st.markdown(f"**Conversation ID:** {st.session_state.conversation_id if st.session_state.conversation_id else 'New'}")
         st.markdown(f"**Messages:** {len([m for m in st.session_state.chat_history if m['sender'] == 'user'])}")
+
+        st.divider()
+
+        # Tool selector kept in sidebar to avoid breaking fixed composer layout
+        if st.session_state.user_role == "Admin":
+            sidebar_tools = ["retrieval", "medical_knowledge"]
+        elif st.session_state.user_role == "Doctor":
+            sidebar_tools = ["retrieval", "summarization", "medical_knowledge", "treatment_comparison", "diagnosis_recommendation"]
+        else:
+            sidebar_tools = ["retrieval", "summarization", "medical_knowledge", "treatment_comparison"]
+
+        st.session_state.current_tool_selection = st.selectbox(
+            "Tool For Next Message",
+            sidebar_tools,
+            index=sidebar_tools.index(st.session_state.current_tool_selection) if st.session_state.current_tool_selection in sidebar_tools else 0,
+            format_func=lambda x: (
+                "📚 Retrieval" if x == "retrieval" else
+                "📋 Summarization" if x == "summarization" else
+                "🧠 Knowledge" if x == "medical_knowledge" else
+                "💊 Treatment" if x == "treatment_comparison" else
+                "🩺 Diagnosis"
+            ),
+            key="tool_selector_sidebar"
+        )
         st.divider()
     
     # Main Title
@@ -355,6 +381,8 @@ else:
     # Get current tool selection (from session state for persistence)
     if "current_tool_selection" not in st.session_state:
         st.session_state.current_tool_selection = available_tools[0]
+
+    selected_tool = st.session_state.current_tool_selection
     
     # ========== CHAT HISTORY DISPLAY ==========
     # ========== SCROLLABLE CHAT DISPLAY AREA ==========
@@ -375,13 +403,15 @@ else:
     with chat_container:
         if st.session_state.chat_history:
             # Display chat history in forward order (messages grow downward)
-            for chat in st.session_state.chat_history:
+            for idx, chat in enumerate(st.session_state.chat_history):
                 if chat["sender"] == "user":
                     with st.chat_message("user"):
                         st.write(chat["message"])
                 else:
                     with st.chat_message("assistant"):
                         st.write(chat["message"])
+                if idx == len(st.session_state.chat_history) - 1:
+                    st.markdown("<div id='latest-message-anchor'></div>", unsafe_allow_html=True)
             # Auto-scroll to bottom by adding empty space that pushes content up
             st.markdown("---")  # Visual separator
         else:
@@ -389,44 +419,24 @@ else:
                 "<div class='hint-box'>Start a conversation by typing a message below or selecting a patient for summarization.</div>",
                 unsafe_allow_html=True,
             )
-    
     st.write("")  # Add spacing
-    
-    # ========== CHAT INPUT & TOOL SELECTOR SIDE BY SIDE (FIXED AT BOTTOM) ==========
-    col_input, col_tool = st.columns([0.7, 0.3], gap="small")
-    
-    with col_input:
-        selected_tool = st.session_state.current_tool_selection
-        if selected_tool in ["retrieval", "medical_knowledge", "treatment_comparison", "diagnosis_recommendation"]:
-            if selected_tool == "retrieval":
-                input_label = "Ask a clinical question..."
-            elif selected_tool == "medical_knowledge":
-                input_label = "Ask a general medical question..."
-            elif selected_tool == "treatment_comparison":
-                input_label = "Ask about treatment options..."
-            else:
-                input_label = "Enter symptoms to get possible diagnoses and recommendations..."
+
+    # ========== COMPOSER (native Streamlit fixed chat input) ==========
+    selected_tool = st.session_state.current_tool_selection
+
+    if selected_tool in ["retrieval", "medical_knowledge", "treatment_comparison", "diagnosis_recommendation"]:
+        if selected_tool == "retrieval":
+            input_label = "Ask a clinical question..."
+        elif selected_tool == "medical_knowledge":
+            input_label = "Ask a general medical question..."
+        elif selected_tool == "treatment_comparison":
+            input_label = "Ask about treatment options..."
         else:
-            input_label = "Type your message..."
-        
-        user_input = st.chat_input(input_label)
-    
-    with col_tool:
-        selected_tool = st.selectbox(
-            "Tool",
-            available_tools,
-            index=available_tools.index(st.session_state.current_tool_selection),
-            format_func=lambda x: (
-                "📚 Retrieval" if x == "retrieval" else
-                "📋 Summarization" if x == "summarization" else
-                "🧠 Knowledge" if x == "medical_knowledge" else
-                "💊 Treatment" if x == "treatment_comparison" else
-                "🩺 Diagnosis"
-            ),
-            key="tool_selector",
-            label_visibility="collapsed"
-        )
-        st.session_state.current_tool_selection = selected_tool
+            input_label = "Enter symptoms to get possible diagnoses and recommendations..."
+    else:
+        input_label = "Type your message..."
+
+    user_input = st.chat_input(input_label)
     
     st.write("")  # Add spacing after input
     
@@ -465,6 +475,7 @@ else:
                         "tool": "summarization"
                     })
                     upsert_current_conversation_snapshot()
+                    st.session_state.auto_scroll_to_latest = True
                     st.rerun()
                 else:
                     st.error(f"Error: {response}")
@@ -523,9 +534,34 @@ else:
                 "tool": selected_tool
             })
             upsert_current_conversation_snapshot()
+            st.session_state.auto_scroll_to_latest = True
             st.rerun()
         else:
             st.error(f"Error: {response}")
+
+    if st.session_state.get("auto_scroll_to_latest"):
+        components.html(
+            """
+            <script>
+            (() => {
+                const doc = window.parent.document;
+                const anchor = doc.getElementById('latest-message-anchor');
+                if (anchor) {
+                    anchor.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                } else {
+                    const main = doc.querySelector('section.main');
+                    if (main) {
+                        main.scrollTo({ top: main.scrollHeight, behavior: 'smooth' });
+                    } else {
+                        window.parent.scrollTo({ top: doc.body.scrollHeight, behavior: 'smooth' });
+                    }
+                }
+            })();
+            </script>
+            """,
+            height=0,
+        )
+        st.session_state.auto_scroll_to_latest = False
     
     # Sidebar with Old Conversations
     with st.sidebar:
