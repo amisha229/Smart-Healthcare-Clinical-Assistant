@@ -54,6 +54,23 @@ def _is_treatment_comparison_query(user_message: str) -> bool:
         if re.search(pattern, text):
             return False
 
+    # Explicit comparison phrasing.
+    comparison_patterns = [
+        r"\bcompare\b",
+        r"\bcomparison\b",
+        r"\bdifference between\b",
+        r"\bwhich is better\b",
+        r"\bbetter than\b",
+    ]
+    if any(re.search(pattern, text) for pattern in comparison_patterns):
+        return True
+
+    # Allow shorthand comparison lists such as "metformin vs gliclazide vs sitagliptin".
+    if re.search(r"\bvs\b|\bversus\b", text):
+        parts = [part.strip() for part in re.split(r"\bvs\b|\bversus\b", text) if part.strip()]
+        if len(parts) >= 2:
+            return True
+
     treatment_keywords = [
         "treatment", "regimen", "therapy", "compare", "comparison", "medication",
         "drug", "dose", "dosing", "side effect", "adverse", "contraindication",
