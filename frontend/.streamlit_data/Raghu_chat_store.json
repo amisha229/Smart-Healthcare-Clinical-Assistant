@@ -1,0 +1,41 @@
+{
+  "updated_at": "2026-04-14T09:32:56.684266",
+  "conversations": [
+    {
+      "conversation_id": 23222747,
+      "chat_history": [
+        {
+          "sender": "user",
+          "message": "Show summary for patient: Ananya Krishnan",
+          "tool": "summarization"
+        },
+        {
+          "sender": "ai",
+          "message": "**1) Access Scope**  \nPublic and private sections of the report are available for review.\n\n**2) Patient Summary**  \n- **Name:** Ananya\u202fKrishnan  \n- **Age:** 22\u2011year\u2011old  \n- **Gender:** Female  \n- **Blood Group:** B+  \n- **Ward/Room:** Respiratory Ward, Room\u202f302  \n- **Admission/Discharge:** 15\u202fApril\u202f2024 \u2013 19\u202fApril\u202f2024  \n- **Primary Diagnosis:** Acute severe asthma exacerbation secondary to dust exposure; underlying severe persistent asthma, atopy, and aspirin\u2011exacerbated respiratory disease.  \n- **Chronic Condition:** Severe persistent asthma since age\u202f8, on high\u2011dose inhaled corticosteroid/long\u2011acting \u03b2\u2082\u2011agonist (ICS/LABA).  \n- **Allergies:** Dust mites (asthma trigger); aspirin\u2011exacerbated.\n\n**3) Key Clinical Points**  \n- **Presentation:** Severe wheeze, accessory muscle use, inability to speak full sentences; PEFR 38\u202f% predicted on arrival; SpO\u2082 91\u202f% on room air, improved to 95\u202f% with oxygen.  \n- **Initial Management:**  \n  - Nebulised Salbutamol\u202f5\u202fmg + Ipratropium\u202f500\u202f\u00b5g Q20\u202fmin \u00d7\u202f3, then Q4\u202fH.  \n  - IV Prednisolone\u202f40\u202fmg \u2192 oral 5\u2011day course.  \n  - IV Magnesium sulphate 2\u202fg (single dose).  \n  - Oxygen to maintain SpO\u2082 94\u201198\u202f%.  \n  - Continuous monitoring: PEFR hourly, SpO\u2082, ABG if needed.  \n- **Progress:**  \n  - Hour\u202f2: PEFR 52\u202f%; SpO\u2082 96\u202f%.  \n  - Hour\u202f6: PEFR 65\u202f%; wheeze improving.  \n  - Day\u202f2: PEFR 72\u202f%; stepped down to 4\u2011hourly nebulisation.  \n  - Day\u202f3: PEFR 81\u202f%; oral prednisolone continued.  \n  - Day\u202f4: PEFR 88\u202f%; discharge criteria met.  \n- **Investigations:**  \n  - ABG on O\u2082: pH\u202f7.36, pO\u2082\u202f9.8\u202fkPa, pCO\u2082\u202f4.2\u202fkPa (near\u2011normal).  \n  - WBC\u202f11,200\u202f/\u00b5L (mildly elevated).  \n  - CXR: hyperinflation, no consolidation or pneumothorax.  \n  - IgE\u202f480\u202fIU/mL (elevated); eosinophils\u202f0.6\u202f\u00d7\u202f10\u2079/L (elevated).  \n- **Outcome:** Discharged with stable PEFR 88\u202f% predicted and SpO\u2082 95\u202f% on room air.\n\n**4) Medications and Follow\u2011up**  \n- **Discharge Medications:**  \n  - Fluticasone/Salmeterol 500/50\u202f\u00b5g BD (ICS/LABA).  \n  - Salbutamol 100\u202f\u00b5g PRN (MDI).  \n  - Montelukast 10\u202fmg OD.  \n  - Prednisolone 40\u202fmg OD (complete 5\u2011day course).  \n- **Follow\u2011up Plan:**  \n  - Respiratory OPD appointment in 1\u202fweek.  \n  - Maintain PEFR diary and review asthma action plan.  \n  - Referral to allergy clinic.  \n- **Red Flag Symptoms:** Return immediately if symptoms worsen acutely or new concerns arise.\n\n**5) Restrictions Note**  \nNo additional restrictions noted beyond standard discharge instructions.",
+          "tool": "summarization"
+        },
+        {
+          "sender": "user",
+          "message": "Show summary for patient: Rohan Desai",
+          "tool": "summarization"
+        },
+        {
+          "sender": "ai",
+          "message": "**1) Access Scope**  \nPublic and Private sections of the report are available.  \n\n**2) Patient Summary**  \n- **Name:** Rohan Desai  \n- **Age:** 34\u2011year\u2011old  \n- **Gender:** Male  \n- **Blood Group:** A+  \n- **Ward/Room:** Endocrinology Ward, Room\u202f112  \n- **Admission/Discharge:** 18\u202fMarch\u202f2024 \u2013 22\u202fMarch\u202f2024  \n- **Assigned Doctor:** Dr. Anita\u202fJoshi, MD\u202fDM (Endocrinology)  \n- **Allergies:** Sulfa drugs (urticaria)  \n- **Chronic Condition:** Type\u202f1 Diabetes Mellitus (diagnosed at age\u202f16)  \n\n**Chief Complaint & Presentation**  \n- Polyuria, polydipsia, vomiting (2\u202fdays), abdominal pain, confusion, fruity breath.  \n- Triage blood glucose: **28.4\u202fmmol/L**.  \n\n**Physical Examination**  \n- Temp\u202f37.6\u202f\u00b0C; BP\u202f102/68\u202fmmHg (hypotensive); HR\u202f118\u202fbpm; RR\u202f28\u202fbpm (Kussmaul respirations); SpO\u2082\u202f97\u202f% RA.  \n- GCS\u202f13/15 (mild confusion).  \n- Abdomen: diffuse tenderness, no guarding.  \n- Breath: fruity/acetone odor.  \n\n**Investigations**  \n| Test | Result | Reference | Interpretation |\n|------|--------|-----------|----------------|\n| Blood glucose | 28.4\u202fmmol/L | 3.9\u20117.8 | Critically high |\n| Blood ketones | 5.8\u202fmmol/L | <0.6 | DKA range |\n| ABG pH | 7.18 | 7.35\u20117.45 | Acidosis |\n| Bicarbonate | 10\u202fmmol/L | 22\u201129 | Low |\n| Potassium | 3.1\u202fmmol/L | 3.5\u20115.0 | Low (monitor) |\n| Urine ketones | 3+ | Negative | Positive |\n\n**3) Key Clinical Points**  \n- **Diagnosis:** Diabetic Ketoacidosis (DKA) precipitated by inter\u2011current viral gastroenteritis and missed insulin doses.  \n- **Clinical Course:**  \n  - Hour\u202f1\u20114:",
+          "tool": "summarization"
+        },
+        {
+          "sender": "user",
+          "message": "compare the treatment",
+          "tool": "treatment_comparison"
+        },
+        {
+          "sender": "ai",
+          "message": "**Treatment Summary Table**\n\n| Regimen | Use Case | Key Pros | Key Cons | Monitoring Needs |\n|---------|----------|----------|----------|------------------|\n| 010\u202fSertraline\u202f+\u202fCBT | First\u2011episode mild\u2011moderate MDD | 47\u202f% remission, CBT reduces relapse | GI AEs, slower onset | Weekly mood, CBT attendance |\n| 011\u202fDuloxetine\u202f+\u202fClonazepam | Moderate MDD with pain/anxiety | Rapid pain relief, anxiolysis | Dependence, sedation | Daily vitals, benzodiazepine taper |\n| 012\u202fECT\u202f+\u202fVenlafaxine\u202f+\u202fLithium | Severe TRD, suicidality | 80\u201190\u202f% remission, rapid | Memory loss, anesthesia risk | EEG, serum lithium, neuropsych |\n\n**Comparative Analysis Table**\n\n| Dimension | Regimen\u202f010 | Regimen\u202f011 | Regimen\u202f012 |\n|-----------|-------------|-------------|-------------|\n| Response rate | 47\u202f% | 60\u201165\u202f% | 80\u201190\u202f% |\n| Onset | 4\u20116\u202fwks | 1\u20112\u202fwks pain, 4\u20116\u202fwks mood | 1\u20112\u202fwks, 3\u20115 sessions |\n| Suicidality | Low risk | Low risk | High risk, rapid |\n| Cognitive impact | None | Sedation | Memory impairment |\n| Cost | Low | Medium | High |\n| Monitoring | Mood, CBT | Vitals, lithium | EEG, lithium, neuropsych |\n\n**Recommendation**\n\n- Mild\u2011moderate first\u2011episode: Sertraline\u202f+\u202fCBT (best balance).  \n- Moderate with pain/anxiety: Duloxetine\u202f+\u202fClonazepam (fast pain relief).  \n- Severe TRD with suicidality: ECT\u202f+\u202fVenlafaxine\u202f+\u202fLithium (highest efficacy).",
+          "tool": "treatment_comparison"
+        }
+      ],
+      "updated_at": "2026-04-14T09:32:56.684266"
+    }
+  ]
+}
