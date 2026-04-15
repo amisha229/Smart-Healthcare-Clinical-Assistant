@@ -2,16 +2,11 @@ import streamlit as st
 import streamlit.components.v1 as components
 import requests
 import os
-import json
-from datetime import datetime
-from pathlib import Path
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
 API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
-FRONTEND_DATA_DIR = Path(__file__).parent / ".streamlit_data"
-FRONTEND_DATA_DIR.mkdir(exist_ok=True)
 
 # Page Configuration
 st.set_page_config(
@@ -63,36 +58,69 @@ if "logged_in" not in st.session_state:
     st.session_state.auto_scroll_to_latest = False
 
 
-def _user_store_file(username: str) -> Path:
-    safe_username = "".join(ch for ch in username if ch.isalnum() or ch in ("-", "_"))
-    return FRONTEND_DATA_DIR / f"{safe_username}_chat_store.json"
-
-
-def load_user_conversations(username: str):
-    store_file = _user_store_file(username)
-    if not store_file.exists():
-        return []
-
+def fetch_user_conversations(user_id: int):
+    """Fetch conversation summaries from the backend database."""
     try:
-        with open(store_file, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        return data.get("conversations", [])
+        response = requests.get(
+            f"{API_BASE_URL}/chat/conversations",
+            params={"user_id": user_id},
+        )
+        if response.status_code == 200:
+            return response.json()
+        return []
     except Exception:
         return []
 
 
-def save_user_conversations(username: str):
-    if not username:
-        return
+def fetch_conversation_history(user_id: int, conversation_id: int):
+    """Fetch a single conversation's message history from the backend database."""
+    try:
+        response = requests.get(
+            f"{API_BASE_URL}/chat/conversations/{conversation_id}",
+            params={"user_id": user_id},
+        )
+        if response.status_code == 200:
+            return response.json().get("messages", [])
+        return []
+    except Exception:
+        return []
 
-    store_file = _user_store_file(username)
-    payload = {
-        "updated_at": datetime.utcnow().isoformat(),
-        "conversations": st.session_state.conversations,
-    }
 
-    with open(store_file, "w", encoding="utf-8") as f:
-        json.dump(payload, f, indent=2)
+def delete_conversation(user_id: int, conversation_id: int):
+    """Delete a conversation and its messages from the backend database."""
+    try:
+        response = requests.delete(
+            f"{API_BASE_URL}/chat/conversations/{conversation_id}",
+            params={"user_id": user_id},
+        )
+        if response.status_code == 200:
+            return True, response.json()
+        return False, response.text
+    except Exception as e:
+        return False, str(e)
+
+
+def rename_conversation(user_id: int, conversation_id: int, title: str):
+    """Rename a conversation in the backend database."""
+    try:
+        response = requests.patch(
+            f"{API_BASE_URL}/chat/conversations/{conversation_id}",
+            params={"user_id": user_id},
+            json={"title": title},
+        )
+        if response.status_code == 200:
+            return True, response.json()
+        return False, response.text
+    except Exception as e:
+        return False, str(e)
+
+
+def _short_title(text: str, max_len: int = 34) -> str:
+    """Keep sidebar conversation labels on one line with ellipsis."""
+    value = (text or "").strip()
+    if len(value) <= max_len:
+        return value
+    return value[: max_len - 3].rstrip() + "..."
 
 
 def upsert_current_conversation_snapshot():
@@ -101,25 +129,8 @@ def upsert_current_conversation_snapshot():
     if not st.session_state.chat_history:
         return
 
-    convo_id = st.session_state.conversation_id or int(datetime.utcnow().timestamp())
-    snapshot = {
-        "conversation_id": convo_id,
-        "chat_history": st.session_state.chat_history.copy(),
-        "updated_at": datetime.utcnow().isoformat(),
-    }
-
-    existing_idx = None
-    for idx, convo in enumerate(st.session_state.conversations):
-        if convo.get("conversation_id") == convo_id:
-            existing_idx = idx
-            break
-
-    if existing_idx is None:
-        st.session_state.conversations.append(snapshot)
-    else:
-        st.session_state.conversations[existing_idx] = snapshot
-
-    save_user_conversations(st.session_state.username)
+    if st.session_state.user_id:
+        st.session_state.conversations = fetch_user_conversations(st.session_state.user_id)
 
 
 def build_contextual_message(user_message: str, max_turns: int = 6) -> str:
@@ -159,7 +170,7 @@ def login_user(username: str, password: str):
             st.session_state.user_role = data.get("role")
             st.session_state.conversation_id = None
             st.session_state.chat_history = []
-            st.session_state.conversations = load_user_conversations(username)
+            st.session_state.conversations = fetch_user_conversations(st.session_state.user_id)
             st.session_state.current_tool_selection = "retrieval"  # Reset tool on login
             return True, "Login successful!"
         else:
@@ -214,8 +225,11 @@ def send_chat_message(
         if response.status_code == 200:
             data = response.json()
             st.session_state.conversation_id = data.get("conversation_id")
-            upsert_current_conversation_snapshot()
-            return True, data.get("response")
+            st.session_state.conversations = fetch_user_conversations(st.session_state.user_id)
+            return True, {
+                "response": data.get("response"),
+                "source": data.get("source"),
+            }
         else:
             return False, f"Error: {response.text}"
     except Exception as e:
@@ -279,7 +293,6 @@ else:
         col_new, col_logout = st.columns([1, 1])
         with col_new:
             if st.button("🔄 New Chat", use_container_width=True, key="new_chat_btn"):
-                upsert_current_conversation_snapshot()
                 st.session_state.conversation_id = None
                 st.session_state.chat_history = []
                 st.session_state.last_summarized_patient = None
@@ -287,7 +300,6 @@ else:
         
         with col_logout:
             if st.button("🚪 Logout", use_container_width=True, key="logout_btn"):
-                upsert_current_conversation_snapshot()
                 st.session_state.logged_in = False
                 st.session_state.user_id = None
                 st.session_state.username = None
@@ -327,6 +339,80 @@ else:
             ),
             key="tool_selector_sidebar"
         )
+
+        st.markdown("### ⚙️ Tool Filters")
+        sidebar_selected_tool = st.session_state.current_tool_selection
+
+        if sidebar_selected_tool == "summarization":
+            patients = fetch_patients()
+            if patients:
+                selected_patient = st.selectbox(
+                    "Select Patient",
+                    patients,
+                    key="patient_selector_sidebar"
+                )
+                st.session_state.sidebar_patient_name = selected_patient
+
+                # Auto-trigger summarization when patient selection changes.
+                if selected_patient != st.session_state.last_summarized_patient:
+                    st.session_state.last_summarized_patient = selected_patient
+
+                    with st.spinner(f"Generating summary for {selected_patient}..."):
+                        success, result = send_chat_message(
+                            message="Please provide a summary of this patient's report",
+                            selected_tool="summarization",
+                            patient_name=selected_patient
+                        )
+
+                    if success:
+                        st.session_state.chat_history.append({
+                            "sender": "user",
+                            "message": f"Show summary for patient: {selected_patient}",
+                            "tool": "summarization"
+                        })
+                        st.session_state.chat_history.append({
+                            "sender": "ai",
+                            "message": result.get("response"),
+                            "source": result.get("source"),
+                            "tool": "summarization"
+                        })
+                        st.session_state.conversations = fetch_user_conversations(st.session_state.user_id)
+                        st.session_state.auto_scroll_to_latest = True
+                        st.rerun()
+                    else:
+                        st.error(f"Error: {result}")
+            else:
+                st.warning("No accessible patient reports found for your role.")
+
+        elif sidebar_selected_tool == "medical_knowledge":
+            st.session_state.sidebar_knowledge_type = st.selectbox(
+                "Knowledge Type",
+                ["condition", "drug", "symptom", "procedure", "guideline"],
+                key="knowledge_type_selector_sidebar"
+            )
+            st.session_state.sidebar_use_rag = st.toggle(
+                "Augment with clinical context",
+                value=st.session_state.get("sidebar_use_rag", False),
+                key="knowledge_use_rag_toggle_sidebar"
+            )
+
+        elif sidebar_selected_tool == "treatment_comparison":
+            diseases = [
+                "Type 2 Diabetes Mellitus",
+                "Hypertensive Heart Disease",
+                "Community-Acquired Pneumonia",
+                "Major Depressive Disorder",
+                "Rheumatoid Arthritis"
+            ]
+            st.session_state.sidebar_disease_name = st.selectbox(
+                "Select Disease",
+                diseases,
+                key="disease_selector_sidebar"
+            )
+
+        elif sidebar_selected_tool == "diagnosis_recommendation":
+            st.caption("Enter symptom combinations in chat (example: fever + cough + fatigue).")
+
         st.divider()
     
     # Main Title
@@ -372,11 +458,11 @@ else:
     else:
         available_tools = ["retrieval", "summarization", "medical_knowledge", "treatment_comparison"]
 
-    # Initialize variables for tool-specific settings
-    patient_name = None
-    selected_knowledge_type = "condition"
-    use_rag_for_knowledge = False
-    selected_disease = None
+    # Initialize variables for tool-specific settings (bound to sidebar controls)
+    patient_name = st.session_state.get("sidebar_patient_name")
+    selected_knowledge_type = st.session_state.get("sidebar_knowledge_type", "condition")
+    use_rag_for_knowledge = st.session_state.get("sidebar_use_rag", False)
+    selected_disease = st.session_state.get("sidebar_disease_name")
     
     # Get current tool selection (from session state for persistence)
     if "current_tool_selection" not in st.session_state:
@@ -410,6 +496,8 @@ else:
                 else:
                     with st.chat_message("assistant"):
                         st.write(chat["message"])
+                        if chat.get("source"):
+                            st.caption(f"Source: {chat.get('source')}")
                 if idx == len(st.session_state.chat_history) - 1:
                     st.markdown("<div id='latest-message-anchor'></div>", unsafe_allow_html=True)
             # Auto-scroll to bottom by adding empty space that pushes content up
@@ -440,73 +528,6 @@ else:
     
     st.write("")  # Add spacing after input
     
-    # ========== TOOL-SPECIFIC SETTINGS ==========
-    if selected_tool == "summarization":
-        patients = fetch_patients()
-        
-        if patients:
-            selected_patient = st.selectbox(
-                "Select Patient",
-                patients,
-                key="patient_selector"
-            )
-            patient_name = selected_patient
-            
-            # Auto-trigger summarization when patient selection changes
-            if patient_name != st.session_state.last_summarized_patient:
-                st.session_state.last_summarized_patient = patient_name
-                
-                with st.spinner(f"Generating summary for {patient_name}..."):
-                    success, response = send_chat_message(
-                        message="Please provide a summary of this patient's report",
-                        selected_tool="summarization",
-                        patient_name=patient_name
-                    )
-                
-                if success:
-                    st.session_state.chat_history.append({
-                        "sender": "user",
-                        "message": f"Show summary for patient: {patient_name}",
-                        "tool": "summarization"
-                    })
-                    st.session_state.chat_history.append({
-                        "sender": "ai",
-                        "message": response,
-                        "tool": "summarization"
-                    })
-                    upsert_current_conversation_snapshot()
-                    st.session_state.auto_scroll_to_latest = True
-                    st.rerun()
-                else:
-                    st.error(f"Error: {response}")
-        else:
-            st.warning("No accessible patient reports found for your role.")
-
-    elif selected_tool == "medical_knowledge":
-        selected_knowledge_type = st.selectbox(
-            "Knowledge Type",
-            ["condition", "drug", "symptom", "procedure", "guideline"],
-            key="knowledge_type_selector"
-        )
-        use_rag_for_knowledge = st.toggle(
-            "Augment with clinical context",
-            value=False,
-            key="knowledge_use_rag_toggle"
-        )
-    
-    elif selected_tool == "treatment_comparison":
-        diseases = [
-            "Type 2 Diabetes Mellitus",
-            "Hypertensive Heart Disease",
-            "Community-Acquired Pneumonia",
-            "Major Depressive Disorder",
-            "Rheumatoid Arthritis"
-        ]
-        selected_disease = st.selectbox(
-            "Select Disease",
-            diseases,
-            key="disease_selector"
-        )
     if user_input and user_input.strip():
         # Add user message to history
         st.session_state.chat_history.append({
@@ -517,7 +538,7 @@ else:
         
         # Send to backend
         with st.spinner("Processing your question..."):
-            success, response = send_chat_message(
+            success, result = send_chat_message(
                 user_input,
                 selected_tool,
                 None,
@@ -530,14 +551,15 @@ else:
             # Add AI response to history
             st.session_state.chat_history.append({
                 "sender": "ai",
-                "message": response,
+                "message": result.get("response"),
+                "source": result.get("source"),
                 "tool": selected_tool
             })
-            upsert_current_conversation_snapshot()
+            st.session_state.conversations = fetch_user_conversations(st.session_state.user_id)
             st.session_state.auto_scroll_to_latest = True
             st.rerun()
         else:
-            st.error(f"Error: {response}")
+            st.error(f"Error: {result}")
 
     if st.session_state.get("auto_scroll_to_latest"):
         components.html(
@@ -569,21 +591,73 @@ else:
         
         # Display Old Conversations
         if st.session_state.conversations:
-            st.markdown("### 📜 Previous Conversations")
-            
+            st.markdown("### Previous Conversations")
+            if "active_conversation_actions" not in st.session_state:
+                st.session_state.active_conversation_actions = None
+
             ordered = sorted(
                 st.session_state.conversations,
-                key=lambda x: x.get("updated_at", ""),
+                key=lambda x: x.get("started_at", ""),
                 reverse=True,
             )
 
-            for idx, conv in enumerate(ordered):
-                conv_summary = f"Conversation {idx + 1} - {len([m for m in conv.get('chat_history', []) if m['sender'] == 'user'])} msgs"
-                
-                if st.button(f"📝 {conv_summary}", use_container_width=True, key=f"load_conv_{idx}"):
-                    st.session_state.conversation_id = conv.get('conversation_id')
-                    st.session_state.chat_history = conv.get('chat_history', []).copy()
-                    st.rerun()
+            # Independent scroll area for conversation list only.
+            with st.container(height=360):
+                for idx, conv in enumerate(ordered):
+                    conversation_title = conv.get("title") or f"Conversation {idx + 1}"
+                    title_for_button = _short_title(conversation_title)
+                    row_col1, row_col2 = st.columns([0.80, 0.20])
+
+                    with row_col1:
+                        # Single-click load behavior.
+                        if st.button(title_for_button, use_container_width=True, key=f"load_conv_{idx}", help=conversation_title):
+                            st.session_state.conversation_id = conv.get('conversation_id')
+                            st.session_state.chat_history = [
+                                {
+                                    "sender": msg.get("sender"),
+                                    "message": msg.get("message"),
+                                    "source": msg.get("source"),
+                                }
+                                for msg in fetch_conversation_history(st.session_state.user_id, conv.get('conversation_id'))
+                            ]
+                            st.rerun()
+
+                    with row_col2:
+                        if st.button("⋯", use_container_width=True, key=f"actions_toggle_{idx}"):
+                            conv_id = conv.get('conversation_id')
+                            current = st.session_state.active_conversation_actions
+                            st.session_state.active_conversation_actions = None if current == conv_id else conv_id
+
+                    if st.session_state.active_conversation_actions == conv.get('conversation_id'):
+                        edit_title = st.text_input(
+                            "Rename conversation",
+                            value=conversation_title,
+                            key=f"conversation_title_{conv.get('conversation_id')}"
+                        )
+                        action_col1, action_col2 = st.columns([0.5, 0.5])
+                        with action_col1:
+                            if st.button("Save", use_container_width=True, key=f"rename_conv_{idx}"):
+                                success, result = rename_conversation(st.session_state.user_id, conv.get('conversation_id'), edit_title)
+                                if success:
+                                    st.session_state.conversations = fetch_user_conversations(st.session_state.user_id)
+                                    st.session_state.active_conversation_actions = None
+                                    st.success("Conversation renamed")
+                                    st.rerun()
+                                else:
+                                    st.error(f"Rename failed: {result}")
+                        with action_col2:
+                            if st.button("Delete", use_container_width=True, key=f"delete_conv_{idx}"):
+                                success, result = delete_conversation(st.session_state.user_id, conv.get('conversation_id'))
+                                if success:
+                                    if st.session_state.conversation_id == conv.get('conversation_id'):
+                                        st.session_state.conversation_id = None
+                                        st.session_state.chat_history = []
+                                    st.session_state.conversations = fetch_user_conversations(st.session_state.user_id)
+                                    st.session_state.active_conversation_actions = None
+                                    st.success("Conversation deleted")
+                                    st.rerun()
+                                else:
+                                    st.error(f"Delete failed: {result}")
         
         st.divider()
         st.markdown("### ℹ️ About")
