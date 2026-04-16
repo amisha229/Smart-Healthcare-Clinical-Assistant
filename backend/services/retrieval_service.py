@@ -10,8 +10,14 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from database import SessionLocal
 from models.document_chunk import DocumentChunk
 
-# Initialize embedding model once to speed up queries
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+_embeddings = None
+
+
+def _get_embeddings() -> HuggingFaceEmbeddings:
+    global _embeddings
+    if _embeddings is None:
+        _embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    return _embeddings
 
 def retrieve_clinical_context(query: str, user_role: str, top_k: int = 3) -> str:
     """
@@ -19,7 +25,7 @@ def retrieve_clinical_context(query: str, user_role: str, top_k: int = 3) -> str
     Strictly filters based on the user's role (Admin, Doctor, Nurse).
     """
     # 1. Convert the user's text question into a vector
-    query_vector = embeddings.embed_query(query)
+    query_vector = _get_embeddings().embed_query(query)
     normalized_role = (user_role or "Doctor").strip().title()
     query_lower = (query or "").lower()
     query_tokens = {t for t in re.findall(r"[a-z0-9]+", query_lower) if len(t) >= 3}
