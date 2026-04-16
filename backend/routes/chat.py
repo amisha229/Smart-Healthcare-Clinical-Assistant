@@ -4,6 +4,9 @@ from database import SessionLocal
 from schemas.chat_schema import (
     ChatRequest,
     ChatResponse,
+    ChatFeedbackRequest,
+    ChatFeedbackResponse,
+    LowScoreAnalyticsResponse,
     PatientListResponse,
     ConversationSummaryResponse,
     ChatHistoryResponse,
@@ -13,12 +16,14 @@ from schemas.chat_schema import (
     ConversationRenameResponse,
 )
 from services.chat_service import process_chat
+from services.langsmith_observability import LangSmithTracer
 from services.summarization_service import list_accessible_patients
 from uuid import uuid4
 from models.conversation import Conversation
 from models.message import Message
 
 router = APIRouter(tags=["Chat"])
+tracer = LangSmithTracer()
 
 # DB dependency
 def get_db():
@@ -54,9 +59,11 @@ def chat(request: ChatRequest, db: Session = Depends(get_db)):
     if isinstance(result, dict):
         response_text = result.get("response", "")
         source = result.get("source")
+        trace_id = result.get("trace_id")
     else:
         response_text = str(result)
         source = None
+        trace_id = None
 
     return ChatResponse(
         conversation_id=conversation_id,
@@ -68,6 +75,65 @@ def chat(request: ChatRequest, db: Session = Depends(get_db)):
         disease_name=request.disease_name,
         response=response_text,
         source=source,
+        trace_id=trace_id,
+    )
+
+
+@router.post(
+    "/feedback",
+    response_model=ChatFeedbackResponse,
+    summary="Submit response feedback",
+    description="Stores accuracy/quality feedback in LangSmith for a trace run.",
+)
+def submit_feedback(request: ChatFeedbackRequest):
+    accepted = tracer.submit_feedback(
+        run_id=request.run_id,
+        score=request.score,
+        key=request.key,
+        comment=request.comment,
+        metadata=request.metadata,
+    )
+    if not accepted:
+        raise HTTPException(
+            status_code=503,
+            detail="LangSmith feedback not accepted. Ensure LANGSMITH_TRACING and LANGSMITH_API_KEY are configured.",
+        )
+
+    return ChatFeedbackResponse(
+        accepted=True,
+        message="Feedback submitted to LangSmith.",
+    )
+
+
+@router.get(
+    "/analytics/low-score-tools",
+    response_model=LowScoreAnalyticsResponse,
+    summary="Low-score analytics by tool",
+    description="Returns tool-level summary for low feedback scores from LangSmith.",
+)
+def low_score_analytics(
+    key: str = Query(default="response_accuracy", description="Feedback metric key."),
+    threshold: float = Query(default=0.7, ge=0.0, le=1.0, description="Return feedback scores less than or equal to this threshold."),
+    limit: int = Query(default=100, ge=1, le=500, description="Maximum feedback items to inspect."),
+):
+    summary = tracer.get_low_score_tool_summary(
+        key=key,
+        threshold=threshold,
+        limit=limit,
+    )
+    if summary is None:
+        raise HTTPException(
+            status_code=503,
+            detail="LangSmith analytics unavailable. Ensure LANGSMITH_TRACING and LANGSMITH_API_KEY are configured.",
+        )
+
+    return LowScoreAnalyticsResponse(
+        accepted=True,
+        message="Low-score analytics generated.",
+        key=summary.get("key", key),
+        threshold=summary.get("threshold", threshold),
+        total_low_score_count=summary.get("total_low_score_count", 0),
+        tools=summary.get("tools", []),
     )
 
 

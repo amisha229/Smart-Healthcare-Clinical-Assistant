@@ -28,6 +28,36 @@ class ChatResponse(BaseModel):
     disease_name: Optional[str] = None
     response: str
     source: Optional[str] = None
+    trace_id: Optional[str] = None
+
+
+class ChatFeedbackRequest(BaseModel):
+    run_id: str = Field(..., description="LangSmith run ID (trace_id returned by chat API).")
+    score: float = Field(..., ge=0.0, le=1.0, description="Accuracy score between 0 and 1.")
+    key: str = Field(default="response_accuracy", description="Feedback metric key.")
+    comment: Optional[str] = Field(default=None, description="Optional reviewer comment.")
+    metadata: Optional[dict] = Field(default=None, description="Optional JSON metadata for analysis.")
+
+
+class ChatFeedbackResponse(BaseModel):
+    accepted: bool
+    message: str
+
+
+class ToolQualitySummary(BaseModel):
+    tool: str
+    count: int
+    average_score: float
+    example_run_ids: list[str]
+
+
+class LowScoreAnalyticsResponse(BaseModel):
+    accepted: bool
+    message: str
+    key: str
+    threshold: float
+    total_low_score_count: int
+    tools: list[ToolQualitySummary]
 
 
 class PatientListResponse(BaseModel):
