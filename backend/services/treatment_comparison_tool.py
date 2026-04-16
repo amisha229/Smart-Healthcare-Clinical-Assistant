@@ -1,7 +1,7 @@
 import os
 import sys
 import re
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Optional
 from sqlalchemy.orm import Session
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -28,7 +28,14 @@ llm = ChatOpenAI(
     max_tokens=1500,
 )
 
-treatment_embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+_treatment_embeddings = None
+
+
+def _get_treatment_embeddings() -> HuggingFaceEmbeddings:
+    global _treatment_embeddings
+    if _treatment_embeddings is None:
+        _treatment_embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    return _treatment_embeddings
 
 
 def _check_treatment_cache(query: str, db: Session) -> Optional[str]:
@@ -40,7 +47,7 @@ def _check_treatment_cache(query: str, db: Session) -> Optional[str]:
         cached_entry = db.query(MedicalKnowledgeCache).filter(
             MedicalKnowledgeCache.query == query,
             MedicalKnowledgeCache.knowledge_type == "treatment_comparison",
-            MedicalKnowledgeCache.expires_at > datetime.utcnow()
+            MedicalKnowledgeCache.expires_at > datetime.now(timezone.utc)
         ).first()
         
         if cached_entry:
@@ -188,7 +195,7 @@ def _retrieve_treatment_context(
 ) -> str:
     """Retrieve treatment chunks with strict disease + role filtering for relevance."""
     normalized_role = (user_role or "Doctor").strip().title()
-    vector = treatment_embeddings.embed_query(f"{disease_name} {query}")
+    vector = _get_treatment_embeddings().embed_query(f"{disease_name} {query}")
 
     results = (
         db.query(
@@ -241,7 +248,7 @@ def _cache_treatment_result(
             knowledge_type="treatment_comparison",
             response=response,
             source=source,
-            expires_at=datetime.utcnow() + timedelta(days=60)
+            expires_at=datetime.now(timezone.utc) + timedelta(days=60)
         )
         
         db.add(cache_entry)

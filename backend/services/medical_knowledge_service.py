@@ -1,7 +1,7 @@
 import os
 import sys
 import re
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Optional, Dict
 from sqlalchemy.orm import Session
 
@@ -64,7 +64,7 @@ def _check_cache(query: str, knowledge_type: str, db: Session) -> Optional[str]:
     cached_entry = db.query(MedicalKnowledgeCache).filter(
         MedicalKnowledgeCache.query == key,
         MedicalKnowledgeCache.knowledge_type == normalized_type,
-        MedicalKnowledgeCache.expires_at > datetime.utcnow()  # Not expired
+        MedicalKnowledgeCache.expires_at > datetime.now(timezone.utc)  # Not expired
     ).first()
     
     if cached_entry:
@@ -169,15 +169,15 @@ def _cache_result(
     if existing:
         existing.response = response
         existing.source = source
-        existing.cached_at = datetime.utcnow()
-        existing.expires_at = datetime.utcnow() + timedelta(days=90)
+        existing.cached_at = datetime.now(timezone.utc)
+        existing.expires_at = datetime.now(timezone.utc) + timedelta(days=90)
     else:
         cache_entry = MedicalKnowledgeCache(
             query=key,
             knowledge_type=normalized_type,
             response=response,
             source=source,
-            expires_at=datetime.utcnow() + timedelta(days=90)
+            expires_at=datetime.now(timezone.utc) + timedelta(days=90)
         )
         db.add(cache_entry)
 

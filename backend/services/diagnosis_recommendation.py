@@ -1,6 +1,6 @@
 import os
 import re
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Optional
 
 from dotenv import load_dotenv
@@ -53,7 +53,7 @@ def _check_cache(query: str, db: Session) -> Optional[str]:
 		cached_entry = db.query(MedicalKnowledgeCache).filter(
 			MedicalKnowledgeCache.query == query,
 			MedicalKnowledgeCache.knowledge_type == "diagnosis_recommendation",
-			MedicalKnowledgeCache.expires_at > datetime.utcnow(),
+			MedicalKnowledgeCache.expires_at > datetime.now(timezone.utc),
 		).first()
 		return cached_entry.response if cached_entry else None
 	except Exception:
@@ -67,7 +67,7 @@ def _save_cache(query: str, response: str, db: Session) -> None:
 			knowledge_type="diagnosis_recommendation",
 			response=response,
 			source="RAG + Groq LLM",
-			expires_at=datetime.utcnow() + timedelta(days=30),
+			expires_at=datetime.now(timezone.utc) + timedelta(days=30),
 		)
 		db.add(entry)
 		db.commit()
