@@ -25,7 +25,7 @@ def test_cache_miss(db):
     db.query().filter().first.return_value = None
     assert _check_cache("q", "drug", db) is None
 
-@pytest.mark.parametrize("q", ["", "test", "x"*1000], ids=["empty", "normal", "long"]) 
+@pytest.mark.parametrize("q", ["", "test", "x"*1000])
 def test_cache_edge(db, q):
     db.query().filter().first.return_value = None
     assert _check_cache(q, "drug", db) is None
@@ -85,40 +85,40 @@ def test_main_rag(mock_cache, mock_aug, mock_q, db):
     assert "ctx-refined" == res["response"]
 
 # ---------- BULK ----------
-@pytest.mark.parametrize("i", range(40), ids=lambda i: f"bulk-{i:02d}")  # 40 tests
+@pytest.mark.parametrize("i", range(40))  # 40 tests
 @patch("services.medical_knowledge_service._query_groq_for_knowledge")
 @patch("services.medical_knowledge_service._check_cache")
-def test_bulk(mock_cache, mock_q, db, i):
+def test_bulk_queries_return_response(mock_cache, mock_q, db, i):
     mock_cache.return_value = None
     mock_q.return_value = f"resp{i}"
     res = get_medical_knowledge(f"q{i}", "drug", db, False)
     assert res["response"] == f"resp{i}"
 
 # ---------- EDGE ----------
-@pytest.mark.parametrize("q", ["", "test", " "*5, "x"*1000], ids=["empty", "normal", "spaces-only", "long"]) 
+@pytest.mark.parametrize("q", ["", "test", " "*5, "x"*1000])
 @patch("services.medical_knowledge_service._query_groq_for_knowledge")
 @patch("services.medical_knowledge_service._check_cache")
-def test_edge(mock_cache, mock_q, db, q):
+def test_edge_queries_return_dict(mock_cache, mock_q, db, q):
     mock_cache.return_value = None
     mock_q.return_value = "resp"
     res = get_medical_knowledge(q, "drug", db, False)
     assert isinstance(res, dict)
 
 # ---------- TYPES ----------
-@pytest.mark.parametrize("kt", ["drug", "disease", "symptom"], ids=["drug", "disease", "symptom"]) 
+@pytest.mark.parametrize("kt", ["drug", "disease", "symptom"])
 @patch("services.medical_knowledge_service._query_groq_for_knowledge")
 @patch("services.medical_knowledge_service._check_cache")
-def test_types(mock_cache, mock_q, db, kt):
+def test_knowledge_types_preserved(mock_cache, mock_q, db, kt):
     mock_cache.return_value = None
     mock_q.return_value = "resp"
     res = get_medical_knowledge("q", kt, db, False)
     assert res["knowledge_type"] == kt
 
 # ---------- EXTRA ----------
-@pytest.mark.parametrize("i", range(20), ids=lambda i: f"extra-{i:02d}")  # 20 tests
+@pytest.mark.parametrize("i", range(20))  # 20 tests
 @patch("services.medical_knowledge_service._query_groq_for_knowledge")
 @patch("services.medical_knowledge_service._check_cache")
-def test_more(mock_cache, mock_q, db, i):
+def test_additional_queries_return_ok(mock_cache, mock_q, db, i):
     mock_cache.return_value = None
     mock_q.return_value = "ok"
     assert get_medical_knowledge("q", "drug", db)["response"] == "ok"

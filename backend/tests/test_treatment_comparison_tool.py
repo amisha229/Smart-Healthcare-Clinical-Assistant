@@ -51,16 +51,6 @@ def test_cache_error_returns_none(db):
         " " * 10,
         "x" * 200,
     ],
-    ids=[
-        "empty-query",
-        "single-char",
-        "basic-query",
-        "multi-treatment-query",
-        "newline-query",
-        "tab-query",
-        "spaces-only-query",
-        "long-query",
-    ],
 )
 def test_cache_query_shapes_return_none_on_miss(db, query):
     db.query().filter().first.return_value = None
@@ -70,7 +60,6 @@ def test_cache_query_shapes_return_none_on_miss(db, query):
 @pytest.mark.parametrize(
     "role",
     ["Doctor", "Nurse", "Admin", "doctor", "", None],
-    ids=["doctor", "nurse", "admin", "doctor-lower", "empty-role", "none-role"],
 )
 def test_role_guidance(role):
     out = _get_role_guidance(role)
@@ -91,18 +80,6 @@ def test_role_guidance(role):
         ("", "clinical"),
         ("  Nurse  ", "nursing"),
         ("unknown", "clinical"),
-    ],
-    ids=[
-        "doctor-clinical",
-        "doctor-lower-clinical",
-        "nurse-nursing",
-        "nurse-lower-nursing",
-        "admin-administrative",
-        "admin-lower-administrative",
-        "none-clinical",
-        "empty-clinical",
-        "nurse-spaced-nursing",
-        "unknown-default-clinical",
     ],
 )
 def test_role_guidance_content(role, expected_token):
@@ -134,16 +111,6 @@ def test_cache_store_failure_rolls_back(db):
         ("   spaced   ", "spaced"),
         ("<table><tr><td>T</td></tr></table>", "T"),
     ],
-    ids=[
-        "br-lower",
-        "br-upper-self-close",
-        "strip-paragraph-tag",
-        "collapse-blank-lines",
-        "no-tag-input",
-        "empty-input",
-        "trim-spaces",
-        "strip-table-tags",
-    ],
 )
 def test_sanitize_output(raw, expected):
     assert _sanitize_treatment_output(raw) == expected
@@ -167,20 +134,6 @@ def test_sanitize_output(raw, expected):
         ("adverse profile", "side-effect burden"),
         ("table output", "compact markdown tables"),
         ("format please", "compact markdown tables"),
-    ],
-    ids=[
-        "focus-side-effects",
-        "focus-monitoring",
-        "focus-mild-vs-severe",
-        "focus-cost",
-        "focus-tabular",
-        "focus-combined-side-monitor",
-        "focus-default",
-        "focus-affordability",
-        "focus-followup-lab",
-        "focus-adverse",
-        "focus-table-keyword",
-        "focus-format-keyword",
     ],
 )
 def test_build_query_focus_instruction(query, expected_contains):
@@ -228,28 +181,6 @@ def test_compare_success(mock_ctx, mock_gen, mock_cache, db):
         ("burden profile", "Psoriasis", "Doctor"),
         ("efficacy summary", "Dyslipidemia", "Doctor"),
     ],
-    ids=[
-        "doctor-t2dm-oral",
-        "doctor-t1dm-insulin",
-        "doctor-htn-monitoring",
-        "doctor-asthma-cost-efficacy",
-        "doctor-copd-adverse",
-        "doctor-ckd-options",
-        "doctor-pneumonia-severity",
-        "doctor-hf-tabular",
-        "doctor-sepsis-options",
-        "doctor-tb-regimen",
-        "nurse-migraine-options",
-        "nurse-epilepsy-care",
-        "nurse-hypothyroid-simple",
-        "nurse-hyperthyroid-compare",
-        "admin-gerd-resource",
-        "admin-anemia-policy",
-        "doctor-oa-therapy",
-        "doctor-ra-long-term",
-        "doctor-psoriasis-burden",
-        "doctor-dyslipidemia-efficacy",
-    ],
 )
 @patch("services.treatment_comparison_tool._cache_treatment_result")
 @patch("services.treatment_comparison_tool._generate_treatment_comparison", return_value="ok")
@@ -276,7 +207,6 @@ def test_compare_access_restricted(mock_ctx, db):
 @pytest.mark.parametrize(
     "role",
     ["Doctor", "Nurse", "Admin", "doctor"],
-    ids=["doctor", "nurse", "admin", "doctor-lower"],
 )
 @patch("services.treatment_comparison_tool._retrieve_treatment_context", return_value="ACCESS_RESTRICTED: blocked")
 def test_compare_access_restricted_matrix(mock_ctx, role, db):
@@ -308,7 +238,6 @@ def test_compare_no_data(mock_ctx, db):
         "NO_RELEVANT_DATA: missing context",
         "No relevant",
     ],
-    ids=["no-data-prefixed", "no-data-text", "no-data-missing-context", "no-data-generic"],
 )
 @patch("services.treatment_comparison_tool._retrieve_treatment_context")
 def test_compare_no_data_matrix(mock_ctx, no_data_signal, db):
@@ -336,7 +265,6 @@ def test_compare_handles_exception(mock_ctx, db):
 @pytest.mark.parametrize(
     "error_msg",
     ["boom", "db failed", "unexpected", "timeout"],
-    ids=["err-boom", "err-db-failed", "err-unexpected", "err-timeout"],
 )
 @patch("services.treatment_comparison_tool._retrieve_treatment_context")
 def test_compare_handles_exception_matrix(mock_ctx, error_msg, db):

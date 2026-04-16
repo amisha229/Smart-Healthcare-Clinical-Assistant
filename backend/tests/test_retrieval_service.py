@@ -103,7 +103,6 @@ def setup_common(monkeypatch, db, embedded=None):
 @pytest.mark.parametrize(
     "role",
     ["Doctor", "doctor", "  doctor  ", None, "DOCTOR"],
-    ids=["doctor", "doctor-lower", "doctor-spaced", "doctor-none", "doctor-upper"],
 )
 def test_success_role_variants(monkeypatch, role):
     db = FakeDB(
@@ -120,7 +119,6 @@ def test_success_role_variants(monkeypatch, role):
 @pytest.mark.parametrize(
     "top_k, expected",
     [(1, 1), (2, 2), (3, 3), (5, 3)],
-    ids=["top1", "top2", "top3", "top5-capped3"],
 )
 def test_returns_top_k_results(monkeypatch, top_k, expected):
     rows = [
@@ -166,7 +164,6 @@ def test_context_format_multiple_joined(monkeypatch):
         ("audit logs", "audit logs handling"),
         ("record access", "record access policy"),
     ],
-    ids=["icu", "nephritis", "respiratory", "audit", "record-access"],
 )
 def test_success_with_lexical_overlap(monkeypatch, query, text):
     db = FakeDB(
@@ -181,7 +178,6 @@ def test_success_with_lexical_overlap(monkeypatch, query, text):
 @pytest.mark.parametrize(
     "role",
     ["Admin", "admin", "  admin  ", "ADMIN"],
-    ids=["admin", "admin-lower", "admin-spaced", "admin-upper"],
 )
 def test_admin_role_visible_content(monkeypatch, role):
     db = FakeDB(
@@ -209,16 +205,6 @@ def test_admin_role_visible_content(monkeypatch, role):
         "record access review",
         "modifications audit",
     ],
-    ids=[
-        "audit-policy",
-        "audit-logs-access",
-        "compliance-procedure",
-        "governance-framework",
-        "data-security-policy",
-        "access-control-policy",
-        "record-access-review",
-        "modifications-audit",
-    ],
 )
 def test_admin_intent_non_admin_restricted(monkeypatch, query):
     unrestricted = [(chunk("admin secret", "Admin"), 0.30)]
@@ -232,7 +218,6 @@ def test_admin_intent_non_admin_restricted(monkeypatch, query):
 @pytest.mark.parametrize(
     "query",
     ["audit", "compliance", "policy", "modification"],
-    ids=["audit", "compliance", "policy", "modification"],
 )
 def test_admin_intent_nurse_restricted(monkeypatch, query):
     unrestricted = [(chunk("admin only", "Admin"), 0.31)]
@@ -256,7 +241,6 @@ def test_admin_intent_nurse_restricted(monkeypatch, query):
         (0.35, 0.45),
         (0.40, 0.50),
     ],
-    ids=["0.20-vs-0.30", "0.25-vs-0.35", "0.30-vs-0.40", "0.35-vs-0.45", "0.40-vs-0.50"],
 )
 def test_strong_match_restricted_with_much_weaker_role(monkeypatch, best_any, best_role):
     unrestricted = [(chunk("restricted protocol", "Admin"), best_any)]
@@ -270,7 +254,6 @@ def test_strong_match_restricted_with_much_weaker_role(monkeypatch, best_any, be
 @pytest.mark.parametrize(
     "role",
     ["Doctor", "Nurse", "doctor", "nurse", "  Doctor  "],
-    ids=["doctor", "nurse", "doctor-lower", "nurse-lower", "doctor-spaced"],
 )
 def test_strong_match_restricted_when_no_role_candidates(monkeypatch, role):
     unrestricted = [(chunk("restricted protocol", "Admin"), 0.22)]
@@ -291,7 +274,6 @@ def test_strong_match_restricted_when_no_role_candidates(monkeypatch, role):
         ("nephritis protocol", "nephritis doctor protocol", 0.58),
         ("resp infection", "resp infection care", 0.50),
     ],
-    ids=["nephritis", "respiratory"],
 )
 def test_viable_role_match_prevents_restriction(monkeypatch, query, text, dist):
     unrestricted = [(chunk("admin restricted", "Admin"), 0.30)]
@@ -329,7 +311,6 @@ def test_record_access_doctor_still_restricted_due_to_admin_intent(monkeypatch):
         ("resp care", "resp care nurse", 0.60),
         ("fever protocol", "nurse fever protocol", 0.51),
     ],
-    ids=["icu", "infection", "resp", "fever"],
 )
 def test_viable_nurse_match_prevents_restriction(monkeypatch, query, text, dist):
     unrestricted = [(chunk("admin restricted", "Admin"), 0.29)]
@@ -369,7 +350,6 @@ def test_no_results_anywhere_returns_no_relevant(monkeypatch):
         ("heart valve", "general admin note"),
         ("sepsis severe", "mild headache guide"),
     ],
-    ids=["abc-unrelated", "renal-unrelated", "heart-unrelated", "sepsis-unrelated"],
 )
 def test_weak_role_match_without_overlap_returns_no_relevant(monkeypatch, query, text):
     unrestricted = [(chunk(text, "Doctor"), 0.50)]
@@ -388,7 +368,6 @@ def test_weak_role_match_without_overlap_returns_no_relevant(monkeypatch, query,
         ("stroke pathway", "stroke care"),
         ("infection policy", "infection response"),
     ],
-    ids=["icu-overlap", "renal-overlap", "stroke-overlap", "infection-overlap"],
 )
 def test_weak_role_match_with_overlap_still_returns_context(monkeypatch, query, text):
     unrestricted = [(chunk(text, "Doctor"), 0.50)]
@@ -406,7 +385,6 @@ def test_weak_role_match_with_overlap_still_returns_context(monkeypatch, query, 
 @pytest.mark.parametrize(
     "query",
     ["fever care", "", "audit logs"],
-    ids=["fever-care", "empty", "audit-logs"],
 )
 def test_embed_query_called(monkeypatch, query):
     called = {"q": None}
@@ -431,7 +409,6 @@ def test_embed_query_called(monkeypatch, query):
 @pytest.mark.parametrize(
     "top_k, limit_expected",
     [(1, 8), (2, 8), (3, 9)],
-    ids=["k1-limit8", "k2-limit8", "k3-limit9"],
 )
 def test_limit_uses_max_formula(monkeypatch, top_k, limit_expected):
     rows = [(chunk("x", "Doctor"), 0.2)]
