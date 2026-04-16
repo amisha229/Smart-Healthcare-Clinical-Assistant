@@ -67,8 +67,8 @@ class TestSummarize:
 
 # ================= BULK TESTS (50) =================
 
-@pytest.mark.parametrize("i", range(50), ids=lambda i: f"summary-bulk-{i:02d}")
-def test_bulk_cases(i, mock_db):
+@pytest.mark.parametrize("i", range(50))
+def test_bulk_patient_summaries_return_string(i, mock_db):
     mock_db.query().filter().filter().filter().order_by().all.return_value = []
     result = summarize_patient_report(mock_db, f"Patient{i}", "Doctor")
     assert isinstance(result, str)
@@ -98,8 +98,8 @@ class TestList:
 
 # ================= BULK LIST (20) =================
 
-@pytest.mark.parametrize("i", range(20), ids=lambda i: f"list-bulk-{i:02d}")
-def test_bulk_list(i, mock_db):
+@pytest.mark.parametrize("i", range(20))
+def test_bulk_patient_lists_return_entries(i, mock_db):
     data = [(f"P{i}",)]
     mock_db.query().filter().filter().filter().distinct().all.return_value = data
     result = list_accessible_patients(mock_db, "Doctor")

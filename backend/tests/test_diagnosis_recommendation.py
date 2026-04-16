@@ -33,27 +33,6 @@ import services.diagnosis_recommendation as dr
     "headache!",
     "vomiting.",
     "rash over body",
-], ids=[
-    "fever-cough",
-    "headache-nausea",
-    "possible-diagnosis",
-    "what-could-this-be",
-    "likely-condition",
-    "possible-conditions",
-    "diagnosis-keyword",
-    "symptoms-infection",
-    "signs-infection",
-    "chestpain-sob",
-    "polyuria-polydipsia",
-    "weightloss-fatigue",
-    "plus-sign-query",
-    "plus-random-text",
-    "sorethroat-chills",
-    "vomiting-diarrhea",
-    "fatigue-punctuation",
-    "headache-punctuation",
-    "vomiting-punctuation",
-    "rash-body",
 ])
 def test_is_symptom_query_true_cases(query):
     assert dr._is_symptom_query(query) is True
@@ -70,17 +49,6 @@ def test_is_symptom_query_true_cases(query):
     "chest x-ray report",
     "appointment booking",
     "insurance claim",
-], ids=[
-    "empty",
-    "spaces-only",
-    "greeting",
-    "billing",
-    "refill",
-    "exercise-advice",
-    "referral",
-    "xray-report",
-    "appointment",
-    "insurance",
 ])
 def test_is_symptom_query_false_cases(query):
     assert dr._is_symptom_query(query) is False
