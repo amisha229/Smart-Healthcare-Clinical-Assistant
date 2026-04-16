@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, TIMESTAMP
+from sqlalchemy import Column, Integer, TIMESTAMP, String
 from datetime import datetime
 from models.user import Base
 
@@ -7,4 +7,5 @@ class Conversation(Base):
 
     conversation_id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer)
+    title = Column(String(200), nullable=True)
     started_at = Column(TIMESTAMP, default=datetime.utcnow)

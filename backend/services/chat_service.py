@@ -167,6 +167,30 @@ def _ensure_user_exists(db: Session, user_id: int, user_role: str) -> None:
     db.commit()
 
 
+def _build_conversation_title(
+    selected_tool: str,
+    user_message: str,
+    patient_name: Optional[str] = None,
+    disease_name: Optional[str] = None,
+) -> str:
+    tool = (selected_tool or "").strip().lower()
+    message_text = " ".join((user_message or "").split()).strip()
+
+    if tool == "summarization" and patient_name:
+        return f"Summary: {patient_name}"[:200]
+
+    if tool == "treatment_comparison" and disease_name:
+        return f"{disease_name} Comparison"[:200]
+
+    if tool == "diagnosis_recommendation" and message_text:
+        return f"Diagnosis: {message_text[:40]}"[:200]
+
+    if message_text:
+        return message_text[:60]
+
+    return "Conversation"
+
+
 def process_chat(
     db: Session,
     conversation_id: Optional[int],
@@ -188,7 +212,16 @@ def process_chat(
     # 0. Check if conversation exists, create if not
     conversation = db.query(Conversation).filter(Conversation.conversation_id == conversation_id).first()
     if not conversation:
-        conversation = Conversation(conversation_id=conversation_id, user_id=user_id)
+        conversation = Conversation(
+            conversation_id=conversation_id,
+            user_id=user_id,
+            title=_build_conversation_title(
+                selected_tool=selected_tool,
+                user_message=user_message,
+                patient_name=patient_name,
+                disease_name=disease_name,
+            ),
+        )
         db.add(conversation)
         try:
             db.commit()
@@ -207,15 +240,28 @@ def process_chat(
     db.add(user_msg)
     db.commit()
 
+    if not (conversation.title or "").strip():
+        conversation.title = _build_conversation_title(
+            selected_tool=selected_tool,
+            user_message=user_message,
+            patient_name=patient_name,
+            disease_name=disease_name,
+        )
+        db.commit()
+
     # 2. Generate AI response based on selected tool
     tool = (selected_tool or "retrieval").strip().lower()
+    source_label = "Internal Clinical Knowledge Base (RAG) + Groq synthesis"
     if tool == "summarization":
         if (user_role or "").strip().title() == "Admin":
             ai_text = "Summarization tool is not available for Admin role."
+            source_label = "Access Policy"
         elif not patient_name:
             ai_text = "Please provide patient_name when using summarization tool."
+            source_label = "Input Validation"
         else:
             ai_text = summarize_patient_report(db, patient_name=patient_name, user_role=user_role)
+            source_label = "Patient Reports (Internal DB) + Groq synthesis"
     elif tool == "medical_knowledge":
         mk = get_medical_knowledge(
             query=user_message,
@@ -225,11 +271,20 @@ def process_chat(
             use_rag=use_rag,
         )
         ai_text = mk.get("response", "Unable to fetch medical knowledge right now.")
+        raw_source = mk.get("source", "groq_llm")
+        source_map = {
+            "cache": "Medical Knowledge Cache (Internal)",
+            "groq_llm": "Groq LLM",
+            "rag_augmented": "Internal Clinical Documents (RAG) + Groq synthesis",
+        }
+        source_label = source_map.get(raw_source, "Groq LLM")
     elif tool == "treatment_comparison":
         if not disease_name:
             ai_text = "Please provide disease_name when using treatment_comparison tool. E.g., 'Type 2 Diabetes Mellitus', 'Rheumatoid Arthritis'."
+            source_label = "Input Validation"
         elif not _is_treatment_comparison_query(user_message):
             ai_text = "This is not related to a treatment-comparison question."
+            source_label = "Intent Validation"
         else:
             ai_text = compare_treatments(
                 query=user_message,
@@ -237,14 +292,22 @@ def process_chat(
                 user_role=user_role,
                 db=db
             )
+            source_label = "Treatment Documents (RAG) + Groq synthesis"
     elif tool == "diagnosis_recommendation":
         ai_text = recommend_diagnosis(
             query=user_message,
             user_role=user_role,
             db=db,
         )
+        if "only for Doctor role" in ai_text or "not related" in ai_text:
+            source_label = "Role/Intent Validation"
+        elif ai_text.startswith("No relevant") or ai_text.startswith("Relevant diagnostic"):
+            source_label = "Internal Clinical Retrieval"
+        else:
+            source_label = "Internal Clinical Documents (RAG) + Groq synthesis"
     else:
         ai_text = generate_ai_response(user_message, user_role=user_role)
+        source_label = "Internal Clinical Documents (RAG) + Groq synthesis"
 
     # 3. Store AI response
     ai_msg = Message(
@@ -255,4 +318,7 @@ def process_chat(
     db.add(ai_msg)
     db.commit()
 
-    return ai_text
+    return {
+        "response": ai_text,
+        "source": source_label,
+    }

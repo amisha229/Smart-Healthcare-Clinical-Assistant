@@ -27,8 +27,44 @@ class ChatResponse(BaseModel):
     knowledge_type: Optional[str] = None
     disease_name: Optional[str] = None
     response: str
+    source: Optional[str] = None
 
 
 class PatientListResponse(BaseModel):
     user_role: str
     patients: list[str]
+
+
+class ConversationSummaryResponse(BaseModel):
+    conversation_id: int
+    title: Optional[str] = None
+    started_at: Optional[str] = None
+    message_count: int = 0
+
+
+class ChatHistoryItem(BaseModel):
+    sender: str
+    message: str
+    timestamp: Optional[str] = None
+    source: Optional[str] = None
+
+
+class ChatHistoryResponse(BaseModel):
+    conversation_id: int
+    user_id: int
+    messages: list[ChatHistoryItem]
+
+
+class ConversationDeleteResponse(BaseModel):
+    conversation_id: int
+    deleted_messages: int
+    deleted_conversation: bool
+
+
+class ConversationRenameRequest(BaseModel):
+    title: str = Field(..., min_length=1, max_length=200, description="New conversation title.")
+
+
+class ConversationRenameResponse(BaseModel):
+    conversation_id: int
+    title: str
