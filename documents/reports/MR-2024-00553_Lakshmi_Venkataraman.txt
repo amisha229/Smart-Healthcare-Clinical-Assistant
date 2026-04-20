@@ -1,0 +1,81 @@
+REPORT_START
+patient_name: Lakshmi Venkataraman
+report_id: MR-2024-00553
+report_date: 2024-04-14
+department: Orthopaedics
+hospital: Fortis Malar Hospital, Chennai
+attending_doctor: Dr. Ravi Shankar, MS (Orthopaedics)
+
+ACCESS_POLICY
+public_roles: Nurse,Doctor
+private_roles: Doctor
+
+SECTION_A_PUBLIC
+Patient Information
+- Patient Name: Lakshmi Venkataraman
+- Gender: Female
+- Blood Group: (not specified in source text)
+- Ward / Room: Orthopaedic Ward, Room 215
+- Admission Date: 05 April 2024
+- Discharge Date: 14 April 2024
+- Assigned Doctor: Dr. Ravi Shankar, MS (Orthopaedics)
+- Allergies: NSAIDs (gastric bleed history)
+- Chronic Conditions: Osteoporosis, Hypertension, Hypothyroidism
+
+Chief Complaint
+- Fall from standing height at home.
+- Immediate inability to weight-bear on right hip.
+- Severe right groin and thigh pain.
+- Limb shortened and externally rotated.
+
+Physical Examination
+- Temperature: 36.7 C
+- Blood Pressure: 145/82 mmHg
+- Heart Rate: 78 bpm
+- Right Hip: Shortened, externally rotated; painful passive movement
+- Neurovascular: Distal pulses intact; sensation normal; capillary refill < 2 s
+- Skin: No open wound; bruising right groin
+- Cognitive: MMSE 26/30
+
+Clinical Progress Summary
+- Day 2: THR performed uneventfully; mobilised with frame on Day 3.
+- Day 5: Independent with frame.
+- Day 7: Stairs assessed.
+- Day 9: Discharge to rehabilitation facility.
+
+Discharge Instructions
+- Discharge Medications: Enoxaparin 40 mg SC OD (28 days); Paracetamol 1 g QDS; Alendronate 70 mg weekly; Cholecalciferol 800 IU OD; Levothyroxine continued
+- Follow-Up Plan: Orthopaedic OPD in 6 weeks; DEXA rescan in 1 year; falls prevention programme referral
+- Red Flag Symptoms: Return immediately if symptoms worsen acutely or new concerns arise.
+
+SECTION_B_PRIVATE
+History of Present Illness
+- 76-year-old female with osteoporosis (DEXA T-score -3.2) sustained a low-energy fall.
+- Right limb shortened and externally rotated.
+- X-ray confirmed displaced right neck of femur fracture.
+- Medically optimised for surgical repair.
+
+Investigations and Results
+- X-Ray Right Hip: Displaced intracapsular NOF fracture -> Fracture confirmed
+- Haemoglobin: 11.2 g/dL (Reference: 11.5-16.0 g/dL) -> Mildly low
+- Vitamin D: 18 nmol/L (Reference: 50-150 nmol/L) -> Deficient
+- Calcium: 2.12 mmol/L (Reference: 2.2-2.6 mmol/L) -> Mildly low
+- TSH: 2.1 mU/L (Reference: 0.4-4.0 mU/L) -> Normal
+- eGFR: 58 mL/min/1.73m2 (Reference: >= 60) -> Mildly reduced
+
+Diagnosis
+- Displaced intracapsular right neck of femur fracture
+- Osteoporosis
+- Vitamin D deficiency
+
+Treatment Administered
+- Surgery: Right Total Hip Replacement (THR) on Day 2 under spinal anaesthesia
+- VTE Prophylaxis: Enoxaparin 40 mg SC OD for 28 days post-op; TED stockings
+- Analgesia: Regular Paracetamol 1 g QDS; Tramadol 50 mg TDS PRN (avoid NSAIDs)
+- Bone Protection: Alendronate 70 mg weekly + Cholecalciferol 800 IU OD + Calcium 1000 mg OD
+- Physiotherapy: Day 1 post-op, weight-bear as tolerated; OT home assessment
+- Antihypertensive: Amlodipine 5 mg OD continued
+
+CONFIDENTIALITY_NOTICE
+This document is confidential. Issued by Fortis Malar Hospital, Chennai. Unauthorized disclosure is prohibited.
+REPORT_END

@@ -1,0 +1,79 @@
+REPORT_START
+patient_name: Farhan Sheikh
+report_id: MR-2024-00519
+report_date: 2024-04-07
+department: Gastroenterology
+hospital: AMRI Hospital, Kolkata
+attending_doctor: Dr. Debarati Ghosh, MD (Gastroenterology)
+
+ACCESS_POLICY
+public_roles: Nurse,Doctor
+private_roles: Doctor
+
+SECTION_A_PUBLIC
+Patient Information
+- Patient Name: Farhan Sheikh
+- Gender: Male
+- Blood Group: (not specified in source text)
+- Ward / Room: GI Ward, Room 308
+- Admission Date: 01 April 2024
+- Discharge Date: 07 April 2024
+- Assigned Doctor: Dr. Debarati Ghosh, MD (Gastroenterology)
+- Allergies: None known
+- Chronic Conditions: Alcohol Use Disorder (heavy), no prior liver disease documented
+
+Chief Complaint
+- Haematemesis (fresh blood, estimated 400 mL), melaena for 3 days, severe epigastric pain, and dizziness.
+- Haemodynamically unstable on arrival.
+
+Physical Examination
+- Temperature: 36.4 C
+- Blood Pressure: 88/60 mmHg -> 118/74 post-resuscitation
+- Heart Rate: 118 bpm -> 88 post-resuscitation
+- Respiratory Rate: 22 breaths/min
+- SpO2: 96% on room air
+- Abdomen: Soft; epigastric tenderness; no ascites
+- Rectal Exam: Melaena confirmed
+
+Clinical Progress Summary
+- Day 1: Post-EVL, no rebleed; Hb 8.2 post-transfusion.
+- Day 3: Haemodynamically stable; switched to oral diet.
+- Day 5: Hb 9.1; INR 1.5.
+- Day 7: Discharged with alcohol cessation counselling.
+
+Discharge Instructions
+- Discharge Medications: Propranolol 40 mg BD (varices prophylaxis); Omeprazole 20 mg OD; Thiamine 100 mg OD; Spironolactone 50 mg OD
+- Follow-Up Plan: Gastroenterology OPD in 2 weeks; repeat OGD in 6 weeks; Hepatology and Alcohol Liaison referral
+- Red Flag Symptoms: Return immediately if symptoms worsen acutely or new concerns arise.
+
+SECTION_B_PRIVATE
+History of Present Illness
+- 38-year-old male with heavy alcohol use (>14 units/day) presented with acute upper GI bleed.
+- Melaena for 3 days before haematemesis.
+- HR 118 bpm on arrival; SBP 88 mmHg.
+- Resuscitated with IV fluids.
+- Emergency OGD performed within 2 hours.
+
+Investigations and Results
+- Haemoglobin: 6.8 g/dL (Reference: 13.5-17.5 g/dL) -> Critically low
+- Platelets: 98,000 /uL (Reference: 150,000-400,000) -> Low (hypersplenism)
+- INR: 1.9 (Reference: < 1.2) -> Coagulopathy
+- ALT: 198 U/L (Reference: 7-40 U/L) -> Liver injury
+- Bilirubin Total: 38 umol/L (Reference: < 21 umol/L) -> Elevated
+- OGD Finding: Grade III oesophageal varices with active bleeding; banding performed -> Varices confirmed
+
+Diagnosis
+- Acute Upper GI Bleed secondary to Grade III Oesophageal Varices
+- Alcoholic Liver Disease with Portal Hypertension
+
+Treatment Administered
+- Resuscitation: 2 large-bore IV lines; 0.9% NaCl 500 mL STAT; crossmatch 4 units pRBC
+- Blood Transfusion: 3 units pRBC; 2 units FFP; target Hb > 8 g/dL
+- Variceal Control: Terlipressin 2 mg IV Q4H for 5 days
+- Endoscopy: Emergency OGD with EVL; 4 bands applied
+- Antibiotic: Ceftriaxone 1 g IV OD for 7 days (SBP prophylaxis)
+- PPI: Omeprazole 80 mg IV bolus -> 8 mg/hr infusion for 72 hours
+
+CONFIDENTIALITY_NOTICE
+This document is confidential. Issued by AMRI Hospital, Kolkata. Unauthorized disclosure is prohibited.
+REPORT_END

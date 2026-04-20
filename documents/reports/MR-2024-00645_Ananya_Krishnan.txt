@@ -1,0 +1,85 @@
+REPORT_START
+patient_name: Ananya Krishnan
+report_id: MR-2024-00645
+report_date: 2024-04-19
+department: Pulmonology
+hospital: Sri Ramachandra Hospital, Chennai
+attending_doctor: Dr. Padma Subramaniam, MD (Pulmonology)
+
+ACCESS_POLICY
+public_roles: Nurse,Doctor
+private_roles: Doctor
+
+SECTION_A_PUBLIC
+Patient Information
+- Patient Name: Ananya Krishnan
+- Gender: Female
+- Blood Group: B+
+- Ward / Room: Respiratory Ward, Room 302
+- Admission Date: 15 April 2024
+- Discharge Date: 19 April 2024
+- Assigned Doctor: Dr. Padma Subramaniam, MD (Pulmonology)
+- Allergies: Dust mites (asthma trigger); aspirin-exacerbated
+- Chronic Conditions: Bronchial Asthma (severe persistent, since age 8)
+
+Chief Complaint
+- Acute severe asthma attack with worsening wheeze and breathlessness.
+- Unable to speak in full sentences.
+- Accessory muscle use present.
+- PEFR 38% predicted on arrival.
+
+Physical Examination
+- Temperature: 37.0 C
+- Blood Pressure: 122/78 mmHg
+- Heart Rate: 114 bpm
+- Respiratory Rate: 30 breaths/min
+- SpO2: 91% on room air -> 95% on oxygen
+- PEFR: 38% predicted (< 33% = life-threatening)
+- Chest: Bilateral expiratory wheeze; hyperinflated; poor air entry at bases
+- Speech: Unable to complete sentences
+
+Clinical Progress Summary
+- Hour 2: PEFR 52%; SpO2 96%.
+- Hour 6: PEFR 65%; wheeze improving.
+- Day 2: PEFR 72%; stepped down to 4-hourly nebulization.
+- Day 3: PEFR 81%; oral prednisolone.
+- Day 4: PEFR 88%; discharge criteria met.
+
+Discharge Instructions
+- Discharge Medications: Fluticasone/Salmeterol 500/50 BD; Salbutamol 100 mcg PRN; Montelukast 10 mg OD; Prednisolone 40 mg OD (complete 5-day course)
+- Follow-Up Plan: Respiratory OPD in 1 week; PEFR diary; asthma action plan reviewed; allergy clinic referral
+- Red Flag Symptoms: Return immediately if symptoms worsen acutely or new concerns arise.
+
+SECTION_B_PRIVATE
+History of Present Illness
+- 22-year-old with severe persistent asthma on high-dose ICS/LABA.
+- Triggered by dust exposure during home renovation.
+- Salbutamol MDI used 12 times in 24 h with no response.
+- No prior ICU admissions.
+- Non-smoker.
+
+Investigations and Results
+- ABG (on O2): pH 7.36, pO2 9.8 kPa, pCO2 4.2 kPa -> Near-normal, no fatigue yet
+- WBC: 11,200 /uL (Reference: 4,000-11,000) -> Mildly elevated
+- PEFR post-neb: 55% predicted (Reference: >= 75% for discharge) -> Improving
+- CXR: Hyperinflation, no consolidation, no pneumothorax -> Consistent with asthma
+- IgE Total: 480 IU/mL (Reference: < 100 IU/mL) -> Atopic
+- Eosinophils: 0.6 x 10^9/L (Reference: < 0.4) -> Eosinophilia
+
+Diagnosis
+- Acute Severe Asthma Exacerbation
+- Severe Persistent Asthma
+- Atopy
+- Aspirin-exacerbated respiratory disease
+
+Treatment Administered
+- Bronchodilators: Salbutamol 5 mg + Ipratropium 500 mcg nebulized back-to-back Q20 min x 3, then Q4H
+- Steroids: Prednisolone 40 mg IV -> oral, 5-day course
+- Magnesium Sulphate: MgSO4 2 g IV over 20 min (single dose for severe attack)
+- Oxygen: Controlled oxygen via mask; target SpO2 94-98%
+- Monitoring: PEFR Q1H; continuous SpO2; ABG if deteriorating
+- Step-up Inhaler: Fluticasone/Salmeterol 500/50 mcg BD; Montelukast 10 mg OD added
+
+CONFIDENTIALITY_NOTICE
+This document is confidential. Issued by Sri Ramachandra Hospital, Chennai. Unauthorized disclosure is prohibited.
+REPORT_END

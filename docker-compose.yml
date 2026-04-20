@@ -1,0 +1,66 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: healthcare_postgres
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: ${DB_NAME:-healthcare_db}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - healthcare_network
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: healthcare_backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${DB_USER:-postgres}:${DB_PASSWORD:-postgres}@postgres:5432/${DB_NAME:-healthcare_db}
+      API_BASE_URL: http://localhost:8000
+      LANGSMITH_TRACING: ${LANGSMITH_TRACING:-false}
+      LANGSMITH_API_KEY: ${LANGSMITH_API_KEY}
+      LANGSMITH_PROJECT: ${LANGSMITH_PROJECT:-healthcare-assistant}
+      LANGSMITH_ENDPOINT: ${LANGSMITH_ENDPOINT}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      GROQ_API_KEY: ${GROQ_API_KEY}
+      HUGGINGFACE_API_KEY: ${HUGGINGFACE_API_KEY}
+      BACKUP_SQL_PATH: /docker-bootstrap/docker_backup.dump
+      FORCE_DOCUMENT_INGESTION: ${FORCE_DOCUMENT_INGESTION:-false}
+      FORCE_TREATMENT_INGESTION: ${FORCE_TREATMENT_INGESTION:-false}
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    networks:
+      - healthcare_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: healthcare_frontend
+    depends_on:
+      - backend
+    environment:
+      API_BASE_URL: ${API_BASE_URL:-http://backend:8000}
+    ports:
+      - "${FRONTEND_PORT:-8501}:8501"
+    networks:
+      - healthcare_network
+
+volumes:
+  postgres_data:
+
+networks:
+  healthcare_network:
+    driver: bridge

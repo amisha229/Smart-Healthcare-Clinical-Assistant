@@ -1,0 +1,401 @@
+DISEASE_START
+
+disease_name: Major Depressive Disorder
+disease_code: MDD
+icd_code: F32
+severity_spectrum: Mild-Moderate First Episode to Severe Treatment-Resistant with Suicidality
+document_category: Treatment Comparison
+document_type: treatment
+
+DISEASE_OVERVIEW
+Major Depressive Disorder (MDD) is a common mental health condition characterized by persistent depressed mood, anhedonia (loss of pleasure), and neurovegetative symptoms (sleep, appetite, energy) lasting ≥2 weeks. Severity ranges from mild (minimal functional impairment) to severe (suicidality, psychotic features). First-episode MDD typically responds well to first-line antidepressants (SSRIs) combined with psychotherapy. Moderate MDD may require SNRIs or augmentation strategies. Severe MDD, especially with suicidality or treatment-resistance, may require electroconvulsive therapy (ECT) or hospitalization. Treatment selection depends on symptom severity, presence of anxiety/somatic symptoms, prior medication trials, suicide risk, and patient preference.
+
+TARGET_CONDITIONS
+- Mood improvement (elevated mood, reduced depressive symptoms)
+- Anhedonia recovery (restored pleasure in activities)
+- Sleep normalization
+- Appetite restoration
+- Concentration and memory improvement
+- Functional capacity recovery (work, social, self-care)
+- Suicide risk reduction (especially in severe MDD)
+- Prevention of relapse and recurrence
+
+ACCESS_POLICY
+public_roles: Doctor,Nurse
+private_roles: Doctor
+
+TREATMENT_TAGS
+comorbidities: anxiety_disorders, chronic_pain, insomnia, psychotic_features, suicidal_ideation, treatment_resistance
+medication_classes: ssri, snri, tricyclic_antidepressant, psychotherapy_cbt, psychotherapy_iet, ect
+route_categories: oral, intravenous, procedural
+patient_demographics: mixed_age, varying_severity, different_symptom_profiles
+severity_assessment_tools: phq9_score, hamilton_depression_rating_scale, suicide_risk_assessment
+
+---
+
+SECTION_A_PUBLIC
+Disease Overview & Clinical Context
+
+Major Depressive Disorder is a treatable condition affecting ~5% of adults globally. The disorder affects neurotransmitter systems (serotonin, norepinephrine, dopamine) and requires multimodal treatment:
+- Pharmacotherapy: Antidepressants restore neurotransmitter balance
+- Psychotherapy: Cognitive-Behavioral Therapy (CBT) addresses maladaptive thought patterns
+- Lifestyle modifications: Sleep, exercise, social support
+- In severe cases: Electroconvulsive Therapy (ECT) for rapid relief
+
+Severity Assessment:
+- Mild: PHQ-9 score 5-9; minimal functional impairment
+- Moderate: PHQ-9 score 10-19; moderate functional impairment
+- Moderately severe: PHQ-9 score 15-19; significant functional impairment
+- Severe: PHQ-9 score ≥20; severe functional impairment; suicidality possible
+- Suicide risk: Present if endorsed suicidal ideation, past attempts, or psychotic features
+
+Treatment Response Timeline:
+- SSRIs: 4-6 weeks for initial response; 8-12 weeks for full response
+- SNRIs: 4-6 weeks for initial response
+- ECT: 1-2 weeks (sessions 3-5 often show dramatic improvement)
+
+This section presents three distinct presentations ranging from first-episode mild-moderate MDD to severe treatment-resistant MDD with suicidal ideation.
+
+---
+
+PATIENT_CASE_010
+
+case_id: P-010-MDD
+patient_identifier: Anonymized Patient 010
+primary_diagnosis: Major Depressive Disorder, first episode, mild-to-moderate severity
+icd_codes: F32 (MDD, single episode)
+baseline_phq9_score: 14 (moderate depression; threshold for mild-moderate is 10-14)
+baseline_hamilton_depression_rating_scale: 16 (moderate)
+episode_duration: 3 weeks at presentation (onset 3 weeks prior)
+patient_age: 34 years old; female
+comorbidities: None; good general medical health
+prior_psychiatric_history: None; first depressive episode
+suicide_risk: Denied suicidal ideation; no prior attempts; no active plan/intent
+psychosocial_stressors: Recent relationship breakup (6 weeks ago); job dissatisfaction but employed
+
+Clinical Presentation - Symptoms
+- Persistently low mood (sad, empty feeling; worse in mornings; slight diurnal mood variation)
+- Anhedonia (previously enjoyed activities—dancing, reading—now uninteresting; "nothing sounds fun")
+- Insomnia (difficulty falling asleep; 45-60 min to fall asleep; no early awakening or hypersomnia)
+- Poor concentration at work (difficulty focusing on tasks; forgetting meetings; making mistakes)
+- Mild fatigue (energy lower than baseline; still able to perform work and self-care)
+- Mild appetite reduction (eating less than usual but denies skipping meals; no significant weight loss)
+- Feelings of worthlessness (mild self-blame for breakup; not pervasive guilt)
+
+Clinical Context
+Young woman with first depressive episode triggered by clear psychosocial stressor (breakup). No prior psychiatric history; good social support; employed; physically healthy. Symptoms moderate in severity but functionally impairing (work affected; social withdrawal). Suicide risk low. Prognosis excellent with appropriate treatment.
+
+Treatment Regimen
+- Primary: Sertraline (SSRI) initiated at 50 mg once daily; titrated to 100 mg OD after 1 week
+- Secondary: Cognitive-Behavioral Therapy (CBT) 12 weekly sessions with licensed therapist (1 hour each)
+- Adjunctive: Sleep hygiene education; exercise encouragement (30 min daily walking); social support activation
+- Supportive: Monthly psychiatry follow-up (weeks 4, 8, 12) to assess response and tolerability
+
+Rationale
+- Sertraline: First-line SSRI for MDD; excellent safety/tolerability profile; once-daily dosing improves adherence; minimal drug interactions
+- CBT in combination: Evidence shows SSRI + CBT superior to either monotherapy; addresses cognitive distortions (rumination, self-blame), behavioral activation
+- 100 mg is standard therapeutic dose; some response may be seen at 50 mg but full dose preferred
+- First-episode MDD generally responds robustly to monotherapy + psychotherapy
+
+Treatment Advantages (Pros)
+✓ Strong evidence base: SSRI + CBT combination is gold standard for first-episode MDD
+✓ High response rate: 60-70% show ≥50% symptom improvement by week 8-12
+✓ Sertraline well-tolerated; minimal metabolic side effects (no weight gain, no sexual dysfunction at low rates)
+✓ CBT addresses underlying cognitive patterns; improves long-term resilience
+✓ Minimal drug interactions (unlike older tricyclic antidepressants)
+✓ Low suicide risk in mild-moderate MDD on SSRIs (SSRI black box warning most relevant in adolescents; adult risk low)
+✓ First-episode prognosis excellent (60-80% remit completely)
+
+Treatment Disadvantages (Cons)
+✗ 4-6 week latency: Patient expecting immediate relief often discouraged; requires psychoeducation on timeline
+✗ Initial GI side effects: Nausea, loose stools (first 1-2 weeks; usually self-resolving); take with food
+✗ Sexual side effects: ~20% report decreased libido/delayed orgasm (rare at lower doses like 50 mg; dose-dependent)
+✗ Activation syndrome: Initial worsening of anxiety/agitation (first week; rare; benefit of anxiolytic bridge if occurs)
+✗ Sleep disruption: Sertraline can cause insomnia in some (paradoxical; consider morning dosing if occurs)
+✗ CBT requires patient engagement: Weekly sessions, homework, vulnerability in therapy; some patients resist
+✗ Withdrawal symptoms if abruptly discontinued (discontinuation syndrome; gradual tapering required)
+
+Clinical Outcome (at 12 weeks)
+- Week 2: Minimal change; mild nausea (eating meals helps); patient counselled on 4-6 week timeline
+- Week 4: Anhedonia starting to lift; slight mood improvement; slept better last 3 days
+- Week 6: Notable mood improvement; concerts/movies resuming interest; nighttime insomnia resolving
+- Week 8: Significant improvement; concentration better at work; attending social events; feeling "more myself"
+- Week 12: Substantial remission
+
+  - PHQ-9 score: 14 → 5 (symptom remission; score <5 indicates remission)
+  - HDRS: 16 → 6 (normal range)
+  - Anhedonia: RESOLVED; resuming hobbies with pleasure
+  - Sleep: Normal 7-8 hours; falls asleep within 20 min
+  - Concentration: Back to baseline; no work performance issues
+  - Appetite: Normalized; stable weight
+  - Mood: Euthymic (normal); only occasional sadness with situational triggers
+  - Suicidality: Remained absent throughout
+  - Adverse events: Mild nausea weeks 1-2 (resolved); no sexual dysfunction; no other AEs
+  - Patient satisfaction: Very high; credits combination of medication + CBT; plans to continue therapy
+- Assessment: EXCELLENT success; first-episode MDD with complete remission; excellent functional recovery
+
+---
+
+PATIENT_CASE_011
+
+case_id: P-011-MDD
+patient_identifier: Anonymized Patient 011
+primary_diagnosis: Major Depressive Disorder, moderate severity, with prominent somatic symptoms and anxiety
+icd_codes: F32 (MDD), F41.1 (Generalized Anxiety Disorder comorbidity), R52 (Pain disorder)
+baseline_phq9_score: 18 (moderate-to-severe; threshold 15-19)
+baseline_hamilton_depression_rating_scale: 22 (moderate-severe)
+baseline_gad7_score: 16 (moderate anxiety)
+episode_duration: 8 weeks at presentation (onset 2 months prior; progressive worsening)
+patient_age: 52 years old; female
+comorbidities: Hypertension (controlled on amlodipine); chronic neck/shoulder pain (prior; now worsened)
+prior_psychiatric_history: One prior depressive episode (10 years ago; treated with sertraline for 2 years; remitted)
+suicide_risk: Denies active suicidal ideation but endorses passive death wishes ("would be better off not here"); no plan/intent; supervision present
+psychosocial_stressors: Divorce finalization (3 months ago); financial stress; elderly parent with illness; job strain
+
+Clinical Presentation - Symptoms
+- Persistent sadness and irritability (depressed most of the day; reactive to minor frustrations)
+- Severe anhedonia (previously active painting hobby abandoned; socializing burdensome; TV watching only activity)
+- Generalized anxiety (persistent worry about finances, parent, future; worry difficult to control)
+- Chronic diffuse pain (generalized body aches; neck/shoulder pain worsened markedly; no structural cause on imaging)
+- Appetite loss (unintentional weight loss 4 kg over 8 weeks)
+- Sleep disturbance (hypersomnia; sleeps 10-12 hours; still feels unrefreshed; excessive daytime somnolence)
+- Fatigue and psychomotor slowing (describes "moving in slow motion"; minimal spontaneous activity)
+- Social withdrawal (cancelled plans with friends; family visits declined; isolation increasing)
+
+Clinical Context
+Middle-aged woman with recurrent MDD (second episode after 10-year euthymic interval). Moderate-to-severe severity with prominent anxiety comorbidity and somatic pain complaints. Pain appears depression-linked (worsened with mood, not new mechanical cause). Anhedonia and hypersomnia more prominent than insomnia. Passive suicidal ideation present but low-intent (no plan); supervision/safety planning in place. Anxiety component suggests SNRI (dual norepinephrine-serotonin) preferable to SSRI alone.
+
+Treatment Regimen
+- Primary: Duloxetine (SNRI) initiated 30 mg OD; escalated to 60 mg OD after 1 week (higher than P-010 because of pain + anxiety component)
+- Secondary: Clonazepam 0.5 mg twice daily for acute anxiety relief (short-term only; limited to 4 weeks to avoid dependence)
+- Tertiary: Supportive psychotherapy (crisis counselling; coping strategies; not formal CBT; twice weekly initially)
+- Supportive: Sleep sleep hygiene; pain management (warm compress, gentle stretching); safety planning (remove access to means; support person identified)
+
+Rationale
+- Duloxetine: SNRI uniquely effective for both mood depression AND pain (FDA-approved for fibromyalgia, chronic musculoskeletal pain); targets norepinephrine + serotonin
+- Clonazepam: Short-term anxiolytic bridge; reduces acute anxiety while waiting for duloxetine (which takes 4-6 weeks); tapered to discontinuation by week 6-8
+- Combination: SNRI + benzodiazepine beneficial in moderate MDD with anxiety; anxiety relief accelerates mood improvement
+- Psychotherapy: Regular contact important given passive suicidality; psychotherapy aims at coping, safety, hope restoration
+
+Treatment Advantages (Pros)
+✓ Duloxetine specifically targets both depression + pain + anxiety (triple benefit)
+✓ Anxiety rapid relief via clonazepam (within hours); improves immediate distress
+✓ SNRI + benzodiazepine combination improves response rate compared to SNRI alone in moderate-severe MDD (synergistic)
+✓ Duloxetine effective in recurring MDD (second episode often treated with different agent than first trial)
+✓ Pain improvement often precedes mood improvement (early positive feedback; improves adherence)
+✓ Short-term anxiolytic use (4-8 weeks) is evidence-based for acute anxiety in MDD
+
+Treatment Disadvantages (Cons)
+✗ Duloxetine hypertension risk: ~3% hypertensive reaction; BP monitoring required (patient already hypertensive; requires closer monitoring)
+✗ Clonazepam dependence potential: Benzodiazepines carry abuse/dependence risk (though lower in older adults; patient has prior substance history risk assessment needed)
+✗ Sweating/nausea/sexual dysfunction (~28% report sexual AEs with SNRIs; higher than SSRIs)
+✗ Duloxetine hepatotoxicity rarely reported; LFT monitoring advisable
+✗ Withdrawal syndrome if abruptly discontinued (especially with dual agent therapy; tapered discontinuation required)
+✗ Clonazepam associated with confusion/cognitive impairment in older adults (patient 52; low risk but present)
+✗ Delayed tapering of clonazepam can lead to protracted anxiety/insomnia rebound
+
+Clinical Outcome (at 8 weeks)
+- Week 1: Clonazepam initiated; anxiety markedly reduced by day 2 (patient relief evident); mild drowsiness (morning dosing adjusted)
+- Week 2: Continuing duloxetine response emerging; anxiety well-controlled; pain unchanged
+- Week 4: Mood notably better; anhedonia lifting; painting supplies pulled out; one meal with friend attended
+- Week 6: Significant improvement; pain reduced ~40%; sleep normalized to 8-9 hours; beginning tapering clonazepam
+- Week 8: Substantial remission
+
+  - PHQ-9 score: 18 → 10 (moderate improvement; not full remission but substantially improved)
+  - HDRS: 22 → 13 (good improvement; mild-moderate residual symptoms)
+  - GAD-7 score: 16 → 4 (anxiety markedly resolved)
+  - Anhedonia: Significantly improved; resuming activities; painting 2x/week
+  - Pain: Reduced from 7/10 to 4/10 (clinically meaningful improvement)
+  - Sleep: Normal duration (8-9 hours) and quality; daytime somnolence resolved
+  - Appetite: Improved; weight stabilized
+  - Suicidality: Passive death wishes resolved; no active SI present
+  - Social engagement: Reengaging with friends; one social dinner completed
+  - Clonazepam: Reduced to 0.25 mg at bedtime; planned complete discontinuation week 10
+  - Adverse events: Minimal hypertension increase (BP 138/88, baseline 135/82; acceptable); mild sweating (not distressing); no other AEs
+  - Patient satisfaction: Good; pain improvement especially appreciated; notes duloxetine "addresses everything"
+- Assessment: MODERATE-to-GOOD success; moderate MDD with significant improvement; not full remission but substantial functional recovery; anxiety/pain resolved; remaining on duloxetine longer-term
+
+---
+
+PATIENT_CASE_012
+
+case_id: P-012-MDD
+patient_identifier: Anonymized Patient 012
+primary_diagnosis: Major Depressive Disorder, severe, with psychomotor retardation, suicidal ideation, treatment-resistant
+icd_codes: F32.2 (MDD severe with psychotic features risk), R45.851 (suicidal ideation), F32.9 (MDD recurrent, current episode severe)
+baseline_phq9_score: 25 (severe depression; highest possible range)
+baseline_hamilton_depression_rating_scale: 30 (severe; suicide risk subset elevated)
+baseline_montgomery_asberg_depression_rating_scale: 38 (severe)
+episode_duration: 6 months at presentation (chronic severe episode; prior trials failed)
+treatment_history: Sertraline 200 mg (8 weeks, no response); Citalopram 40 mg (6 weeks, no response); Bupropion 300 mg (8 weeks, worsened anhedonia); all discontinued due to inadequacy
+patient_age: 64 years old; male
+comorbidities: Diabetes Type 2 (HbA1c 8.1%); prior hypertension; history of substance use disorder (alcohol, 20 years sober)
+prior_psychiatric_history: Multiple depressive episodes (ages 45, 55, 60); prior 2 episodes treated successfully with SSRIs; this episode refractory
+suicide_risk: ACTIVE suicidal ideation present; "would be better off dead"; specific plan ("pills in cupboard"; times of increased risk identified); hospitalized for safety
+
+Clinical Presentation - Symptoms
+- Severe anhedonia (nothing is interesting; describes self as "dead inside"; no activity brings any pleasure)
+- Persistent suicidal ideation (daily; intensifies evenings and nights; specific plan with access to means; recent near-attempt deterred only by daughter's visit)
+- Severe depressed mood (described as "black void"; worse in mornings; no diurnal variation; feels constant)
+- Profound hopelessness ("will never get better"; "treatment is futile"; "family would be better off without me")
+- Psychomotor retardation (moves slowly; speaks slowly and quietly; minimal spontaneous verbalization; takes 10+ seconds to answer questions; sits motionless for long periods)
+- Hypersomnia (sleeps 14-16 hours daily; unrefreshed; spends most of day in bed)
+- Severe fatigue and apathy (unable to engage in any self-care; grooming, hygiene neglected; spouse now handling all ADLs)
+- Loss of appetite and weight (unintentional weight loss 8 kg in 2 months; no longer interested in food)
+- Difficulty concentrating (though diminished motivation makes this assessment difficult; appears unable to focus)
+
+Clinical Context
+Elderly man with severe treatment-resistant MDD (TRD), defined as failure to respond to 2+ adequate antidepressant trials. Severe psychomotor retardation, anhedonia, and active suicidal ideation with plan and access to means. Three prior antidepressant failures suggest biological resistance or need for different modality. Hospitalization appropriate for safety. Electroconvulsive Therapy (ECT) indicated because: (1) severe suicidality with increased risk with each passing day, (2) failed multiple medication trials, (3) ECT has fastest onset (1-2 weeks), (4) ECT effective in ~80-90% of severe TRD cases, (5) patient's age and chronicity favor ECT response.
+
+Treatment Regimen (Inpatient Hospitalization; ECT Protocol)
+- Primary: Electroconvulsive Therapy (ECT) 6 sessions scheduled (3 per week on Mon/Wed/Fri for 2 weeks)
+  - Anesthesia: Propofol 2 mg/kg IV + succinylcholine 1 mg/kg IV (standard protocol)
+  - Stimulus dose: Adjusted based on seizure threshold (typically 50-150 mC for right unilateral; 200-300 mC for bilateral)
+  - Sessions 1-6 conducted in surgical suite with anesthesiologist present
+- Secondary: Venlafaxine (SNRI) restarted at 75 mg OD, escalated to 225 mg OD by week 2 (concurrent with ECT; aims to maintain response post-ECT)
+- Tertiary: Supportive inpatient care (psychiatry team daily; psychosocial support; family psychoeducation; safety monitoring)
+- Pharmacological adjuncts during ECT: Lithium 600 mg OD (augmentation strategy; improves ECT response in TRD); blood level target 0.6-0.8 mEq/L
+- Post-ECT continuation: Maintenance ECT or continuation pharmacotherapy (venlafaxine + lithium) for 6 months minimum
+
+Rationale
+- ECT: Gold-standard treatment for severe, suicidal MDD, especially treatment-resistant; 80-90% remission rate in TRD
+- ECT speed: Response evident within sessions 3-5; antidepressants take weeks
+- Venlafaxine restart at higher dose: Different SNRI may have better efficacy than prior failed SSRIs; concurrent ECT + new antidepressant may resensitize brain to medication
+- Lithium augmentation: Improves ECT response; augments antidepressant efficacy; also has antisuicide properties (reduces suicide completion risk 6-fold in bipolar; benefit in MDD less clear but biologically plausible)
+- Hospitalization: Mandatory for safety; ECT requires anesthesia/medical supervision
+
+Treatment Advantages (Pros)
+✓ Fastest response for severe MDD: Remission within 1-2 weeks (vs. 4-6 weeks medication alone)
+✓ Highest efficacy: 80-90% remission rate in severe treatment-resistant MDD (far superior to medication trials)
+✓ Life-saving: Dramatically reduces suicide risk; particularly important given HIGH suicide intent + plan
+✓ ECT addresses psychomotor retardation effectively (mechanism unique vs. medications)
+✓ Venlafaxine restart gives "fresh start" after failed prior SSRI trials; SNRI class different from prior medications
+✓ Lithium augmentation boosts efficacy and provides antisuicide properties
+✓ Rapid response often breaks hopelessness cycle ("if I feel better in 1 week, maybe recovery is possible"; improves treatment engagement)
+
+Treatment Disadvantages (Cons)
+✗ Short-term memory loss: ~30-50% of ECT recipients report some memory impairment; usually resolves in weeks-months but can persist
+✗ Cognitive side effects: Temporary confusion post-procedure (hours); rarely persistent cognitive dysfunction
+✗ Requires anesthesia: Aspiration risk (though minimal with proper NPO protocol); arrhythmia risk (pre-operative medical evaluation required)
+✗ Stigma: Patient embarrassment/shame about ECT (decades-old stigma from historical misuse; requires psychoeducation)
+✗ Specialized facility needed: Not available in all hospitals; may require transfer to tertiary center
+✗ Maintenance requirements: Continuation pharmacotherapy mandatory for ≥6 months post-ECT to prevent relapse (relapse common if discontinued)
+✗ Potential dental trauma from bite block (rare; preventable with mouth guard)
+✗ Lithium toxicity risk: Requires regular monitoring of lithium levels, renal/thyroid function
+
+Clinical Outcome (at 6 weeks inpatient + 2 weeks post-discharge follow-up)
+- SESSION 1 (Day 1): ECT completed without complications; mild post-anesthesia nausea; slight confusion resolving by evening; no immediate mood change
+- SESSIONS 2-3 (Days 3-5): Minimal immediate mood change; patient reports "slightly less dark"; family notes possible reduced retardation; psychomotor speed very gradually improving
+- SESSION 4 (Day 7): DRAMATIC improvement noted; patient initiate first conversation spontaneously; says "I feel different; not so dead"; suicidal ideation reduced significantly
+- SESSION 5 (Day 10): MARKED improvement; smiling observed; participated in group therapy; stated "I think I'm going to be OK"
+- SESSION 6 (Day 12): Substantial remission; PHQ-9 score 25 → 7 (major improvement); anhedonia partially resolved; suicidal ideation absent
+- Week 4 (Post-discharge): Continued improvement; returned home; reengaged with spouse and daughter; back to hobbies (gardening); tolerated venlafaxine 225 mg well
+
+  - PHQ-9 score: 25 → 7 (remission achieved)
+  - HDRS: 30 → 8 (severe → normal range)
+  - MADRS: 38 → 10 (severe → normal range)
+  - Suicidal ideation: COMPLETELY RESOLVED (absent at session 5 onward)
+  - Anhedonia: Significantly improved; gardening, family time resuming; ~70% pleasure recovery
+  - Psychomotor retardation: MARKEDLY IMPROVED; normal speech rate/volume restored; active engagement in activities
+  - Hypersomnia: Improved to 8-9 hours normal sleep (was 14-16 hours); daytime wakefulness increased
+  - Appetite: Normalized; weight stable
+  - Memory: Mild short-term memory loss noted (forgets names day of ECT session; resolving by week 2 post-ECT); patient rates as acceptable trade-off
+  - Cognitive function: Mild temporary confusion (post-anesthesia) resolving by evening each session; no persistent cognitive deficits noted
+  - Lithium levels: Stable at 0.7 mEq/L (therapeutic range)
+  - Venlafaxine 225 mg: Well-tolerated; no significant adverse effects
+
+- Adverse events during ECT:
+  - Session 3: Brief post-procedural hypertension (155/92) managed with labetalol; resolved spontaneously
+  - Sessions 1, 2, 4-6: Uncomplicated; no anesthesia-related events
+  - No cardiac arrhythmias, seizure complications, or aspiration
+
+- Complications: NONE significant; mild memory impairment is expected/acceptable trade-off
+
+- Post-discharge plan: Maintenance venlafaxine 225 mg + lithium 600 mg OD; monthly psychiatric follow-up; continuation ECT NOT elected (remission without need for further sessions); family psychoeducation on relapse signs; suicide risk monitoring ongoing
+
+- Patient satisfaction: Very high; patient states "ECT saved my life"; would recommend to others; no regrets about procedure
+
+- Assessment: EXCELLENT success; severe treatment-resistant MDD with suicidal ideation responded dramatically to ECT; remission achieved within 2 weeks; suicidal ideation completely resolved; functional recovery substantial; patient/family relieved and hopeful
+
+---
+
+SECTION_B_PRIVATE
+Detailed Clinical Comparison & Decision Framework
+
+COMPARATIVE ANALYSIS TABLE
+┌────────────────────────────────────────────────────────────────────────────────────┐
+│PATIENT│   SEVERITY   │  KEY ADVANTAGE      │  KEY RISK           │ SETTING │SCORE│
+├────────────────────────────────────────────────────────────────────────────────────┤
+│ P-010 │ Mild-Moderate│ High response rate  │ 4-6 week onset;     │Outpat   │ 9/10│
+│       │ First-episode│ SSRI + CBT gold     │ initial GI AEs      │         │     │
+│       │              │ standard            │                     │         │     │
+├────────────────────────────────────────────────────────────────────────────────────┤
+│ P-011 │ Moderate     │ SNRI targets pain + │ HTN risk;           │Outpat   │ 8/10│
+│       │ with anxiety │ anxiety + mood;     │ benzodiazepine      │intensive│     │
+│       │ + pain       │ rapid anxiety relief│ dependence potential │         │     │
+├────────────────────────────────────────────────────────────────────────────────────┤
+│ P-012 │ Severe       │ Fastest onset;      │ Memory loss;        │Inpat    │ 8/10│
+│       │ TRD          │ highest efficacy    │ requires            │ICU-level│*    │
+│       │ +Suicidality │ (80-90%)            │ anesthesia/         │         │*    │
+│       │              │ life-saving         │ specialized center  │         │     │
+└────────────────────────────────────────────────────────────────────────────────────┘
+* Score reflects excellent efficacy outcome despite procedure burden and risks
+
+DECISION FRAMEWORK FOR CLINICIANS
+
+1. IF Mild-to-Moderate First-Episode MDD + No Suicidality
+   → Approach: SSRI monotherapy + CBT (Case 010 model)
+   → Suitable: PHQ-9 10-14, no psychosis, good adherence capacity, employed/functional
+   → First-line: Sertraline 50 mg (titrate to 100 mg) OR Escitalopram 10 mg (titrate to 20 mg)
+   → Psychotherapy: CBT 8-12 sessions; weekly initially
+   → Monitor: Telephone/video psychoeducation at baseline; in-person at week 4-8
+   → Expected: 60-70% remission by week 12; full recovery likely
+
+2. IF Moderate MDD + Prominent Anxiety/Pain/Somatic Symptoms
+   → Approach: SNRI + short-term benzodiazepine + psychotherapy (Case 011 model)
+   → Suitable: PHQ-9 15-19, GAD-7 >10, chronic pain present, good but struggling adherence
+   → First-line: Duloxetine 60 mg OD (dual norepinephrine-serotonin)
+   → Anxiolytic: Clonazepam 0.5 mg BD × 4-8 weeks, then taper
+   → Psychotherapy: Supportive psychotherapy 2x/week; coping skills focus
+   → Monitor: Blood pressure monthly (duloxetine HTN risk); benzodiazepine dependency assessment
+   → Expected: Anxiety rapid relief (days); pain improvement (1-2 weeks); mood improvement (4-6 weeks)
+
+3. IF Severe MDD + Failed ≥2 Antidepressant Trials + Active Suicidality
+   → Approach: ECT + concurrent SNRI + lithium augmentation; inpatient (Case 012 model)
+   → Suitable: PHQ-9 ≥20, suicidal ideation with plan/intent, TRD, psychomotor retardation, >6 months duration
+   → Procedure: ECT 6 sessions (2 weeks); anesthesia required; pre-operative cardiac clearance needed
+   → Pharmacotherapy: Restart venlafaxine 225 mg OD; add lithium 600 mg OD for augmentation
+   → Setting: MUST be inpatient hospital with ECT facility and anesthesia
+   → Monitor: Memory testing post-ECT; close psychiatry follow-up; suicide risk reassessment post-each session
+   → Expected: Remission within 1-2 weeks; suicidal ideation resolution by session 4-5; maintenance required
+
+---
+
+SECTION_C_TREATMENT_EVIDENCE
+Evidence-Based Outcomes & Literature Basis
+
+Regimen 010 (Sertraline + CBT)
+- Reference: STAR*D Trial (Sequenced Treatment Alternatives to Relieve Depression); JAMA 2006
+- First-step remission rate: 37% SSRI monotherapy; 47% SSRI + psychotherapy
+- Timeline: 4-6 weeks for initial response; 8-12 weeks for full response
+- Recurrence rate post-remission: 20-30% in year 1 without maintenance; 5-10% with maintenance
+- CBT independently reduces relapse risk by 50% (medicate + therapy superior to either alone)
+
+Regimen 011 (Duloxetine + Clonazepam)
+- Reference: SNRI vs SSRI meta-analysis (Fava et al., Neuropsychiatric Disease and Treatment 2006); duloxetine pain trials
+- SNRI response rate: Higher than SSRI in depression with pain/anxiety (~60-65% vs. 50% SSRI)
+- Pain reduction onset: 1-2 weeks (faster than mood improvement); improves adherence
+- Benzodiazepine + SNRI: Synergistic anxiolytic effect; particularly useful in acute anxiety phase
+- Clonazepam dependence risk: ~25% with long-term use (reasons for time-limited 4-8 week use)
+
+Regimen 012 (ECT + Venlafaxine + Lithium)
+- Reference: UK ECT Review Group (Lancet 2003); ECT for Severe Depression (Cruseaid NHS 2009)
+- Remission rate: 80-90% for severe MDD/TRD (highest of all somatic treatments)
+- Response timeline: Improvement by session 3-4; remission by session 5-6
+- Memory effects: ~30-50% report memory impairment; usually resolves in weeks (persistent in ~5-10%)
+- Relapse prevention: Maintenance ECT or pharmacotherapy required; without continuation, relapse 50-60% within 6 months
+- Suicide prevention: 80% reduction in suicide attempts in TRD patients post-ECT (though long-term suicide prevention requires ongoing care)
+
+---
+
+DISEASE_END
