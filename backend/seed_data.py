@@ -11,9 +11,9 @@ def seed_test_users():
         test_users = [
             User(username="Adam", password="password123", role="Doctor"),
             User(username="Amisha", password="password123", role="Doctor"),
-            User(username="Arjun", password="password123", role="Patient"),
+            User(username="Arjun", password="password123", role="Nurse"),
             User(username="Meera", password="password123", role="Doctor"),
-            User(username="Rohan", password="password123", role="Patient"),
+            User(username="Rohan", password="password123", role="Nurse"),
             User(username="Akash", password="akash", role="Admin"),
         ]
 
