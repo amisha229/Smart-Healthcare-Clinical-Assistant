@@ -53,22 +53,85 @@ Smart-Healthcare-Clinical-Assistant/
 |   |-- main.py
 |   |-- database.py
 |   |-- config.py
+|   |-- init_db.py
+|   |-- seed_data.py
+|   |-- add_admin.py
+|   |-- Dockerfile
+|   |-- docker-entrypoint.sh
+|   |-- pytest.ini
+|   |-- requirements.txt
+|   |-- README.md
+|   |-- TEST_CASES_DOCUMENTATION.md
 |   |-- models/
+|   |   |-- user.py
+|   |   |-- conversation.py
+|   |   |-- message.py
+|   |   |-- document_chunk.py
+|   |   |-- patient_report.py
+|   |   `-- medical_knowledge_cache.py
 |   |-- routes/
+|   |   |-- auth.py
+|   |   `-- chat.py
 |   |-- schemas/
+|   |   |-- user_schema.py
+|   |   `-- chat_schema.py
 |   |-- services/
+|   |   |-- auth_service.py
+|   |   |-- chat_service.py
+|   |   |-- retrieval_service.py
+|   |   |-- summarization_service.py
+|   |   |-- medical_knowledge_service.py
+|   |   |-- treatment_comparison_tool.py
+|   |   |-- diagnosis_recommendation.py
+|   |   `-- langsmith_observability.py
 |   |-- tests/
-|   `-- utils/
+|   |   |-- test_retrieval_service.py
+|   |   |-- test_medical_knowledge_tool.py
+|   |   |-- test_medical_summarization_tool.py
+|   |   |-- test_treatment_comparison_tool.py
+|   |   `-- test_diagnosis_recommendation.py
+|   |-- utils/
+|   |   |-- db_ingestion.py
+|   |   `-- db_ingestion_treatments.py
+|   |-- documents/
+|   |   |-- Clinical_Protocols.txt
+|   |   |-- Treatment_Protocols.txt
+|   |   |-- langsmith_integration_plan.md
+|   |   |-- tool_testing_report.md
+|   |   |-- reports/
+|   |   `-- treatments/
+|   `-- frontend/
+|       |-- app.py
+|       |-- Dockerfile
+|       |-- requirements.txt
+|       `-- README.md
+|-- documents/
+|   |-- Clinical_Protocols.txt
+|   |-- Treatment_Protocols.txt
+|   |-- langsmith_integration_plan.md
+|   |-- tool_testing_report.md
+|   |-- reports/
+|   |   |-- MR-2024-00312_Arjun_Sharma.txt
+|   |   |-- MR-2024-00389_Meera_Nair.txt
+|   |   |-- MR-2024-00421_Rohan_Desai.txt
+|   |   |-- MR-2024-00478_Sunita_Rao.txt
+|   |   |-- MR-2024-00519_Farhan_Sheikh.txt
+|   |   |-- MR-2024-00553_Lakshmi_Venkataraman.txt
+|   |   |-- MR-2024-00645_Ananya_Krishnan.txt
+|   |   |-- MR-2024-00698_Deepak_Malhotra.txt
+|   |   `-- MR-2024-00734_Priya_Subramaniam.txt
+|   `-- treatments/
 |-- frontend/
 |   |-- app.py
+|   |-- Dockerfile
 |   |-- requirements.txt
 |   `-- README.md
-|-- documents/
-|-- Dockerfile
-|-- docker-entrypoint.sh
-|-- init_db.py
-|-- requirements.txt
-`-- README.md
+|-- docker-compose.yml
+|-- docker_backup.dump
+|-- copy_db.py
+|-- README.md
+|-- TEST_CASES_DOCUMENTATION.md
+`-- .env (required - see Environment Variables section)
 ```
 
 ## Main Components
